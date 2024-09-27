@@ -345,7 +345,7 @@ public class OperatorController {
 		System.out.println(bitData+"-> a&b비트값");
 
 		bitData=bit+Integer.toBinaryString(a|b);
-		bitData=bitData.substring(bitData.length()-32);
+		bitData=bitData.substring(bitData.length()-32); 
 		System.out.println(bitData+"-> a|b비트값");
 		
 		bitData=bit+Integer.toBinaryString(a^b);
@@ -358,11 +358,11 @@ public class OperatorController {
 		
 		bitData=bit+Integer.toBinaryString(a>>2);
 		bitData=bitData.substring(bitData.length()-32);
-		System.out.println(bitData+"-> a>>2비트값 (a*2^2을 계산해줌)");
+		System.out.println(bitData+"-> a>>2비트값 (a/2^2을 계산해줌)");
 		
 		bitData=bit+Integer.toBinaryString(a<<2);
 		bitData=bitData.substring(bitData.length()-32);
-		System.out.println(bitData+"-> a<<1비트값 (a/2^1을 계산해줌)");
+		System.out.println(bitData+"-> a<<1비트값 (a*2^1을 계산해줌)");
 	}
 
 	
