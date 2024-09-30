@@ -6,6 +6,11 @@ public class Main {
 	public static void main(String[] args) {
 //		new RepeatController().basicFor();
 //		new RepeatController().inputStudent();
-		new RepeatController().for2();
+//		new RepeatController().for2();
+//		new RepeatController().for3();
+//		new RepeatController().sumNumber();
+//		new RepeatController().inputMessage();
+//		new RepeatController().empInputData();
+		new RepeatController().checkAlphabet();
 	}
 }

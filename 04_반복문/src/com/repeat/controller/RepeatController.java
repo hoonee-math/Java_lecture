@@ -1,6 +1,7 @@
 package com.repeat.controller;
 
 import java.util.Scanner;
+import java.util.jar.Attributes.Name;
 
 public class RepeatController {
 	public void basicFor() {
@@ -98,8 +99,145 @@ public class RepeatController {
 			System.out.println("무한루프"+i++);
 			if(i==100) break;
 		}
+		//반복문을 동적으로 횟수를 정하기
+		//10 -> for(i=0;i<10;i++)
+		//5  -> for(i=0;i<5;i++)
+		//1  -> for(i=0;i<1;i++)
+		Scanner sc=new Scanner(System.in);
+		System.out.print("반복횟수: ");
+		int count=sc.nextInt();
+		for(int j=0,su=10; j<count;j++,su+=10) {
+			System.out.print(j+1+"번 실행 ");
+			System.out.print("su값은 "+su+"\n");
+		}
 	}
 	
+	// 규칙성을 갖는 숫자로 로직 작성할때 사용이 가능!
+	// 하나하나씩 접근해서 확인하는 것: 탐색!
+	public void for3() {
+		String text="이것까지만 하고 끝!";
+//		text.charAt(i)
+		for(int i=0;i<text.length();i++) {
+			System.out.print(i);
+			System.out.print("\""+text.charAt(i)+"\"\n");
+		}
+		
+		// 입력받은 문자열에 공백이 있는지 확인하는 기능
+		// 입력받은 문자열에 대문자가 있는지
+	}
+	
+	
+	// 사용자에게 숫자 5개를 입력받고 숫자의 총합을 출력하는 기능
+	// public void sumNumber()
+	public void sumNumber() {
+		Scanner sc=new Scanner(System.in);
+		// 5개의 숫자의 합을 누적할 변수
+		int sum=0;
+		for(int i=0;i<5;i++) {
+			System.out.print("숫자 입력(5번) : ");
+			int new_num=sc.nextInt();
+			sum+=new_num;			
+		}
+		System.out.printf("입력한 숫자의 총합은 %s 입니다", sum);
+		System.out.println();
+		
+	}
+	
+	// 사용자에게 메시지를 입력받고 출력하는 기능
+	// 1. 메시지를 5개 입력받고 출력하는 기능
+	// 2. 사용자가 exit 입력할때까지 입력받고 출력 기능
+	// public void inputMessage()
+	public void inputMessage() {
+		Scanner sc=new Scanner(System.in);
+		// 메시지를 누적할 변수 선언
+		String concat_message="";
+		
+//		for(int i=0;;i++) {
+//			System.out.print("메시지 입력: ");
+//			String mes=sc.next();
+//			System.out.printf("등록된 메시지: %s \n",mes);
+//			
+//			if(mes.equals("exit")) break;
+//			
+//			if(i!=0) concat_message+=",";
+//			concat_message+=mes;
+//			
+//		}
+		for(String str="";!str.equals("exit");) {
+			System.out.print("메세지: ");
+			str=sc.nextLine();
+			if(!str.equals("exit")) concat_message+=str+"\n";
+//			concat_message+=str+"\n";
+		}
+		System.out.println(concat_message);
+	}
+	
+	// 사원정보를 입력받는 기능 구현
+	// 입력정보: 이름, 나이, 성별, 급여, 보너스
+	// 아이디 admin 패스워드 1234 인증받은사람만 등록가능
+	// 아이디 패스워드가 일치하지않으면 "입력할 수 없습니다" 출력
+	// 출력예) 유병승 19 남 100 0.5
+	//		 홍길동 24 남 50  0.4
+	// 버전업 사용자가 원하는 만큼 사원 입력 받기로 업그레이드
+	// public void empInputData()
+	public void empInputData() {
+		
+		String name="", gender="", id="", pw="";
+		int age=0, income=0, bonus=0;
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("=== 사원 정보 등록 프로그램 ===");
+		
+		// ID PW 입력받기
+		System.out.print("관리자 로그인 ID: ");
+		id=sc.next();
+		System.out.print("관리자 로그인 PW: ");
+		pw=sc.next();
+		
+		// ID PW 유효성 검사 후 코드 실행
+		if(id.equals("admin")&&pw.equals("1234")) {
+			
+			
+			System.out.print("이름: ");
+			name=sc.next();
+			System.out.print("나이: ");
+			age=sc.nextInt();
+			System.out.print("성별(남/여): ");
+			gender=sc.next();
+			System.out.print("급여: ");
+			income=sc.nextInt();
+			System.out.print("보너스: ");
+			bonus=sc.nextInt();
+			
+		} else {
+			System.out.println("관리자가 아닙니다. 입력할 수 없습니다.");
+			empInputData();
+		}
+		System.out.print("등록정보: ");
+		System.out.println(name+" "+age+" "+gender+" "+income+" "+bonus);
+		// 출력예) 유병승 19 남 100 0.5
+	}
+	
+	// 문자열을 입력받고 그 문자열에 알파벳이 있는지 확인하는 기능 구현
+	public void checkAlphabet() {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("문자열 입력: ");
+		String text=sc.nextLine();
+		
+		System.out.print("찾을 문자: ");
+		int totalAlpha=0;
+		char findAlpha=sc.next().charAt(0);
+		for(int i=0;i<text.length();i++) {
+			if(text.charAt(i)==findAlpha) {
+				totalAlpha+=1;				
+			}
+		}
+		if(totalAlpha>0) {
+			System.out.printf("%s라는 문자는 총 %d개 있습니다.",findAlpha, totalAlpha);
+		} else {
+			System.out.println("문자열에는 찾는 문자가 포함되어 있지 않습니다.");
+		}
+	}
 }
 
 
