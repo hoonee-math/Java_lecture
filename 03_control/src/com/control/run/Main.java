@@ -17,12 +17,12 @@ public class Main {
 //		new ConditionController().switchTest();
 //		new ConditionController().meals();
 		
-		Scanner sc = new Scanner(System.in);
-		System.out.println("실행할 if 예제 선택: ");
-		int choice=sc.nextInt();
-		switch(choice) {
-			case 1 : new ConditionController().ifTest(); break;
-			case 2 : new ConditionController().ifelseTest(); break;
-		}
+//		Scanner sc = new Scanner(System.in);
+//		System.out.print("실행할 if 예제 선택: ");
+//		int choice=sc.nextInt();
+//		switch(choice) {
+//			case 1 : new ConditionController().ifTest(); break;
+//			case 2 : new ConditionController().ifelseTest(); break;
+//		}
 	}
 }
