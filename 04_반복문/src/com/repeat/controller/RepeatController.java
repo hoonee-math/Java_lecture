@@ -219,25 +219,25 @@ public class RepeatController {
 	}
 	
 	// 문자열을 입력받고 그 문자열에 알파벳이 있는지 확인하는 기능 구현
-	public void checkAlphabet() {
-		Scanner sc=new Scanner(System.in);
-		System.out.print("문자열 입력: ");
-		String text=sc.nextLine();
-		
-		System.out.print("찾을 문자: ");
-		int totalAlpha=0;
-		char findAlpha=sc.next().charAt(0);
-		for(int i=0;i<text.length();i++) { // 탐색!!
-			if(text.charAt(i)==findAlpha) {
-				totalAlpha+=1;				
-			}
-		}
-		if(totalAlpha>0) {
-			System.out.printf("%s라는 문자는 총 %d개 있습니다.",findAlpha, totalAlpha);
-		} else {
-			System.out.println("문자열에는 찾는 문자가 포함되어 있지 않습니다.");
-		}
-	}
+//	public void checkAlphabet() {
+//		Scanner sc=new Scanner(System.in);
+//		System.out.print("문자열 입력: ");
+//		String text=sc.nextLine();
+//		
+//		System.out.print("찾을 문자: ");
+//		int totalAlpha=0;
+//		char findAlpha=sc.next().charAt(0);
+//		for(int i=0;i<text.length();i++) { // 탐색!!
+//			if(text.charAt(i)==findAlpha) {
+//				totalAlpha+=1;				
+//			}
+//		}
+//		if(totalAlpha>0) {
+//			System.out.printf("%s라는 문자는 총 %d개 있습니다.",findAlpha, totalAlpha);
+//		} else {
+//			System.out.println("문자열에는 찾는 문자가 포함되어 있지 않습니다.");
+//		}
+//	}
 	
 	public void checkAlpha() {
 		Scanner sc=new Scanner(System.in);
