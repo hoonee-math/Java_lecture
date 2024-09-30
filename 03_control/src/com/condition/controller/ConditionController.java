@@ -258,7 +258,7 @@ public class ConditionController {
 		}
 		String msg2="구내식당";
 		switch(msg2) {
-			case "구내식당" : System.out.println("문자열비교실행") 
+			case "구내식당" : System.out.println("문자열비교실행");
 		}
 //		double heigth=180.5;
 //		switch(height) {
@@ -274,6 +274,55 @@ public class ConditionController {
 			case 1:
 			case 2:
 		}
+//		switch(choice) {
+//			case 1: new StudentController().enrollStudent(); break;
+//			case 2: new StudentContorller().updateStudent(); break;
+//		}
+		switch(choice) {
+		case 1: ifTest(); 	  break;
+		case 2: ifelseTest(); break;
+		}
+		
+		
+	}
+	
+	// 간단한 분식집 주문 프로그램
+	// 1. 떡볶이(5000) 2. 순대(4000) 3. 튀김(3000)
+	// 4. 김밥(3000) 5. 라면(4000)
+	// 갯수를 입력받기
+	// 선택한 메뉴와 결제 금액을 출력해주는 프로그램.
+	public void meals() {
+		System.out.println("=== 분식집 메뉴판 ===");
+		System.out.println(" 1. 떡볶이(5000)\n 2. 순대(4000)\n "
+				+ "3. 튀김(3000)\n 4. 김밥(3000)\n 5. 라면(4000)");
+		
+		// 출력할 내용: 메뉴, 주문양, 총 가격(total)
+		int price=0;
+		String menu_t="";
+		
+		// 메뉴를 선택하기, 메뉴 양 선택하기
+		System.out.print("메뉴(번호)를 선택해주세요:");
+		Scanner sc=new Scanner(System.in);
+		int menu=sc.nextInt();
+	
+		
+		switch(menu) {
+			case 1:	price=5000; menu_t="떡볶이";	break;
+			case 2:	price=4000; menu_t="순대";	break;
+			case 3:	price=3000; menu_t="튀김";	break;
+			case 4:	price=3000; menu_t="김밥";	break;
+			case 5:	price=4000; menu_t="라면";	break;
+			default: System.out.println("\n선택하신 메뉴가 존재하지 않습니다. 다시 주문해주세요\n"); meals();
+		}
+		
+		// 몇인분을 주문할지 작성해주세요.
+		System.out.printf("%d 를 선택하셨습니다. ", menu);
+		System.out.print("몇인분을 주문하시겠습니까: ");
+		int menu_scale=sc.nextInt();
+		
+//		price *= menu_scale;
+		
+		System.out.printf("주문정보: %d번 %s %d인분 총액:%d(원)", menu,menu_t, menu_scale, menu*menu_scale);
 	}
 }
 
