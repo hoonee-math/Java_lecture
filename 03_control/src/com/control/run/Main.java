@@ -12,6 +12,7 @@ public class Main {
 //		new ConditionController().ifelseTest();
 //		new ConditionController().enrollMember();
 //		new ConditionController().ifelseifelseTest();
-		new ConditionController().scoreGrade();
+//		new ConditionController().scoreGrade();
+		new ConditionController().switchTest();
 	}
 }
