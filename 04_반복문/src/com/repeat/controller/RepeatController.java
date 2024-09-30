@@ -243,14 +243,12 @@ public class RepeatController {
 		Scanner sc=new Scanner(System.in);
 		System.out.print("문자열 입력: ");
 		String text=sc.nextLine();
-		String result="";
+		String result="없다";
 		for(int i=0; i<text.length();i++) {
 			char ch=text.charAt(i);
 			if((ch>='A'&&ch<='Z')||('a'<=ch&&ch<='z')) {
 				result="있다";
-			} else {
-				result="없다";
-			}			
+			}		
 		}
 		System.out.println(result);
 	}
