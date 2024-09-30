@@ -11,6 +11,7 @@ public class Main {
 //		new RepeatController().sumNumber();
 //		new RepeatController().inputMessage();
 //		new RepeatController().empInputData();
-		new RepeatController().checkAlphabet();
+//		new RepeatController().checkAlphabet();
+		new RepeatController().checkAlpha();
 	}
 }

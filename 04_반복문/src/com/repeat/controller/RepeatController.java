@@ -227,7 +227,7 @@ public class RepeatController {
 		System.out.print("찾을 문자: ");
 		int totalAlpha=0;
 		char findAlpha=sc.next().charAt(0);
-		for(int i=0;i<text.length();i++) {
+		for(int i=0;i<text.length();i++) { // 탐색!!
 			if(text.charAt(i)==findAlpha) {
 				totalAlpha+=1;				
 			}
@@ -237,6 +237,22 @@ public class RepeatController {
 		} else {
 			System.out.println("문자열에는 찾는 문자가 포함되어 있지 않습니다.");
 		}
+	}
+	
+	public void checkAlpha() {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("문자열 입력: ");
+		String text=sc.nextLine();
+		String result="";
+		for(int i=0; i<text.length();i++) {
+			char ch=text.charAt(i);
+			if((ch>='A'&&ch<='Z')||('a'<=ch&&ch<='z')) {
+				result="있다";
+			} else {
+				result="없다";
+			}			
+		}
+		System.out.println(result);
 	}
 }
 
