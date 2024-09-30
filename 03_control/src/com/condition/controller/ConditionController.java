@@ -151,21 +151,36 @@ public class ConditionController {
 		System.out.print("점수를 입력하세요: ");
 		double score=sc.nextDouble();
 		
-		if(score>=90) {
-			System.out.println("A 등급 입니다.");
-			
+//		if(score>100||score<0) {
+//			System.out.println("점수를 정확히 입력하세요!");		
+//		}else if(score>=90) {
+//			System.out.println("A 등급 입니다.");			
+//		} else if(score>=80) {
+//			System.out.println("B 등급 입니다.");			
+//		} else if(score>=70) {
+//			System.out.println("C 등급 입니다.");			
+//		} else if(score>=60) {
+//			System.out.println("D 등급 입니다.");			
+//		} else {
+//			System.out.println("F 등급 입니다.");			
+//		}
+//		
+		char grade=' ';
+		if(score>100||score<0) {
+			System.out.println("점수를 정확히 입력하세요!");		
+		} else if(score>=90) {
+			grade='A';
 		} else if(score>=80) {
-			System.out.println("B 등급 입니다.");
-			
+			grade='B';		
 		} else if(score>=70) {
-			System.out.println("C 등급 입니다.");
-			
+			grade='C';	
 		} else if(score>=60) {
-			System.out.println("D 등급 입니다.");
-			
+			grade='D';	
 		} else {
-			System.out.println("F 등급 입니다.");
-			
+			grade='F';
+		}
+		if(score<=100&&score>=0) {
+			System.out.printf("당신은 %c등급입니다.", grade);
 		}
 	}
 	
