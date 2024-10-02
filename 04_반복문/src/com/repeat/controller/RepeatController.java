@@ -252,6 +252,41 @@ public class RepeatController {
 		}
 		System.out.println(result);
 	}
+	
+	public void forInFor() {
+		// 중첩 반복문 이용하기
+		// for{} 안에 for{}를 선언
+		// 구구단
+		for(int i=2;i<=9;i++) {
+			System.out.println(i+"단");
+			for(int j=1;j<=9;j++)
+				System.out.printf("%d x %d = %d\n",i,j,i*j);
+		}		
+	}
+	// 문자열에 중복값이 있는지 확인하는 기능
+	// 어떤 값을 정렬하는 기능을 구현할 때.
+	
+	public void forInFor2() {
+		String test="apple";
+		for(int i=0;i<test.length();i++) {
+			System.out.println(test.charAt(i));
+			char target=test.charAt(i);
+			int count=0;
+			for(int j=0;j<test.length();j++) {
+				//중복값을 확인하는 로직
+				
+				if(i!=j&&target==test.charAt(j)) {
+					count++;
+				}
+//				System.out.print(test.charAt(j));
+				
+			}
+//			System.out.println();
+			if(count>0) {
+				System.out.printf(target+"은 중복값 %d개 있음!"+"\n",count);
+			}
+		}
+	}
 }
 
 

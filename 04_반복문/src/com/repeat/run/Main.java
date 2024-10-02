@@ -12,6 +12,8 @@ public class Main {
 //		new RepeatController().inputMessage();
 //		new RepeatController().empInputData();
 //		new RepeatController().checkAlphabet();
-		new RepeatController().checkAlpha();
+//		new RepeatController().checkAlpha();
+//		new RepeatController().forInFor();
+		new RepeatController().forInFor2();
 	}
 }
