@@ -62,7 +62,26 @@ public class ControlPractice {
 //		 합계: 183
 //		 평균: 61.0
 //		 축하합니다, 합격입니다!
-
+		int kor=0, math=0, eng=0;
+		double mean=0.0;
+		System.out.print("국어점수: ");
+		kor = sc.nextInt();
+		System.out.print("수학점수: ");
+		math = sc.nextInt();
+		System.out.print("영어점수: ");
+		eng = sc.nextInt();
+		mean=(kor+math+eng)/3.0;
+		if(kor>=40&&math>=40&&eng>=40&&mean>=60) {
+			System.out.println("국어: "+kor);
+			System.out.println("수학: "+math);
+			System.out.println("영어: "+eng);
+			System.out.println("합계: "+(kor+math+eng));
+			System.out.println("평균: "+mean);
+			System.out.println("축하합니다, 합격입니다!");
+		} else {
+			System.out.println("불합격입니다.");
+		}
+		
 	}
 	public void practice4() {
 //		수업자료(7page)에서if문으로되어있는봄, 여름, 가을, 겨울예제를switch문으로바꿔서출력하세요.
@@ -72,6 +91,19 @@ public class ControlPractice {
 //		 ex 2.
 //		 1~12 사이의정수입력: 99
 //		 99월은잘못입력된달입니다
+		System.out.print("1~12 사이의 정수 입력: ");
+		int month=sc.nextInt();
+		String season="";
+		switch(month) {
+		case 3: case 4: case 5: 		season="봄"; break;
+		case 6: case 7: case 8: case 9: season="여름"; break;
+		case 10: case 11:				season="가을"; break;
+		case 12: case 1: case 2:		season="겨울"; break;
+		}
+		if(month>=1&&month<=12)
+			System.out.println(month+"월은 "+season+"입니다.");
+		else
+			System.out.println(month+"월은 잘못 입력된 달입니다.");
 	}
 	public void practice5() {
 //		아이디, 비밀번호를정해두고로그인기능을작성하세요.
@@ -82,6 +114,22 @@ public class ControlPractice {
 //		아이디: myId				아이디: myId				아이디: my
 //		비밀번호: myPassword12		비밀번호: myPassword		비밀번호: myPassword12
 //		로그인성공					비밀번호가틀렸습니다.			아이디가틀렸습니다.
+		String id="myId", pw="1234";
+		String inputId="", inputPw="";
+		
+		System.out.print("아이디: ");
+		inputId=sc.next();
+		System.out.print("비밀번호: ");
+		inputPw=sc.next();
+		
+		if(inputId.equals(id)&&inputPw.equals(pw))
+			System.out.println("로그인 성공");
+
+		else if(!(inputId.equals(id))&&inputPw.equals(pw))
+			System.out.println("아이디가 틀렸습니다");
+
+		else if(inputId.equals(id)&&!(inputPw.equals(pw)))
+			System.out.println("비밀번호가 틀렸습니다.");
 	}
 	public void practice6() {
 //		사용자에게관리자, 회원, 비회원중하나를입력받아각등급이행할수있는권한을출력하세요.
@@ -91,6 +139,21 @@ public class ControlPractice {
 //		 ex.
 //		권한을확인하고자하는회원등급: 관리자
 //		회원관리, 게시글관리게시글작성, 댓글작성게시글조회
+		String rank="";
+		String authority="";
+		System.out.println("====== 관리 권한 조최 ======");
+		System.out.println("사용자 종류: 관리자, 회원, 비회원");
+		System.out.print("권한을 확인하고자 하는 회원 등급: ");
+		rank=sc.nextLine();
+		
+		switch(rank) {
+		case "관리자" : authority+="회원 관리, "+"게시글 관리, ";
+		case "회원" : authority+="게시글 작성, "+"댓글 작성, ";
+		case "비회원" : authority+="게시글 조회"; break;
+		default : authority="사용자 종류를 정확히 입력하세요."; break;
+		}
+		System.out.println(authority);
+		
 
 	}
 	public void practice7() {
@@ -105,7 +168,23 @@ public class ControlPractice {
 //		몸무게(kg)를입력해주세요: 58.4
 //		 BMI 지수: 21.45087235996327
 //		정상체중
+		System.out.print("키(m)를 입력해주세요: ");
+		double height=sc.nextDouble();
+		System.out.print("몸무게(kg)를 입력해주세요:");
+		double weight=sc.nextDouble();
+		
+		double bmi = weight/(height*height);
+		System.out.println(" BMI 지수: "+bmi);
+		
+		String result="";
+		if(bmi<18.5) result="저체중";
+		else if(bmi<23) result="정상체중";
+		else if(bmi<25) result="과체중";
+		else if(bmi<30) result="비만";
+		else result="비만";
+		System.out.println(result);
 	}
+	
 	public void practice8() {
 //		키보드로두개의정수와연산기호를입력받아연산기호에맞춰연산결과를출력하세요.
 //		 (단,두개의정수모두양수일때만작동하며없는연산기호를입력했을시
@@ -115,8 +194,24 @@ public class ControlPractice {
 //		피연산자2 입력: 4
 //		연산자를입력(+,-,*,/,%) : /
 //		 15 / 4 = 3.750000
-
+		System.out.print("피연산자1 입력: ");
+		int num1=sc.nextInt();
+		System.out.print("피연산자2 입력: ");
+		int num2=sc.nextInt();
+		System.out.print("연산자 입력(+,-,*,/,%) : ");
+		char operator=sc.next().charAt(0);
+		double result=0.0;
+		
+		switch(operator) {
+		case '+': result = num1 + num2;	break;
+		case '-': result = num1 - num2;	break;
+		case '*': result = (double)num1 * num2;	break;
+		case '/': result = (double)num1 / num2;	break;
+		case '%': result = num1 % num2;	break;
+		}
+		System.out.printf("%d %s %d = %f",num1, operator, num2, result);
 	}
+	
 	public void practice9() {
 //		중간고사, 기말고사, 과제점수, 출석회수를입력하고Pass 또는Fail을출력하세요.
 //		평가비율은중간고사20%, 기말고사30%, 과제30%, 출석20%로이루어져있고
@@ -124,6 +219,36 @@ public class ControlPractice {
 //		 70점이상일경우Pass,70점미만이거나전체강의에30% 이상결석시Fail을출력하세요.
 //		 [출력예시는다음3장참고]
 		
+		System.out.print("중간고사 점수: ");
+		double score1=sc.nextDouble();
+		System.out.print("기말고사 점수: ");
+		double score2=sc.nextDouble();
+		System.out.print("과제 점수: ");
+		double score3=sc.nextDouble();
+		System.out.print("출석 회수: ");
+		double score4=sc.nextDouble();
+		
+		double total=0.0;
+		total=score1*0.2+score2*0.3+score3*0.3+score4;
+		
+		System.out.println("================= 결과 =================");
+		if((total>=70)&&(score4>20*0.7)) {
+			System.out.println("중간고사점수(20) : "+score1*0.2);
+			System.out.println("기말고사점수(30) : "+score2*0.3);
+			System.out.println("과제점수(30) : "+score3*0.3);
+			System.out.println("출석점수(20) : "+score4);
+			System.out.println("총점: "+total);
+			System.out.println("Pass");
+		}else if(score4<=20*0.7){
+			System.out.printf("Fail [출석회수부족(%d/20)]",(int)score4);
+		} else {
+			System.out.println("중간고사점수(20) : "+score1*0.2);
+			System.out.println("기말고사점수(30) : "+score2*0.3);
+			System.out.println("과제점수(30) : "+score3*0.3);
+			System.out.println("출석점수(20) : "+score4);
+			System.out.println("총점: "+total);
+			System.out.println("Fail [점수미달]");
+		}
 //		중간고사점수: 80
 //		기말고사점수: 30
 //		과제점수: 60
@@ -144,6 +269,8 @@ public class ControlPractice {
 //		  Fail [출석회수부족(10/20)]
 
 	}
+	
+	
 	public void practice10() {
 //		앞에구현한실습문제를선택하여실행할수있는메뉴화면을구현하세요.
 //		 ex.
@@ -158,5 +285,29 @@ public class ControlPractice {
 //		 8. 계산기
 //		9. P/F
 //		선택: 4 (실습문제4 실행)
+		System.out.print("실행할 기능을 선택하세요.");
+		System.out.println("1. 메뉴출력");
+		System.out.println("2. 짝수/홀수");
+		System.out.println("3. 합격/불합격");
+		System.out.println("4. 계절");
+		System.out.println("5. 로그인");
+		System.out.println("6. 권한확인");
+		System.out.println("7. BMI");
+		System.out.println("8. 계산기");
+		System.out.println("9. P/F");
+		System.out.print("선택: ");
+		int select=sc.nextInt();
+		switch(select) {
+			case 1: practice1(); break;
+			case 2: practice2(); break;
+			case 3: practice3(); break;
+			case 4: practice4(); break;
+			case 5: practice5(); break;
+			case 6: practice6(); break;
+			case 7: practice7(); break;
+			case 8: practice8(); break;
+			case 9: practice9(); break;
+			default: System.out.println("번호를 정확히 입력하세요."); practice10();
+		}
 	}
 }
