@@ -278,8 +278,6 @@ public class RepeatController {
 				if(i!=j&&target==test.charAt(j)) {
 					count++;
 				}
-//				System.out.print(test.charAt(j));
-				
 			}
 //			System.out.println();
 			if(count>0) {
@@ -287,7 +285,76 @@ public class RepeatController {
 			}
 		}
 	}
+	
+	//public void checkDuplicate()
+	// 문자열을 입력받아 입력받은 문자열의 중복값이 있는지 확인하는 기능
+	// 1. 중복값이 있으면 있다. 없으면 없다!
+	// 2. 어떤 값이 몇개 중복하는지 출력
+	public void checkDuplicate() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("문자열을 입력하시오: ");
+		String contents=sc.nextLine();
+		System.out.println();
+		
+		int countAll=0;
+		boolean is_contain=false;
+		
+		for(int k=0;k<contents.length();k++) {
+			char text=contents.charAt(k);
+			
+			for(int l=0;l<contents.length();l++) {
+				if(k!=l&&text==contents.charAt(l)) {
+					is_contain=true;
+					break;
+				}	
+			}
+			if(is_contain) break;
+		}
+		System.out.println(is_contain?"있다.":"없다.");
+		System.out.println();
+
+		if(is_contain) {
+			for(int i=0;i<contents.length();i++) {
+				char text=contents.charAt(i);
+				int count=0;
+				
+				for(int j=0;j<contents.length();j++) {
+					if(i!=j&&text==contents.charAt(j)) {
+						count++;
+					}
+				}
+				if(count>0) {
+					System.out.printf("%d번째 문자 %s의 중복 확인: ",i,text);
+					System.out.printf("%s는 총 %d번 반복됩니다."+"\n", text, count);
+				}
+			}
+		}
+		
+	}
+	
+	public void checkDuplicate_teacher() {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("문자열 : ");
+		String text=sc.nextLine();
+		
+		for(int i=0;i<text.length();i++) {
+			char target=text.charAt(i);
+			for(int j=0;j<text.length();j++) {
+				char compare=text.charAt(j);
+				if(i!=j&&target==compare) {
+					
+				}
+			}
+			
+		}
+	}
 }
+
+
+
+
+
+
 
 
 
