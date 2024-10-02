@@ -15,6 +15,8 @@ public class Main {
 //		new RepeatController().checkAlpha();
 //		new RepeatController().forInFor();
 //		new RepeatController().forInFor2();
-		new RepeatController().checkDuplicate();
+//		new RepeatController().forInFor3();
+//		new RepeatController().checkDuplicate();
+		new RepeatController().whileTest();
 	}
 }

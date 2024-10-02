@@ -286,6 +286,15 @@ public class RepeatController {
 		}
 	}
 	
+	public void forInFor3() {
+		for(int m=0;m<4;m++) {
+			for(int n=0;n<m+1;n++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	
 	//public void checkDuplicate()
 	// 문자열을 입력받아 입력받은 문자열의 중복값이 있는지 확인하는 기능
 	// 1. 중복값이 있으면 있다. 없으면 없다!
@@ -299,16 +308,16 @@ public class RepeatController {
 		int countAll=0;
 		boolean is_contain=false;
 		
+		teacher:
 		for(int k=0;k<contents.length();k++) {
 			char text=contents.charAt(k);
 			
 			for(int l=0;l<contents.length();l++) {
 				if(k!=l&&text==contents.charAt(l)) {
 					is_contain=true;
-					break;
+					break teacher;
 				}	
 			}
-			if(is_contain) break;
 		}
 		System.out.println(is_contain?"있다.":"없다.");
 		System.out.println();
@@ -329,24 +338,45 @@ public class RepeatController {
 				}
 			}
 		}
-		
 	}
 	
-	public void checkDuplicate_teacher() {
-		Scanner sc=new Scanner(System.in);
-		System.out.print("문자열 : ");
-		String text=sc.nextLine();
-		
-		for(int i=0;i<text.length();i++) {
-			char target=text.charAt(i);
-			for(int j=0;j<text.length();j++) {
-				char compare=text.charAt(j);
-				if(i!=j&&target==compare) {
-					
-				}
-			}
-			
+	public void whileTest() {
+		//while 활용하기
+		// 반복문을 구현하는 방법 중 하나
+		// 강의중 설명중에 대괄호가 있으면 생략 가능
+		// while(조건식) { 로직 [증감식] *while 을 벗어나는 구문 작성 }
+		// 특정 조건에 의해 반복문을 빠져나갈때 많이 사용
+		// 의도적인 무한루프를 실행할 때
+		// 1~10까지 출력하기
+		for(int i=0; i<10; i++) {
+			System.out.print(i+1);
 		}
+		System.out.println();
+		
+		int n=0;
+		while(n<10) {
+			System.out.print(n+1);
+			n++;
+		}
+		System.out.println();
+		
+		// 사용자가 끝이라고 입력할때까지 메시지를 입력받기
+		Scanner sc=new Scanner(System.in);
+		String msg="", str="";//사용자가 입력할 문구 저장
+		while(!msg.equals("끝")) {
+			System.out.print("메시지: ");
+			msg=sc.nextLine();
+			if(!msg.equals("끝")) str+=msg;
+		}
+		System.out.println(str);
+		
+		//사용자가 3의 배수를 입력할때까지 숫자 입력받기
+		int is_3=1;
+		while(!(is_3%3==0)) {
+			System.out.print("수 입력: ");
+			is_3=sc.nextInt();
+		}
+		System.out.println("3의 배수가 입력되어 종료되었습니다.");
 	}
 }
 
