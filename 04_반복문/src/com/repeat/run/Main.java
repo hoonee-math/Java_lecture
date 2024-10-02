@@ -20,6 +20,7 @@ public class Main {
 //		new RepeatController().whileTest();
 //		new RepeatController().whileTest2();
 //		new RepeatController().doWhileTest();
-		new RepeatController().coffeeOrder();
+//		new RepeatController().coffeeOrder();
+		new RepeatController().breakContinueTest();
 	}
 }

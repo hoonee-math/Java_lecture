@@ -308,7 +308,7 @@ public class RepeatController {
 		int countAll=0;
 		boolean is_contain=false;
 		
-		teacher:
+		teacher: //teacher 라는 id 를 선언함! for 문에 이름이 붙음!
 		for(int k=0;k<contents.length();k++) {
 			char text=contents.charAt(k);
 			
@@ -474,9 +474,46 @@ public class RepeatController {
 			System.out.println(menu+" "+scale+"개 주문, 총 "+menuPrice+"원");
 		}
 		System.out.println(result);
-		System.out.println("총 주문 금액은 "+total+"원 입니다.");
-		
+		System.out.println("총 주문 금액은 "+total+"원 입니다.");	
 	}
+	
+	public void breakContinueTest() {
+		// 분기문 활용하기
+		// continue : 반복문에서 continue 문을 만나면, 그 line 아래 코드 전체를 생략하고
+		//			  증감식으로 넘어감!
+		// break	: 반복문에서 break 문을 만나면, for 문이 종료됨.
+		// 조건문과 같이 사용함!
+		for(int i=0;i<10;i++) {
+			System.out.print(i+" ");
+		}
+		System.out.println();
+		for(int i=0;i<10;i++) {
+			if(i%3==0) {
+				continue;
+			}
+			System.out.print(i+" ");
+		}
+		for(int i=0;i<10;i++) {
+			System.out.println("실행되니?");
+			if(i%3==0) {
+				break;
+			}
+			System.out.print(i+" ");
+		}
+
+		// 중첩 반복문에서 사용하기
+		forT:
+		for(int i=2;i<10;i++) {
+			System.out.println("===="+i+"단"+"====");
+			for(int j=1;j<10;j++) {
+				if(j==5) break forT; //내부 for 문만 중단됨. 바깥쪽 반복문은 다시 실행됨.
+				System.out.print(i+"X"+j+"="+(i*j)+" ");
+			}
+			System.out.println();
+//			if(i==5) break; //break 가 포함된 for 문이 중담됨.
+		}
+	}
+	
 }
 
 
