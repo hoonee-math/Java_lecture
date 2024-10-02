@@ -17,6 +17,8 @@ public class Main {
 //		new RepeatController().forInFor2();
 //		new RepeatController().forInFor3();
 //		new RepeatController().checkDuplicate();
-		new RepeatController().whileTest();
+//		new RepeatController().whileTest();
+//		new RepeatController().whileTest2();
+		new RepeatController().doWhileTest();
 	}
 }

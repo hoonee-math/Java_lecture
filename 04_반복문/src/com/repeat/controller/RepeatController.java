@@ -377,6 +377,42 @@ public class RepeatController {
 			is_3=sc.nextInt();
 		}
 		System.out.println("3의 배수가 입력되어 종료되었습니다.");
+		
+	}
+	public void whileTest2() {
+		Scanner sc= new Scanner(System.in);
+		
+		int count=0;
+		while(true) {
+			System.out.print(count+" ");
+			if(count++==10) break;
+		}
+		System.out.println();
+		
+		int choice=0;
+		while(choice!=9	) {
+			System.out.println("=== 점심 메뉴 ===");
+			System.out.println("1. 구내식당");
+			System.out.println("2. 김밤");
+			System.out.println("3. 볶음밥");
+			System.out.println("9. 주문종료");
+			System.out.print("입력: ");
+			choice=sc.nextInt();
+		}
+	}
+	
+	// do~while
+	// do{ 반복할 로직 }while( 조건식 );
+	// do 안의 반복문을 실행한 다음에 while의 조건을 확인함! do 안의 로직은 무조건 한 번 실행함.
+	// 처음 조건식이 false 일때, 무조건 한번은 do에의해 실행시킬때 이용. 조건식이 true이면 do를 실행
+	public void doWhileTest() {
+		boolean flag=false;
+		while(flag) {
+			System.out.println("while 문 실행");
+		}
+		do {
+			System.out.println("do~while문 실행");
+		}while(flag);
 	}
 }
 
