@@ -1,5 +1,8 @@
 package com.array.controller;
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class ArrayController {
 	public void arrayTest() {
 		// 기본 배열 활용하기
@@ -48,8 +51,66 @@ public class ArrayController {
 		names[2]="최광훈";
 		for(int i=0;i<names.length;i++)
 			System.out.print(names[i]+" ");
+		System.out.println();
 			
+		// 숫자를 저장하는 배열을 만들고 1~5까지 저장후 출력하기		
+		int[] nums=new int[5];
+		nums[0]=1;
+		nums[1]=2;
+		nums[2]=3;
+		nums[3]=4;
+		nums[4]=5;
+		for(int i=0;i<nums.length;i++)
+			System.out.println(nums[i]);
+
+//		// 숫자를 저장하는 배열을 만들고 1~5까지 저장후 출력하기
+//		// 배열길이를 직접 선언하기
+//		Scanner sc=new Scanner(System.in);
+//		System.out.print("배열 길이: ");
+//		int arrLength=sc.nextInt();
+//		int[] nums=new int[arrLength];
+//		for(int i=0;i<nums.length;i++){
+//			nums[i]=i+1;
+//			System.out.println("nums["+i+"] = "+nums[i]);
+//		}
 		
+		// 배열의 길이를 알려주는 값이 있음
+		// 배열명.length / 문자열.length()
+		
+		// 학색 5명의 이름을 저장할 수 있는 저장공간을 확보하고
+		// 입력받은 값으로 이름을 저장 후 출력하기
+		// 입력, 출력은 따로 작성
+		Scanner sc=new Scanner(System.in);
+		System.out.print("입력 받을 학생 수: ");
+		int stNum=sc.nextInt();
+				
+		String[] stName=new String[stNum];
+		
+		for(int i=0; i<stName.length ; i++) {
+			System.out.print("학생 이름: ");
+			stName[i]=sc.next();			
+		}
+		
+		for(int j=0; j<stName.length; j++)
+			System.out.print(stName[j]+" ");
+	}
+	public void arrayTest2() {
+		// 데이터를 필터, 조회하는 기능(원하는 값을 찾는 기능)
+		// 수 10개를 저장활 수 있는 저장공간을 확보하고
+		// 10개의 수에 랜덤값 1~100까지의 수를 저장하고
+		// 10개의 수 중에서 50보다 큰 수가 몇개인지 출력
+		int[] numArr=new int[10];
+		Random random = new Random();
+		for(int i=0; i<numArr.length; i++) {
+			numArr[i]=random.nextInt(100)+1;
+			System.out.print(numArr[i]+" ");
+		}
+		System.out.println();
+		int count=0;
+		for(int i=0; i<numArr.length; i++) {
+			if(numArr[i]>50) count+=1;
+		}
+		System.out.println("50보다 큰 수는 "+count+"개 있습니다.");
 	}
 }
 
