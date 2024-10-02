@@ -9,8 +9,8 @@ public class ControlPractice {
 	public void practice1() {
 //		아래예시와같이메뉴를출력하고메뉴번호를누르면“OO메뉴입니다“를,
 //		종료번호를누르면“프로그램이종료됩니다.”를출력하세요.
-//		 ex.
-//		 1. 입력
+//		ex.
+//		1. 입력
 //		2. 수정
 //		3. 조회
 //		4. 삭제
@@ -41,6 +41,9 @@ public class ControlPractice {
 //		양수만입력해주세요
 		System.out.print("숫자를 한개 입력하세요: ");
 		int num=sc.nextInt();
+		
+		if(num>0) System.out.println(num%2==0?"짝수다":"홀수다");
+		else System.out.println("양수만 입력해 주세요");
 		
 	}
 	public void practice3() {
