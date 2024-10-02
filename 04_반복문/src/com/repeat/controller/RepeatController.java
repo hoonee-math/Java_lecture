@@ -406,13 +406,76 @@ public class RepeatController {
 	// do 안의 반복문을 실행한 다음에 while의 조건을 확인함! do 안의 로직은 무조건 한 번 실행함.
 	// 처음 조건식이 false 일때, 무조건 한번은 do에의해 실행시킬때 이용. 조건식이 true이면 do를 실행
 	public void doWhileTest() {
+		Scanner sc=new Scanner(System.in);
 		boolean flag=false;
-		while(flag) {
+		
+		while(flag) { //while 이 실행되지 않음
 			System.out.println("while 문 실행");
 		}
-		do {
+		
+		do {	// do while 에서는 do 부분이 무조건 한 번은 실행됨.
 			System.out.println("do~while문 실행");
+			String msg=sc.nextLine();
+//		}while(msg.equals("끝")); // 이렇게 사용할 수 없다. msg라는 변수는 do 안에서만 사용할 수 있다.	
 		}while(flag);
+	}
+	
+	// 주문받는 프로그램 만들기
+	// 1. 아메리카노 3000
+	// 2. 카페라떼 4000
+	// 3. 카페모가 4500
+	// 4. 자바칩 프라푸치노 7000
+	// 0. 주문종료
+	// 원하는 메뉴를 모두 주문받고(음료 갯수 포함)
+	// 주문 결과(메뉴, 갯수)와 총 금액을 출력해주는 기능을 구현
+	public void coffeeOrder() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("=== 커피를 주문하시겠습니까 ===");
+		System.out.println("1. 아메리카노 3000");
+		System.out.println("2. 카페라떼 4000");
+		System.out.println("3. 카페모가 4500");
+		System.out.println("4. 자바칩 프라푸치노 7000");
+		System.out.println("0. 주문종료");
+		
+		int order=0, scale=0, total=0;
+		String orderList=""; // 1421 -> 1번 4개, 2번 1개 주문 받기 (홀수번째:메뉴/짝수번째:수량)
+		String result="";
+		
+		// do while문 이용해서 메뉴와 수량 계속 입력 받기
+		do {
+			System.out.print("메뉴 선택: ");
+			order = sc.nextInt();
+			orderList+=(order==0?"":order);
+			
+			if(order==0) break;
+			
+			System.out.print("수량: ");
+			scale = sc.nextInt();
+			orderList+=(order==0?"":scale);
+			
+			// 계속 메뉴를 받다가 "메뉴 선택:"에서 0을 입력받으면 계산 시작(for문 계산 실행)
+		}while(order!=0);
+		
+		for(int i=0;i<orderList.length();i+=2) {
+			
+			String menu="";
+			int menuPrice=0;
+			order=(int)(orderList.charAt(i)-'0');
+			scale=(int)(orderList.charAt(i+1)-'0');
+			
+			switch(order) {
+			case 1 : total+=3000*scale; menu="아메리카노"; menuPrice=3000*scale; break; //아메리카노 3000원 누적
+			case 2 : total+=4000*scale; menu="카페라떼"; menuPrice=4000*scale; break;
+			case 3 : total+=4500*scale; menu="카페모카"; menuPrice=4500*scale; break;
+			case 4 : total+=7000*scale; menu="자바칩 프라푸치노"; menuPrice=7000*scale; break;
+			default : break;
+			}
+			result+=menu+" "+scale+"잔"+"\n";
+			System.out.println(menu+" "+scale+"개 주문, 총 "+menuPrice+"원");
+		}
+		System.out.println(result);
+		System.out.println("총 주문 금액은 "+total+"원 입니다.");
+		
 	}
 }
 

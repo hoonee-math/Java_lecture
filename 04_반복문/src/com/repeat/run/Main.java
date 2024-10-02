@@ -19,6 +19,7 @@ public class Main {
 //		new RepeatController().checkDuplicate();
 //		new RepeatController().whileTest();
 //		new RepeatController().whileTest2();
-		new RepeatController().doWhileTest();
+//		new RepeatController().doWhileTest();
+		new RepeatController().coffeeOrder();
 	}
 }
