@@ -1,7 +1,7 @@
 package com.repeat.controller;
 
+import java.util.Random;
 import java.util.Scanner;
-import java.util.jar.Attributes.Name;
 
 public class RepeatController {
 	public void basicFor() {
@@ -512,6 +512,28 @@ public class RepeatController {
 			System.out.println();
 //			if(i==5) break; //break 가 포함된 for 문이 중담됨.
 		}
+	}
+	
+	// 자바에서 랜덤값(숫자) 출력하기
+	// 1. Math.random() 이용
+	// 2. Random 클래스의 기능을 이용
+	// 0~1 사이의 값을 출력(실수) -> 정수로 변경해서 사용
+	public void randomNumber() {
+		//Math.random();
+		// 정수로 바꾸기
+		// (int)(Math.random()*정수) 	-> 0~(정수-1) 의 범위의 랜덤 숫자가 출력됨
+		// (int)(Math.random()*9)	-> 0~8까지 랜덤숫자
+		// (int)(Math.random()*9)+1 -> 1~9까지 랜덤숫자
+		for(int i=0;i<3;i++) {
+//			System.out.println(Math.random());
+			System.out.println((int)(Math.random()*10));
+		}
+		
+		// Random 이라는 클래스(클래스는 기능을 포함함)
+		Random random=new Random(); // ctrl+shift+O
+		System.out.println(random.nextInt());
+		System.out.println(random.nextInt(10)); // 0~9
+		System.out.println(random.nextInt(10)+1); // 1~10
 	}
 	
 }

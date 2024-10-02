@@ -21,6 +21,7 @@ public class Main {
 //		new RepeatController().whileTest2();
 //		new RepeatController().doWhileTest();
 //		new RepeatController().coffeeOrder();
-		new RepeatController().breakContinueTest();
+//		new RepeatController().breakContinueTest();
+		new RepeatController().randomNumber();
 	}
 }
