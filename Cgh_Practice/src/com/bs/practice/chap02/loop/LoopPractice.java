@@ -1,6 +1,11 @@
 package com.bs.practice.chap02.loop;
 
+import java.util.Scanner;
+
 public class LoopPractice {
+	
+	Scanner sc= new Scanner(System.in);
+	
 	public void practice1() {		
 //		사용자로부터한개의값을입력받아1부터그숫자까지의숫자들을모두출력하세요.
 //		단, 입력한수는1보다크거나같아야합니다.
@@ -8,7 +13,12 @@ public class LoopPractice {
 //		 ex.
 //		 1이상의숫자를입력하세요: 4 		1이상의숫자를입력하세요: 0
 //		 1 2 3 4 					1 이상의숫자를입력해주세요.
-
+		System.out.print("1이상의 숫자를 입력하세요: ");
+		int num1=sc.nextInt();
+		for(int i=0;i<num1;i++) {
+			System.out.print((i+1)+" ");
+			if((i+1)%20==0) System.out.println();
+		}
 	}
 
 	public void practice2() {		
@@ -19,16 +29,32 @@ public class LoopPractice {
 //		 1 2 3 4 					1 이상의숫자를입력해주세요.
 //		 							1이상의숫자를입력하세요: 8
 //		 							1 2 3 4 5 6 7 8 
-//
-//	}
-//
-//	public void practice3() {		
+		System.out.print("1 이상의 숫자를 입력하세요: ");
+		int num1=sc.nextInt();
+		
+		if(num1<1) {
+			System.out.println("1 이상의 숫자를 입력하세요.");
+			practice2();
+		} else {
+			for(int i=0;i<num1;i++) {
+				System.out.print((i+1)+" ");
+				if((i+1)%20==0) System.out.println();
+			}
+		}
+	}
+
+	public void practice3() {		
 //		사용자로부터한개의값을입력받아1부터그숫자까지의모든숫자를거꾸로출력하세요.
 //		단, 입력한수는1보다크거나같아야합니다.
 //		 ex.
 //		 1이상의숫자를입력하세요: 4 		1이상의숫자를입력하세요: 0
 //		 4 3 2 1 					1 이상의숫자를입력해주세요.
-
+		System.out.print("1 이상의 숫자를 입력하세요: ");
+		int num1=sc.nextInt();
+		for(int i=0;i<num1;i++) {
+			System.out.print((num1-i)+" ");
+			if((i+1)%20==0) System.out.println();
+		}
 	}
 
 	public void practice4() {		
@@ -39,7 +65,18 @@ public class LoopPractice {
 //		 4 3 2 1 					1 이상의숫자를입력해주세요.
 //		 							1이상의숫자를입력하세요: 8
 //		 							8 7 6 5 4 3 2 1
-
+		System.out.print("1 이상의 숫자를 입력하세요: ");
+		int num1=sc.nextInt();
+		
+		if(num1<1) {
+			System.out.println("1 이상의 숫자를 입력하세요.");
+			practice4();
+		} else {
+			for(int i=0;i<num1;i++) {
+				System.out.print((num1-i)+" ");
+				if((i+1)%20==0) System.out.println();
+			}
+		}
 	}
 
 	public void practice5() {		
@@ -47,7 +84,20 @@ public class LoopPractice {
 //		 ex.
 //		 정수를하나입력하세요: 8
 //		 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 = 36
-
+		System.out.print("정수를 하나 입력하세요: ");
+		int num1=sc.nextInt();
+		int sum=0;
+		
+		for(int i=0;i<num1;i++) {
+			if(i<(num1-1)) {
+				System.out.print((i+1)+" + ");
+				if((i+1)%20==0) System.out.println();}
+			else {
+				System.out.print((i+1)+" = ");}
+			sum+=(i+1);			
+		}
+		System.out.println(sum);
+		
 	}
 
 	public void practice6() {		
