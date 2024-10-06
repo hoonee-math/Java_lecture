@@ -208,7 +208,37 @@ public class LoopPractice {
 //				 정수2 : 4
 //				 없는연산자입니다. 다시입력해주세요.
 
-
+		String operators="";
+		
+		calFor:
+		for(;!operators.equals("exit");){
+			System.out.print("연산자(+,-,*,/,%) : ");
+			Scanner sc=new Scanner(System.in);
+			operators=sc.next();
+			
+			if(operators.equals("exti")) {
+				System.out.println("프로그램을 종료합니다.");
+				continue;
+			}
+			char operator=operators.charAt(0);
+			int num1 =0, num2=0, result=0;
+			
+			System.out.print("정수1 : ");
+			num1=sc.nextInt();
+			System.out.print("정수2 : ");
+			num2=sc.nextInt();
+			
+			switch(operator){
+				case '+': result = num1 + num2; break;
+				case '-': result = num1 - num2; break;
+				case '*': result = num1 * num2; break;
+				case '/': if(num2==0) {System.out.println("0으로 나눌 수 없습니다. 다시 입력해 주세요\n"); continue calFor;}else { result = num1 / num2; }; break;
+				case '%': result = num1 % num2; break;
+				default : System.out.println("없는 연산자 입니다. 다시 입력해 주세요.\n"); continue calFor; 
+			}
+			
+			System.out.printf("%d %s %d = %d \n\n", num1, operator, num2, result);
+		}
 	}
 
 	public void practice13() {		
