@@ -3,6 +3,7 @@ package com.bs.practice.chap02.run;
 import java.util.Scanner;
 
 import com.bs.practice.chap02.loop.LoopPractice;
+import com.bs.practice.chap02.loop.Supplementary;
 
 
 public class Run {
@@ -27,6 +28,7 @@ public class Run {
 			case 12 : new LoopPractice().practice12(); break;
 			case 13 : new LoopPractice().practice13(); break;
 			case 14 : new LoopPractice().practice14(); break;
+			case 21 : new Supplementary().rockScissorsPaper(); break;
 			
 			default : System.out.println("유효한 값을 입력하세요!");
 		}

@@ -12,7 +12,7 @@ public class Supplementary {
 		Random ran=new Random();
 		int comType=0;
 
-		int userV=0, comV=0;
+		int userV=0, comV=0, same=0;
 		String result="";
 
 		do{
@@ -21,12 +21,13 @@ public class Supplementary {
 			comType=ran.nextInt(3)+1;
 
 			if(userType==0) {
+				System.out.println("====== 가위 바위 보 게임 최종 결과 ======");
 				System.out.printf("컴퓨터 승: %d번,  사용자 승: %d번\n",comV,userV);
 				break;
 			}
 			else if(userType==1){
 				switch(comType) {
-				    case 1 : result = "비겼습니다."; break;
+				    case 1 : result = "비겼습니다."; same++; break;
 				    case 2 : result = "컴퓨터가 이겼습니다."; comV++; break;
 				    case 3 : result = "사용자가 이겼습니다."; userV++; break;
 				    default : result = "결과에 문제가 발생했습니다.";
@@ -34,7 +35,7 @@ public class Supplementary {
 			}
 			else if(userType==2){
 				switch(comType) {
-				    case 2 : result = "비겼습니다."; break;
+				    case 2 : result = "비겼습니다."; same++; break;
 				    case 3 : result = "컴퓨터가 이겼습니다."; comV++; break;
 				    case 1 : result = "사용자가 이겼습니다."; userV++; break;
 				    default : result = "결과에 문제가 발생했습니다.";
@@ -42,7 +43,7 @@ public class Supplementary {
 			}
 			else if(userType==3){
 				switch(comType) {
-				    case 3 : result = "비겼습니다."; break;
+				    case 3 : result = "비겼습니다."; same++; break;
 				    case 1 : result = "컴퓨터가 이겼습니다."; comV++; break;
 				    case 2 : result = "사용자가 이겼습니다."; userV++; break;
 				    default : result = "결과에 문제가 발생했습니다.";
@@ -55,6 +56,7 @@ public class Supplementary {
 			System.out.printf("컴퓨터는 %d 를 냈습니다. %s \n\n", comType, result);
 		} while(userType!=0);
 	}
+}
 
 
 
