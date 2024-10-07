@@ -143,9 +143,9 @@ public class ArrayController {
 //		String[] names1;
 //		names = {"최광훈","유병승","홍길동"};
 		// 방법2. 가능한 방법 
-		String[] names2 = {"최광훈","유병승","홍길동"};
-		// 방법3. 가능한 방법, 선언한 이후에 밑에서 다시 사용할 수 있음?! 1007-1325 youtube확인
-		String[] names3;
+		String[] names2 = {"최광훈","유병승","홍길동"}; // 저장소의 길이를 증가시킬 수 없음
+		// 방법3. 가능한 방법, 선언한 이후에 밑에서 다시 사용할 수 있음?! 1007-1325 youtube확인, 
+		String[] names3; // 당장은 어떤 값이 들어올지 모르지만, 일단 변수만 선언해놓고, 나중에 값을 넣음. 길이도 나중에 결정됨!
 		names3 = new String[] {"최광훈","유병승","홍길동"};
 		for(int i=0;i<names3.length;i++) 
 			System.out.print(names3[i]+" ");
