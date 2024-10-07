@@ -108,6 +108,27 @@ public class LoopPractice {
 //		두번째숫자: 4 		두번째숫자: 8 			두번째숫자: 0
 //		4 5 6 7 8 		4 5 6 7 8 			1 이상의숫자를입력해주세요.
 
+		Scanner sc=new Scanner(System.in);
+		System.out.print("첫번째 숫자: ");
+		int num1=sc.nextInt();
+		System.out.print("두번째 숫자: ");
+		int num2=sc.nextInt();
+		if(num1==0||num2==0) {
+			System.err.println("1이상의 숫자를 입력해주세요.");
+			
+		} else {
+			int min=0, max=0;
+			if(num1>=num2) {
+				max=num1;
+				min=num2;
+			} else {
+				max=num2;
+				min=num1;
+			}
+			for(int i=0;i<max-min+1;i++) {
+				System.out.print(min+i);
+			}
+		}
 	}
 
 	public void practice7() {		
@@ -120,6 +141,28 @@ public class LoopPractice {
 //										첫번째숫자: 6
 //										두번째숫자: 2
 //										2 3 4 5 6
+		Scanner sc=new Scanner(System.in);
+		System.out.print("첫번째 숫자: ");
+		int num1=sc.nextInt();
+		System.out.print("두번째 숫자: ");
+		int num2=sc.nextInt();
+		if(num1==0||num2==0) {
+			System.err.println("1이상의 숫자를 입력해주세요.");
+			practice7();
+			
+		} else {
+			int min=0, max=0;
+			if(num1>=num2) {
+				max=num1;
+				min=num2;
+			} else {
+				max=num2;
+				min=num1;
+			}
+			for(int i=0;i<max-min+1;i++) {
+				System.out.print(min+i);
+			}
+		}
 	}
 
 	public void practice8() {		
@@ -136,6 +179,13 @@ public class LoopPractice {
 //		 4 * 7 = 28
 //		 4 * 8 = 32
 //		 4 * 9 = 36
+		Scanner sc=new Scanner(System.in);
+		System.out.println("숫자: ");
+		int num=sc.nextInt();
+		System.out.printf("===== %d단 =====\n",num);
+		for( int j =1; j<10; j++) {
+			System.out.printf("%d x %d = %d\n", num, j, num*j);
+		}
 
 	}
 
@@ -150,6 +200,18 @@ public class LoopPractice {
 //		 ===== 8단=====
 //		 ===== 9단=====
 //		 (해당단의내용들은길이상생략)
+		Scanner sc=new Scanner(System.in);
+		System.out.println("숫자: ");
+		int num=sc.nextInt();
+		for(int i=num;i<10;i++) {
+			if(num>=10) {
+				System.out.println("9이하의 숫자만 입력해주세요.");
+			}
+			System.out.printf("===== %d단 =====\n",i);
+			for( int j =1; j<10; j++) {
+				System.out.printf("%d x %d = %d\n", i, j, i*j);
+			}
+		}
 
 	}
 
@@ -271,7 +333,17 @@ public class LoopPractice {
 //		 **
 //		 ***
 //		 ****
-
+		Scanner sc=new Scanner(System.in);
+		System.out.print("정수 입력: ");
+		int num=sc.nextInt();
+		
+		for(int i=0;i<num;i++) {
+			for(int j=0;j<i+1;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		
 	}
 
 	public void practice14() {		
@@ -282,6 +354,200 @@ public class LoopPractice {
 //		 ***
 //		 **
 //		 *
+		Scanner sc=new Scanner(System.in);
+		System.out.print("정수 입력: ");
+		int num=sc.nextInt();
+		
+		for(int i=0;i<num;i++) {
+			for(int j=0;j<num-i;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	
+	public void practice15() {
+//		사용자로부터입력받은하나의값이소수인지판별하는프로그램을구현하세요.
+//		단, 입력한수가2보다작은경우“잘못입력하셨습니다.”를출력하세요.
+//		 * ‘소수’는n을1부터n까지로나누었을때나누어떨어지는수가1과n뿐인수를말한다.
+//		 ex) 2, 3, 5, 7, 11 …
+//		 ex. 
+//		숫자: 5		숫자: 9		숫자: 0
+//		소수입니다. 	소수가아닙니다.	잘못입력하셨습니다.
+		System.out.print("숫자: ");
+		int num=sc.nextInt();
+		if(num>0) { 
+			boolean isPrime=true;
+			
+			for(int i=2;i<(int)Math.sqrt(num)+1;i++) {
+				if(num%i==0) isPrime=false;
+			}
+			if(!isPrime) System.out.println("소수가 아닙니다.");
+			else System.out.println("소수입니다.");
+		} else {
+			System.out.println("잘못입력하였습니다.");
+		}
+		
+	}
+	
+	public void practice16() {
+//		위문제와모든것이동일하나, 입력한수가2보다작은경우
+//		“잘못입력하셨습니다.”를출력하면서다시사용자가값을입력하도록하세요.
+//		 * ‘소수’는n을1부터n까지로나누었을때나누어떨어지는수가1과n뿐인수를말한다.
+//		 ex) 2, 3, 5, 7, 11 …
+//		ex. 
+		
+//		숫자: 5		숫자: 9		숫자: 0
+//		소수입니다. 	소수가아닙니다.	잘못입력하셨습니다.
+//								숫자: 13
+//								소수입니다.
+		System.out.print("숫자: ");
+		int num=sc.nextInt();
+		if(num>0) { 
+			boolean isPrime=true;
+			
+			for(int i=2;i<(int)Math.sqrt(num)+1;i++) {
+				if(num%i==0) isPrime=false;
+			}
+			if(!isPrime) System.out.println("소수가 아닙니다.");
+			else System.out.println("소수입니다.");
+		} else {
+			System.out.println("잘못입력하였습니다.");
+			practice15();
+		}
+		
+
+	}
+	
+	public void practice17() {
+////		2부터사용자가입력한수까지의소수를모두출력하고소수의개수를출력하세요.
+////		단, 입력한수가2보다작은경우“잘못입력하셨습니다.”를출력하세요.
+////		 ex.
+////		숫자: 11
+////		 2 3 5 7 11 
+////		2부터11까지소수의개수는5개입니다
+//		System.out.print("숫자: ");
+//		int num=sc.nextInt();
+//		
+//		for(int i=2; i<=num;i++) {
+//			if(num>1) { 
+//				for(int j=2;j<(int)Math.sqrt(i)+1;j++) {
+//					if(num%j==0) break;
+//				}
+//			} else {
+//				System.out.println("잘못입력하였습니다.");
+//				practice15();
+//			}
+//		}
+	}
+	
+	public void practice18() {
+//		1부터사용자에게입력받은수까지중에서
+//		1) 2와3의배수를모두출력하고
+//		2) 2와3의공배수의개수를출력하세요.
+//		 * ‘공배수’는둘이상의수의공통인배수라는뜻으로어떤수를해당수들로나눴을때
+//		모두나머지가0이나오는수
+//		ex.
+//		자연수하나를입력하세요: 15
+//		 2 3 4 6 8 9 10 12 14 15 
+//		count : 2
+
+	}
+	
+	public void practice19() {
+//		다음과같은실행예제를구현하세요.
+//		 ex.
+//		정수입력: 4
+//		    *
+//		   **
+//		  ***
+//		 ****
+		Scanner sc=new Scanner(System.in);
+		System.out.print("정수 입력: ");
+		int num=sc.nextInt();
+		
+		for(int i=0;i<num;i++) {
+			for(int k=0;k<num-i-1;k++)
+				System.out.print(" ");
+			for(int j=0;j<=i;j++) 
+				System.out.print("*");
+			
+			System.out.println();
+		}
+
+	}
+	
+	public void practice20() {
+//		다음과같은실행예제를구현하세요.
+//		 ex.
+//		정수입력: 3
+//		 *
+//		 **
+//		 ***
+//		 **
+//		 *
+		Scanner sc=new Scanner(System.in);
+		System.out.print("정수 입력: ");
+		int num=sc.nextInt();
+		
+		for(int i=0;i<num;i++) {
+			for(int j=0;j<=i;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		for(int i=0;i<num-1;i++) {
+			for(int j=0;j<num-i-1;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+
+
+	}
+	
+	public void practice21() {
+//		다음과같은실행예제를구현하세요.
+//		 ex.
+//		정수입력: 4
+//		 *
+//		 ***
+//		 *****
+//		 *******
+		Scanner sc=new Scanner(System.in);
+		System.out.print("정수 입력: ");
+		int num=sc.nextInt();
+		
+		for(int i=0;i<num;i++) {
+			for(int j=0;j<=i*2;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+
+	}
+	
+	public void practice22() {
+//		다음과같은실행예제를구현하세요.
+//		 ex.
+//		정수입력: 5
+//		 *****
+//		 *   *
+//		 *   *
+//		 *   *
+//		 *****
+		Scanner sc=new Scanner(System.in);
+		System.out.print("정수 입력: ");
+		int num=sc.nextInt();
+		
+		for(int i=0; i<num; i++) {
+			for(int j=0; j<num; j++) {
+				if(i%(num-1)==0||j%(num-1)==0) System.out.print("*");
+				else System.out.print(" ");
+			}
+			System.out.println();
+		}
+		
 	}
 	
 }

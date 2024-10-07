@@ -28,7 +28,16 @@ public class Run {
 			case 12 : new LoopPractice().practice12(); break;
 			case 13 : new LoopPractice().practice13(); break;
 			case 14 : new LoopPractice().practice14(); break;
-			case 21 : new Supplementary().rockScissorsPaper(); break;
+			case 15 : new LoopPractice().practice15(); break;
+			case 16 : new LoopPractice().practice16(); break;
+			case 17 : new LoopPractice().practice17(); break;
+			case 18 : new LoopPractice().practice18(); break;
+			case 19 : new LoopPractice().practice19(); break;
+			case 20 : new LoopPractice().practice20(); break;
+			case 21 : new LoopPractice().practice21(); break;
+			case 22 : new LoopPractice().practice22(); break;
+			
+			case 31 : new Supplementary().rockScissorsPaper(); break;
 			
 			default : System.out.println("유효한 값을 입력하세요!");
 		}
