@@ -19,6 +19,7 @@ public class Main {
 //		new ArrayController().arrayTest2();
 //		new ArrayController().arrayBasic2();
 //		new ArrayController().arrayCopy();
-		new ArrayDegreeController().doubleArray();
+//		new ArrayDegreeController().doubleArray();
+		new ArrayDegreeController().extraTest();
 	}
 }

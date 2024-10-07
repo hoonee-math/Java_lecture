@@ -151,6 +151,9 @@ public class ArrayController {
 			System.out.print(names3[i]+" ");
 		System.out.println();
 		
+		String[] arrString;
+		arrString = new String[3];
+		System.out.println(Arrays.toString(arrString));
 		
 		// 배열은 한번 할당되면 변경되지 않는다 -> 길이를 변경할 수 없다.
 		// 자바 배열에서는 자동으로 추가해주지 않는다. 자바에서는 더 큰 배열을 선언해서 복사해서 사용! 깊은 복사, 얕은 복사
