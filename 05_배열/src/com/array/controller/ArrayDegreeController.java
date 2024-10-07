@@ -1,6 +1,7 @@
 package com.array.controller;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ArrayDegreeController {
@@ -117,10 +118,70 @@ public class ArrayDegreeController {
 		}
 		System.out.println();
 		
+		// for(변수선언 : 배열(List,Set))
 		for(int n : intArr) {
 			System.out.print(n);
 		}
+		System.out.println();
 		
+		String[] names= {"핑크퐁","등골핑","파산핑","피카츄"};
+		for(String name : names) {
+			if(name.equals("등골핑"))
+				System.out.print(name+" ");
+			System.out.println();
+			if(name.charAt(2)=='핑')
+				System.out.print(name+" ");
+		}
+		System.out.println();
+		System.out.println();
+		
+		Arrays.stream(names).forEach(System.out::print);
+		System.out.println();
+		System.out.println();
+		
+		// 배열에 저장된 데이터를 수정할 때는 사용할 수 없다.
+		for(String name : names) {
+			if(name.equals("티니핑")) {
+				name="시X핑";				// name에는 배열에서 각 값을 받아와서 잠시 저장해두는 지역변수이다. 이 저장소에 데이터를 바꾼다고 해서 배열의 데이터가 수정되지 않음
+			}
+		}
+		for(String name : names) {
+			System.out.print(name+" ");	// 위에서 "시X핑"으로 바꿨지만, 실제로는 바뀌지 않은 것을 확인할 수 있음.
+		}
+		System.out.println();
+		
+		
+		// 배열에 저장된 데이터를 전체순회, 필터해서 출력할 때
+		
+		// 2차원 배열에서 순회할 수 있을까?
+		int[][] number2 = {{1,2,3,4},{5,6,7,8}};
+		for(int[] first : number2) {
+			for(int num : first) {
+				System.out.print(num);
+			}
+			System.out.println();
+		}
+		
+		// 정수 5개를 저장할 수 있는 배열에 1~10까지의 랜덤값을 저장
+		// 조건: 중복값 없이 저장해야함
+		Random random=new Random();
+		int[] fiveNum=new int[5];
+		for(int i=0;i<fiveNum.length;i++) {
+			fiveNum[i]=random.nextInt(10)+1;
+			
+			for(int j=0; j<i;j++) {
+				if(fiveNum[i]==fiveNum[j]) {
+//					fiveNum[i]=random.nextInt(10)+1;
+//					j=0;
+					i--;
+					break;
+				}
+			}
+		}
+		for(int n : fiveNum) {
+			System.out.print(n+" ");
+		}
+		System.out.println();
 	}
 	
 }
