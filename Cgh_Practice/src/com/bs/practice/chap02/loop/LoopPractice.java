@@ -164,7 +164,20 @@ public class LoopPractice {
 //		 ===== 8단=====
 //		 ===== 9단=====
 //		 (해당단의내용들은길이상생략)
-
+		Scanner sc=new Scanner(System.in);
+		System.out.println("숫자: ");
+		int num=sc.nextInt();
+		for(int i=num;i<10;i++) {
+			if(num>=10) {
+				System.out.println("9이하의 숫자만 입력해주세요.");
+				practice10();
+			}
+			System.out.printf("===== %d단 =====\n",i);
+			for( int j =1; j<10; j++) {
+				System.out.printf("%d x %d = %d\n", i, j, i*j);
+			}
+		}
+		
 	}
 
 	public void practice11() {		
@@ -178,7 +191,16 @@ public class LoopPractice {
 //		시작숫자: 4
 //		공차: 3
 //		 4 7 10 13 16 19 22 25 28 31
-
+		Scanner sc=new Scanner(System.in);
+		System.out.print("시작 숫자: ");
+		int num = sc.nextInt();
+		System.out.print("공차: ");
+		int tolerance = sc.nextInt();
+		
+		for(int i=0; i<10; i++) {
+			System.out.print(num+i*tolerance+" ");
+		}
+		
 	}
 
 	public void practice12() {		
