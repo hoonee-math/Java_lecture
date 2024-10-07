@@ -310,4 +310,39 @@ public class ControlPractice {
 			default: System.out.println("번호를 정확히 입력하세요."); practice10();
 		}
 	}
+	public void practice11() {
+//		정수를이용해서4자리비밀번호를만들려고하는데
+//		이때4자리정수를입력받아각자리수에중복되는값이없을경우‘생성성공’
+//		중복값이있으면‘중복값있음‘
+//		자리수가안맞으면‘자리수안맞음‘ 출력
+//		단, 제일앞자리수의값은1~9 사이정수
+//		
+//		ex.
+//		비밀번호입력(1000~9999) : 56555		비밀번호입력(1000~9999) : 1234
+//		자리수안맞음						성공
+//		
+//		비밀번호입력(1000~9999) : 5685
+//		실패
+		Scanner sc=new Scanner(System.in);
+		System.out.print("비밀번호 입력(1000~9999) : ");
+		String pw=sc.next();
+		
+		if((pw.length()!=4)||((int)(pw.charAt(0)-'0')==0)) {
+			System.out.println("자리수 안맞음 or 시작 값이 0임");
+		}else {
+			boolean flag=true;
+			pwFor:
+			for(int i=0;i<pw.length();i++) {
+				for(int j=0; j<i; j++) {
+					if(pw.charAt(i)==pw.charAt(j)) {
+						System.out.println("실패");
+						flag=false;
+						break pwFor;
+					}
+				}
+			}
+			if(flag) System.out.println("성공");
+		}
+		if(pw.equals("exit")) {} else practice11(); 
+	}
 }
