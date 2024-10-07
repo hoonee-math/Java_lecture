@@ -144,7 +144,7 @@ public class ArrayController {
 //		names = {"최광훈","유병승","홍길동"};
 		// 방법2. 가능한 방법 
 		String[] names2 = {"최광훈","유병승","홍길동"};
-		// 방법3. 가능한 방법
+		// 방법3. 가능한 방법, 선언한 이후에 밑에서 다시 사용할 수 있음?! 1007-1325 youtube확인
 		String[] names3;
 		names3 = new String[] {"최광훈","유병승","홍길동"};
 		for(int i=0;i<names3.length;i++) 
@@ -299,6 +299,8 @@ public class ArrayController {
 		String[] cloneCopy = names.clone();
 		System.out.println("cloneCopy : "+Arrays.toString(cloneCopy));
 	}
+	
+	
 }
 
 

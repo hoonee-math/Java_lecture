@@ -3,6 +3,7 @@ package com.array.run;
 import java.util.Scanner;
 
 import com.array.controller.ArrayController;
+import com.array.controller.ArrayDegreeController;
 
 public class Main {
 	public static void main(String[] args) {
@@ -17,6 +18,7 @@ public class Main {
 //		new ArrayController().arrayTest();
 //		new ArrayController().arrayTest2();
 //		new ArrayController().arrayBasic2();
-		new ArrayController().arrayCopy();
+//		new ArrayController().arrayCopy();
+		new ArrayDegreeController().doubleArray();
 	}
 }
