@@ -328,21 +328,52 @@ public class ControlPractice {
 		String pw=sc.next();
 		
 		if((pw.length()!=4)||((int)(pw.charAt(0)-'0')==0)) {
-			System.out.println("자리수 안맞음 or 시작 값이 0임");
+			System.out.println("자리수 안맞음");
 		}else {
 			boolean flag=true;
 			pwFor:
 			for(int i=0;i<pw.length();i++) {
 				for(int j=0; j<i; j++) {
 					if(pw.charAt(i)==pw.charAt(j)) {
-						System.out.println("실패");
+						System.out.println("실패 / 중복값 있음");
 						flag=false;
 						break pwFor;
 					}
 				}
 			}
-			if(flag) System.out.println("성공");
+			if(flag) System.out.println("생성 성공");
 		}
 		if(pw.equals("exit")) {} else practice11(); 
+	}
+
+	public void practice12() {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("비밀번호 입력(1000~9999) : ");
+		int pw=sc.nextInt(); // ex 1223
+		
+		if(pw>9999||pw<1000) {
+			System.out.println("자리수 안맞음");
+		} else {
+			boolean flag=true;
+			
+			pwFor:
+			for(int i=1000 ; i>0 ; i/=10) {
+				int checkNum1=pw/i; //1223 > 1		// 223/100 > 2
+				int remainNum=pw%i; //1223 > 223	// 223%100 > 23
+				
+				for(int j=i/10 ; j>0 ; j/=10) {
+					int checkNum2=remainNum/j; // checkNum2=223/100=2
+					if(checkNum1==checkNum2) { // 1==2
+						System.out.println("실패 / 중복값 있음");
+						flag=false;
+						break pwFor;
+					}
+	                remainNum %= j;	// 223%100=23
+				}
+				pw %= i;	// pw를 1223 에서 223으로 바꿔줌
+			}
+			if(flag) System.out.println("생성 성공");
+		}
+		if(pw==0) {} else practice12(); 
 	}
 }
