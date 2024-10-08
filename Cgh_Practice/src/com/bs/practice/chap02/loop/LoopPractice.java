@@ -431,15 +431,15 @@ public class LoopPractice {
 		int count=0;
 		
 		for(int i=2; i<=iNum;i++) {
-			for(int j=2; j<=(int)Math.sqrt(i); j++)
-				if(i%j==0) break;
+			for(int j=1; j<=(int)Math.sqrt(i); j++) {
+				if(i%j==0&&j>1) break;
 				if(j==((int)Math.sqrt(i))) {
 					count++;
-					System.out.println(i+" ");
+					System.out.print(i+" ");
+				}
 			}
 		}
 	}
-	
 	public void practice18() {
 //		1부터사용자에게입력받은수까지중에서
 //		1) 2와3의배수를모두출력하고
@@ -450,7 +450,7 @@ public class LoopPractice {
 //		자연수하나를입력하세요: 15
 //		 2 3 4 6 8 9 10 12 14 15 
 //		count : 2
-
+		
 	}
 	
 	public void practice19() {
