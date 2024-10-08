@@ -420,25 +420,24 @@ public class LoopPractice {
 	}
 	
 	public void practice17() {
-////		2부터사용자가입력한수까지의소수를모두출력하고소수의개수를출력하세요.
-////		단, 입력한수가2보다작은경우“잘못입력하셨습니다.”를출력하세요.
-////		 ex.
-////		숫자: 11
-////		 2 3 5 7 11 
-////		2부터11까지소수의개수는5개입니다
-//		System.out.print("숫자: ");
-//		int num=sc.nextInt();
-//		
-//		for(int i=2; i<=num;i++) {
-//			if(num>1) { 
-//				for(int j=2;j<(int)Math.sqrt(i)+1;j++) {
-//					if(num%j==0) break;
-//				}
-//			} else {
-//				System.out.println("잘못입력하였습니다.");
-//				practice15();
-//			}
-//		}
+//		2부터사용자가입력한수까지의소수를모두출력하고소수의개수를출력하세요.
+//		단, 입력한수가2보다작은경우“잘못입력하셨습니다.”를출력하세요.
+//		 ex.
+//		숫자: 11
+//		 2 3 5 7 11 
+//		2부터11까지소수의개수는5개입니다
+		System.out.print("숫자: ");
+		int iNum=sc.nextInt();
+		int count=0;
+		
+		for(int i=2; i<=iNum;i++) {
+			for(int j=2; j<=(int)Math.sqrt(i); j++)
+				if(i%j==0) break;
+				if(j==((int)Math.sqrt(i))) {
+					count++;
+					System.out.println(i+" ");
+			}
+		}
 	}
 	
 	public void practice18() {
