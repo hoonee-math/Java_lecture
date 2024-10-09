@@ -24,6 +24,7 @@ public static void main(String[] args) {
 		case 11 : new ControlPractice().practice11(); break;
 		case 110 : new ControlPractice().practice110(); break;
 		case 111 : new ControlPractice().practice111(); break;
+		case 112 : new ControlPractice().practice112(); break;
 		
 		default : System.out.println("유효한 값을 입력하세요!");
 	}

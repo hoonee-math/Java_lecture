@@ -403,4 +403,43 @@ public class ControlPractice {
 	    
 		if(pw==0) {} else practice111(); 
 	}
+	
+	// 민현님 코드
+	public void practice112() {
+		boolean isRound = true;
+		int jaritsu = 1;
+		while (isRound) {
+			boolean isSuccess = true;
+			System.out.print("비밃번호 입력(1000~9999)");
+			int input = sc.nextInt();				// 예를 들어 1223 을 넣어보자
+			if (input % 1000 < 10) {				// 이러면 1010 % 1000 = 10, 자리수 안맞음 뜸
+				System.out.println("자리수 안맞음");
+				isRound = false;
+			} else {
+				qa: for (int j = 10; j < 1000; j = j * 10) { // j는 10일때
+					int num = input % j;			// 1223 % 10 = 3이 나옴.
+					// 1의 자리
+					// 1의 자리일때는 10 100 100
+					// 10의자리
+					// 100의 자리
+					for (int i =j; i <= 10000; i = i * 10) { // j는 10 > i는 10, 100, 1000, 10000까지 >> j는 100 일때 i는 100, 1000, 10000
+						//100으로 나머지 하면 10의 자리
+						//1000으로 나머지 하면 100의 자리
+						//10000으로 나머지 하면 1000의자리가 나오고
+						//(입력값 그대로 나옴)
+						//이걸 다시 나누기로 10의 자리를 10으로 나누면 10의
+						//자릿수의 값
+						if (((input% i)/i) == num) { // 1223 % 10
+							isSuccess = false;
+							break;
+						}
+					}
+				}
+				System.out.println((isSuccess) ? "성공" : "실패:중복있음");
+			}
+			
+			
+			
+		}
+	}
 }
