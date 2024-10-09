@@ -1,6 +1,8 @@
 package com.bs.practice.chap01;
 
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class ControlPractice {
 	
@@ -346,7 +348,7 @@ public class ControlPractice {
 		if(pw.equals("exit")) {} else practice11(); 
 	}
 
-	public void practice12() {
+	public void practice110() {
 		Scanner sc=new Scanner(System.in);
 		System.out.print("비밀번호 입력(1000~9999) : ");
 		int pw=sc.nextInt(); // ex 1223
@@ -374,6 +376,31 @@ public class ControlPractice {
 			}
 			if(flag) System.out.println("생성 성공");
 		}
-		if(pw==0) {} else practice12(); 
+		if(pw==0) {} else practice110(); 
+	}
+	
+	public void practice111() {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("비밀번호 입력(1000~9999) : ");
+		int pw=sc.nextInt(); // ex 1223
+		
+		int thou=pw/1000;
+		int huns=(pw%1000)/100;
+		int tens=(pw%100)/10;
+		int unit=(pw%10);
+		
+		boolean isAllDifferent = 
+				thou==huns|| thou==tens || thou==unit ||
+				huns==tens|| huns==unit || tens==unit;
+		
+		if(pw>9999||pw<1000) {
+			System.out.println("자리수 안맞음");
+	    } else if (!isAllDifferent) {
+	            System.out.println("생성 성공");
+	    } else {
+            System.out.println("실패/중복값 있음");
+        }
+	    
+		if(pw==0) {} else practice111(); 
 	}
 }
