@@ -1,0 +1,20 @@
+package com.obj.run;
+
+import com.obj.model.vo.ConstructorTest;
+
+public class ConstructorMain { //1010-1-3
+	
+	public static void main(String[] args) { //1010-1-4
+		// 생성자 활용하기
+		ConstructorTest ct=new ConstructorTest(); // ConstructorTest() 이렇게 작성된 부분은 기본생성자를 호출한 것임! 
+		int length=ct.title.length();
+		System.out.println(ct.title);
+//		System.out.println(ct);
+		ConstructorTest ct2=new ConstructorTest("매개변수 있는 생성자");
+		System.out.println(ct2.title);
+		// [1010-1-2] 를 주석 처리 하더라도 실행에는 error가 발생하지 않음.
+		// -> 일반적으로 생성자에서는 필드에 대한 초기값을 설정함.
+		ConstructorTest ct3=new ConstructorTest("내가 준 값");
+		System.out.println(ct3.title);
+	}
+}
