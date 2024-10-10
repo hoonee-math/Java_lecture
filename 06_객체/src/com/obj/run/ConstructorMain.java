@@ -25,9 +25,12 @@ public class ConstructorMain { //1010-1-3
 		System.out.println(p.name+" "+p.age+" "+p.height);
 		
 		// 1010-2-8
-		ConstructorTest ct5=new ConstructorTest("안녕",-200,-90.5);
+		ConstructorTest ct5=new ConstructorTest("안녕",-200,90.5);
 		System.out.println(ct5.title+" "+ct5.account+" "+ct5.height);
 	
+		// 1010-5-5
+		ConstructorTest ct6=new ConstructorTest('a');
+		System.out.println(ct6.data+" "+ct6.numData+" "+ct6.weight);
 	}
 }
 

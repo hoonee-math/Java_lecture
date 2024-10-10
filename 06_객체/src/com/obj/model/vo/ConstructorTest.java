@@ -53,10 +53,45 @@ public class ConstructorTest { //1010-1-1
 			account= inputAccount;			
 		}
 		if(inputHeight<0) {
-//			throw new illegalArgumentException("에러에러");
+			throw new IllegalArgumentException("에러에러");
 		}
 		height = inputHeight;
 	}
+	
+	// 1010-4-1
+	public ConstructorTest(String title, double height, long account) {
+		// 매개변수의 이름과 필드명이 동일한 경우
+		// 지역변수에서 title 이라는 변수가 존재하기 때문에 굳이 필드 변수까지 가서 확인하지 않는다!
+		// 필드변수는 필드라고 명시(객체꺼라고) -> this(자기 자신의 주소를 저장하고 있는 예약어
+		// 매개변수(지역변수)의 title 이 아닌 객체가 만들어질때마다 각각의 title 을 가리키는 주소를 가리키기 위해 this 라는 "예약어"를 사용함.
+		this.title  =title;
+		this.height =height;
+		this.account=account;
+	}
+	
+	// 1010-5-1
+	// this 생성자!
+	// this() : 생성자로 선언된 다른 생성자를 호출할 때 사용
+	public char data;
+	public int numData;
+	public double weight;
+	
+	public ConstructorTest(char data) { // 1010-5-2
+		this(data,19); // 아래 생성자(5-3)를 호출함.
+		// this 생성자( this() ) 는 한개만 선언이 가능
+//		this.data=data;
+	}
+	public ConstructorTest(char data, int numData) { // 1010-5-3
+		this(data,numData,10.5);
+		this.data=data;
+		this.numData=numData;
+	}
+	public ConstructorTest(char data, int numData, double weight) { // 1010-5-4
+		this.data=data;
+		this.numData=numData;
+		this.weight=weight;
+	}
+	
 }
 
 

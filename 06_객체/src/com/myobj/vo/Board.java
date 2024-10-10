@@ -13,6 +13,7 @@ public class Board {
 		author = inAutor;
 		content= inContent;
 		date   = inDate;		
+
 	}
 	
 	public void printMessage() {
