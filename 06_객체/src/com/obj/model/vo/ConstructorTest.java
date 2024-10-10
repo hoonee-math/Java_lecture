@@ -2,7 +2,9 @@ package com.obj.model.vo;
 
 public class ConstructorTest { //1010-1-1
 	public String title; //  참조형 자료형 -> nullpointexception
-	
+	public long account;
+	public double height;
+		
 	// 생성자를 선언하기
 	// 접근제한자 클래스명([매개변수...]){}
 	// 생성자의 접근제한자는 필드와 동일
@@ -28,6 +30,7 @@ public class ConstructorTest { //1010-1-1
 		title=inputTitle; // title 은 4번째줄 필드에 선언한 변수
 	}
 	
+	//1010-1-5-6
 	// 생성자는 다수 선언할 수 있다.
 	//  조건: 매개변수 선언시 순서와 타입이 달라야 함.
 //	public ConstructorTest(String test) { // 이러면 1010-1-5 와 같은 타입! 타입이 중요함! 오류 발생
@@ -36,4 +39,33 @@ public class ConstructorTest { //1010-1-1
 	}
 	public ConstructorTest(int a, String test) {
 	}
+	
+	// 1010-2-1
+	// 매개변수 있는 생성자는 '전달 받은 값'(인수)으로 필드를 초기활 할 때 사용
+	public ConstructorTest(String inputTitle, long inputAccount, double inputHeight) {
+		// 아래와 같이 작성해서 사용하면
+		// [1010-2-2]에서 new로 heap 영역에 새 저장소를 생성할 때 초기값을 default로 넣지 않고, 초기값을 선언해 놓을 수 있다!
+		
+		if(inputTitle.length()>2) { // 1010-2-7 일반적으로는 이렇게 사용하지 않지만, setter, getter가면 이걸 많이 사용함.
+			title  = inputTitle;			
+		}
+		if(inputAccount>0) {
+			account= inputAccount;			
+		}
+		if(inputHeight<0) {
+//			throw new illegalArgumentException("에러에러");
+		}
+		height = inputHeight;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+

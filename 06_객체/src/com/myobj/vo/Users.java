@@ -10,4 +10,16 @@ public class Users {	// 이 Users 를 생성했을 때 필요한 저장 공간�
 //	public String hobby;
 	public String[] hobby;
 	
+	
+	// 1010-3-1
+	public Users() {}
+	public Users(String inputId, String inputPw, String inputEmail, int inputAge, String[] inputHobby) {
+		id 		= inputId;
+		pw 		= inputPw;
+		eMail 	= inputEmail;
+		age 	= inputAge;
+		hobby 	= inputHobby;
+	}
+	
+	
 }

@@ -11,6 +11,18 @@ import com.myobj.vo.Users;
 public class Main {
 	
 	public static void main(String[] args) {
+		
+		// 1010-3-2
+		Users m1,m2,m3;
+//		user= new Users("admin","1234","admin@admin.com",55,{"운동","코딩"});
+//		//{"운동","코딩"} 이렇게 쓸 수 있는건 선언과 동시에만 사용할 수 있음.
+		m1= new Users("admin","1234","admin@admin.com",55,new String[] {"운동","코딩"});
+		System.out.println(m1.id+" "+m1.pw+" "+m1.eMail+" "+m1.age+" "+Arrays.toString(m1.hobby));
+		
+		// 1010-3-3
+		String[] hobby2 = {"코딩"};
+		m2= new Users("user01","1111","user01@user01.com",33,hobby2);
+		System.out.println(m2.id+" "+m2.pw+" "+m2.eMail+" "+m2.age+" "+Arrays.toString(m2.hobby));
 
 //		myobject프로젝트를 생성하고
 //		com.myobj.run.Main -> 1, 2, 3 객체를 생성하고 출력하기
@@ -71,8 +83,14 @@ public class Main {
 //		첫번째 글 나야나 첫번째 글쓰다 23/03/10
 //		두번째 글 너야나 두번째 글쓰다 23/03/20
 //		생성 후 출력하기
-		
 		System.out.println("\n====== 2.커뮤니티 사이트 게시판 ======");
+		
+		// 1010-3-5
+		System.out.print("1010-3-5: ");
+		Board bdNew1 = new Board("첫번째 글","나냐나","첫번째 글쓰다","24/10/07");
+		bdNew1.printMessage();
+		Board bdNew2 = new Board("두번째 글","너야너","두번째 글쓰다","24/10/08");
+		
 		Board bd1=new Board();
 		Board bd2=new Board();
 		

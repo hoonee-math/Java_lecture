@@ -1,6 +1,7 @@
 package com.obj.run;
 
 import com.obj.model.vo.ConstructorTest;
+import com.obj.model.vo.Person;
 
 public class ConstructorMain { //1010-1-3
 	
@@ -16,5 +17,24 @@ public class ConstructorMain { //1010-1-3
 		// -> 일반적으로 생성자에서는 필드에 대한 초기값을 설정함.
 		ConstructorTest ct3=new ConstructorTest("내가 준 값");
 		System.out.println(ct3.title);
+		
+		// 1010-2-2
+		ConstructorTest ct4=new ConstructorTest("첫 번째",100,180.5);
+		// 1010-2-4
+		Person p=new Person();
+		System.out.println(p.name+" "+p.age+" "+p.height);
+		
+		// 1010-2-8
+		ConstructorTest ct5=new ConstructorTest("안녕",-200,-90.5);
+		System.out.println(ct5.title+" "+ct5.account+" "+ct5.height);
+	
 	}
 }
+
+
+
+
+
+
+
+
