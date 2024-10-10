@@ -412,7 +412,7 @@ public class ControlPractice {
 			boolean isSuccess = true;
 			System.out.print("비밃번호 입력(1000~9999)");
 			int input = sc.nextInt();				// 예를 들어 1223 을 넣어보자
-			if (input % 1000 < 10) {				// 이러면 1010 % 1000 = 10, 자리수 안맞음 뜸
+			if (input < 1000 || input > 9999) {				// 이러면 1223
 				System.out.println("자리수 안맞음");
 				isRound = false;
 			} else {
@@ -429,17 +429,15 @@ public class ControlPractice {
 						//(입력값 그대로 나옴)
 						//이걸 다시 나누기로 10의 자리를 10으로 나누면 10의
 						//자릿수의 값
-						if (((input% i)/i) == num) { // 1223 % 10
+						int a=((input % (i*10))/i);
+						if (a == num) { // (1223 % (10*10) = 23 > 23 / 10)==2
 							isSuccess = false;
-							break;
+							break qa;
 						}
 					}
 				}
 				System.out.println((isSuccess) ? "성공" : "실패:중복있음");
 			}
-			
-			
-			
 		}
 	}
 }
