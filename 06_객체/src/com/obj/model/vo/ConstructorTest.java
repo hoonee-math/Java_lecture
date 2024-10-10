@@ -84,7 +84,7 @@ public class ConstructorTest { //1010-1-1
 	public ConstructorTest(char data, int numData) { // 1010-5-3
 		this(data,numData,10.5);
 		this.data=data;
-		this.numData=numData;
+//		this.numData=numData;
 	}
 	public ConstructorTest(char data, int numData, double weight) { // 1010-5-4
 		this.data=data;

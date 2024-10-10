@@ -1,6 +1,7 @@
 package com.obj.run;
 
 import com.obj.model.vo.ConstructorTest;
+import com.obj.model.vo.InitTest;
 import com.obj.model.vo.Person;
 
 public class ConstructorMain { //1010-1-3
@@ -31,6 +32,10 @@ public class ConstructorMain { //1010-1-3
 		// 1010-5-5
 		ConstructorTest ct6=new ConstructorTest('a');
 		System.out.println(ct6.data+" "+ct6.numData+" "+ct6.weight);
+		
+		// 1010-6-5
+		InitTest it=new InitTest();
+		InitTest it2=new InitTest("매개변수");
 	}
 }
 
