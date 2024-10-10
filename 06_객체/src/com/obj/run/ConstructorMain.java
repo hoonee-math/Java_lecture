@@ -36,6 +36,14 @@ public class ConstructorMain { //1010-1-3
 		// 1010-6-5
 		InitTest it=new InitTest();
 		InitTest it2=new InitTest("매개변수");
+		
+		// 1010-6-11
+		// static 변수에 접근하기
+		// 클래스명.변수명
+		InitTest.count3=100; // static 변수는 [1010-6-5] 코드가 없어도(InitTest 객체가 만들어지지 않아도) 만들어짐!
+//		it.count3=200; // error: The static field InitTest.count3 should be accessed in a static way
+		// static 변수를 사용할때는 class 명과 함께 사용하자!
+		System.out.println(InitTest.count3);
 	}
 }
 
