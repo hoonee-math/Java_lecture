@@ -30,9 +30,8 @@ public class FieldUseMethod {
 		System.out.println(this.num);
 	}
 	
-	
 	// 1011-2-12
-	public void printAll() {
+	public void printPerson() {
 		System.out.println(this.p.name+" "+this.p.age+" "+this.p.height);
 	}
 	

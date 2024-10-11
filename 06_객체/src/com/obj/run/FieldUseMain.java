@@ -13,7 +13,10 @@ public class FieldUseMain {
 		fum.printNum();
 //		fum.inputPersonData("김민호"); // 1011-2-7 [1011-2-8]처럼 filed 를 객체로 넣어서 사용하면 에러 메시지
 		fum.inputPersonData("최광훈");
-		fum.printAll();
+		fum.printPerson();
+		
+		new FieldUseMethod().inputPersonData("이예진"); 	// 1011-2-13 새로 "이예진"을 저장하며 객체와 필드를 새로 만들어 냄
+		new FieldUseMethod().printPerson();				// 1011-2-14 얘도 새로 만들어짐
 	}
 
 }
