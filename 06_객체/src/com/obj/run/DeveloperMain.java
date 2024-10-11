@@ -1,5 +1,7 @@
 package com.obj.run;
 
+import java.util.Arrays;
+
 import com.obj.model.vo.Developer;
 
 public class DeveloperMain {
@@ -26,5 +28,33 @@ public class DeveloperMain {
 		
 		dev.fixLanguage("파이썬");
 		dev.printLanguage();
+		
+		System.out.println("==== 배열 이용 추가 실습 ====");
+		System.out.print("배열 for문 이용 출력: ");
+		String[] lang = new String[] {"java"};
+		Developer dev1 = new Developer("김개발",10,lang,1000);
+		dev1.printDeveloperArray();
+		
+		System.out.println("");
+		Developer dev2 = new Developer("김개발",0,new String[] {"자바"},1000);
+		dev2.printDeveloperArray();
+		dev2.printIncome();
+		dev2.fixIncome(10);
+		dev2.fixArrayLanguage(new String[] {"파이썬","레드썬"});
+		String[] lang2 = dev2.getArrayLanguage();
+		System.out.println(Arrays.toString(lang2));
+		
+		// 1011-3-2
+		dev2.setYears(-100);
+		dev2.printDeveloperArray();
 	}
 }
+
+
+
+
+
+
+
+
+
