@@ -55,7 +55,53 @@ public class MyMethod { // 1010-7-1
 	// 화면(V)한테 부탁(C) 그러면 사용자한테 입력받은걸 저장하라고 매개변수로 데이터를 넘겨줌(M)
 	// M은 저장 다 하고 나면 C한테 저장 다 했다고 알려줌.
 	// C는 사용자에게 저장 완료 했다고 보여줘야함 (V)
+	
+	// 1011-1-1
+	// 매개변수는 하나의 메소드의 지역변수가 됨.
+	// 매개변수의 이름과 지역변수의 이름이 중복되면 안됨.
+//	public void test1(su) {
+//		String su="십"; // 불가능!
+//		int su=0;
+//	}
+	
+	// 1011-1-2
+	// 반환형을 선언하면 return 반드시 써야함.
+	// return 값 -> 반환하는 값은 한개만 가능!
+//	public int test2() {
+//		int su=100;
+//		int su2=200;
+//		return su,su2; // 불가능!
+//	}
+	public int[] test2() {
+		int su=100;
+		int su2=200;
+		return new int[] {su,su2}; // 배열로 받기!
+	}
+	
+	// 1011-1-3
+	// return 은 반환의 의미 -> 호출한 곳으로 되돌아간다!
+	// 메소드 내부에서 return 을 만나면 로직이 끝나지 않아도 중단된다!
+	// 호출한 곳으로 되돌아감!
+	// return 예약어는 반환형이 없어도 사용이 가능 -> void 일때 사용가능
+	public void test3() {
+		for(int j=0;j<10;j++) {
+			for(int i=0;i<100;i++) {
+				if(i>10) return;
+				System.out.print(i+" ");
+			}
+			System.out.println();
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
 
 
 

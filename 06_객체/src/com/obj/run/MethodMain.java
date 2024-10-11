@@ -29,6 +29,8 @@ public class MethodMain {
 		// 1010-7-12
 		long total=md.calc(20,30);
 		System.out.println(total);
+		
+		md.test3();
 	}
 
 }

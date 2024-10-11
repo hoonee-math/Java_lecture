@@ -101,6 +101,22 @@ public class MethodTest {
 		return result;
 	}
 	
+//	7. 불린 return값을 이용한 반환
+	public boolean duplicated2(String msg) {
+		
+		for(int i=0; i<msg.length(); i++) {
+			char checkNum1=msg.charAt(i);
+			for(int j=i+1; j<msg.length(); j++) {
+				char checkNum2=msg.charAt(j);
+				if(checkNum1==checkNum2) {
+					System.out.println("중복 문자: "+ checkNum1);
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
 }
 
 

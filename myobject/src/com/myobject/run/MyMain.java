@@ -48,6 +48,10 @@ public class MyMain {
 		String inputMsg = sc.next();
 		String checkResult = md.duplicated(inputMsg);
 		System.out.println(checkResult);
+		
+		System.out.println("==== 7 문자열 입력 중복값 체크 ====");
+		boolean isCheck = md.duplicated2(inputMsg);
+		System.out.println(isCheck?"중복있음":"중복없음");
 	}
 
 }
