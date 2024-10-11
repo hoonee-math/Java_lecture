@@ -20,9 +20,6 @@ public class StudentController { // 1011-4-4
 	}
 	
 	//2.학생등록 메소드
-	public void registerSt() {
-		new MainView().stSetting();
-	}
 	
 	//3.학생수정 메소드
 	//4.학생삭제 메소드

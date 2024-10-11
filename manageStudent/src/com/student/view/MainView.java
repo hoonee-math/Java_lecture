@@ -43,25 +43,10 @@ public class MainView {	// 1011-4-1
 	}
 	//2.학생을 입력받는 기능
 	// return을 받으면 매개변수가 없어도 되고, return이 없으면 매개변수를 채워서 값을..
-	public void stSetting() {
-		Scanner sc=new Scanner(System.in);
-		Student st=new Student();	// 이렇게 만들면 지역변수로 사용되고 사라짐!
-		
-		String[] stArray = new String[5];
-		
-		System.out.print("학생이름: ");
-		String name=sc.next();
-		st.setName(name);		
-	}
-	public String stName() {
-		Scanner sc=new Scanner(System.in);
-		Student st=new Student();
-		
-		System.out.print("학생이름: ");
-		String name=sc.next();
-		st.setName(name);
-		return name;
-	}
+	
+	
+	
+	
 	//3.메시지를 출력하는 기능
 	//4.조회항목을 입력받는 기능
 	//5.조회한 결과를 출력해주는 기능
