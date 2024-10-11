@@ -1,4 +1,4 @@
-package com.obj.controller;
+package com.myobject.controller;
 
 import java.util.Scanner;
 
@@ -48,6 +48,19 @@ public class MethodTest {
 		}
 		
 		return msgs;
+	}
+	
+//	5. 배열 활용 방법
+	public String[] printMsgs5() {
+		Scanner sc=new Scanner(System.in);
+		String[] message=new String[5];
+//		String strMessage="";
+		for(int i=0;i<message.length;i++) {
+			System.out.print((i+1)+"번째 메시지: ");
+			message[i] = sc.nextLine();
+//			strMessage += sc.nextLine();
+		}
+		return message;
 	}
 			
 //	6. 숫자두개, 연산자를 전달받아 계산한결과를 반환해주는 기능

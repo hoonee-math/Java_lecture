@@ -1,6 +1,7 @@
 package com.obj.run;
 
 import com.goods.vo.Goods;
+import com.obj.model.vo.Employee;
 
 public class GoodsMain {
 	public static void main(String[] args) {
@@ -38,5 +39,37 @@ public class GoodsMain {
 		goods5.printGoods();
 		Goods goods6=new Goods("아파트34평",40000,"핫핑크",0);
 		goods6.printGoods();
+		
+		
+		
+//		main클래스에서 사원클래스 두개를 (생성)만들고
+//		이름 부서에 각각
+//		유병승 강사부
+//		은세계 학생부 로 등록하고 출력할것
+//		객체는 두개를 생성
+//		사람클래스를 만들어서 활용하자
+//		com.obj.model.vo패키지에 선언
+//		이름, 주소, 전화번호, 키, 몸무게
+//		저장
+//		이름, 주소는 클래스내부에서만 활용가능
+//		전화번호 키, 몸무게는 외부패키지에서 활용가능
+//		두개의 사람클래스를 생성해서
+//		각각
+//		01036446259 180.5 65.5
+//		01012345678 195.5 100.2
+//		저장 후 출력하기
+		Employee em1=new Employee();
+		Employee em2=new Employee();
+		
+		em1.name="유병승";
+		em1.team="강사부";
+		
 	}
 }
+
+
+
+
+
+
+

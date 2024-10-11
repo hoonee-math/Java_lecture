@@ -25,7 +25,7 @@ public class Goods {
 	public String color;
 	
 	static int code=1;
-	public final int goodsCode=code;
+	public final String goodsCode="P_"+code;
 	{
 		code++;
 	}
@@ -79,7 +79,6 @@ public class Goods {
 //	   자동차 800 블랙 0.3
 	
 	public void printGoods() {
-		if(color==null)
 		System.out.println(goodsCode +" "+ name +" "+ price +" "+ color +" "+ sale);
 	}
 }
