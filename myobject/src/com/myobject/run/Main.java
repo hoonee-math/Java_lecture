@@ -1,11 +1,11 @@
-package com.myobj.run;
+package com.myobject.run;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-import com.myobj.vo.Board;
-import com.myobj.vo.Employee;
-import com.myobj.vo.Users;
+import com.myobject.vo.Board;
+import com.myobject.vo.Employee;
+import com.myobject.vo.Users;
 
 // 실행용 클래스
 public class Main {

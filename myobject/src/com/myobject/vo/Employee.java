@@ -1,4 +1,4 @@
-package com.myobj.vo;
+package com.myobject.vo;
 
 public class Employee {
 

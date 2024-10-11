@@ -1,4 +1,4 @@
-package com.myobj.vo;
+package com.myobject.vo;
 
 // 데이터 보관용 클래스, 추상화 목적
 public class Users {	// 이 Users 를 생성했을 때 필요한 저장 공간을 선언하자! 
