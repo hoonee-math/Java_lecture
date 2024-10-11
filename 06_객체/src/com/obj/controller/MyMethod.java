@@ -2,6 +2,8 @@ package com.obj.controller;
 
 import java.util.Scanner;
 
+import com.obj.model.vo.Person;
+
 public class MyMethod { // 1010-7-1
 	// 필드랑 생성자랑 메소드는 접근제한자 종류가 같다.
 	// 메소드는 일반적으로 public 으로 사용한다!
@@ -92,6 +94,56 @@ public class MyMethod { // 1010-7-1
 			System.out.println();
 		}
 	}
+	
+	// 1011-1-4
+	// 참조형 자료형 반환, 매개변수의 인수로 전달하기
+	// 기본자료형과 다른 특징이 있다.
+	// 	기본 자료형: 데이터를 저장
+	// 	참조형 자료형: 주소를 저장
+	public void test4(String name) {
+		name += "아~ 점심 뭐먹지?";
+	}
+	public String test40(String name) {
+		name += "아~ 점심 뭐먹지?";
+		return name;
+	}
+	
+	// 1011-1-6
+	public void test5(String[] names) {
+		names[0]="유병승";
+		names[1]="우민혁";
+		names[2]="양성준";
+	}
+	
+	// 1011-1-8
+	public void personData(Person p) {
+		p.name="이민영";
+		p.age=25;
+		p.height=163.2;
+	}
+	
+	// 1011-1-10
+	// 메소드 static 예약어
+	// 지금까지는 인스턴스 메소드(멤버 메소드)들은 new를 이용해서 새롭게 객체를 생성해서 사용함
+	// 얘 같은 경우에는 클래스명.메소드명() 으로 호출해서 사용 가능 // 1011-1-11
+	public static void test6() {
+		System.out.println("static 메소드 호출");
+	}
+	// 1011-1-12
+	public static String errorMessage(int errorCode) {
+		String message="";
+		switch(errorCode) {
+			case 404: message="페이지를 찾을 수 없습니다."; 			break;
+			case 403: message="이영권한이 없습니다."; 				break;
+			case 500: message="서버상 에러입니다. 관리자에게 문의하세요."; 	break;
+			default : message="나도 모르는 에러"; 					break;
+		}
+		return message;
+	}
+	
+	// 1011-1-14
+	// 멤버 메소드, static 메소드에서 필드 조작하기
+	// FieldUseMethod로 추가!
 }
 
 

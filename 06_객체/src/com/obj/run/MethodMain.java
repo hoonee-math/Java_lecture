@@ -1,6 +1,9 @@
 package com.obj.run;
 
+import java.util.Arrays;
+
 import com.obj.controller.MyMethod;
+import com.obj.model.vo.Person;
 
 public class MethodMain {
 
@@ -31,6 +34,34 @@ public class MethodMain {
 		System.out.println(total);
 		
 		md.test3();
+		System.out.println();
+		
+		// 1011-1-5
+		String data="유병승 ";
+		md.test4(data);	// [1011-1-4] 로 보내면 return 이 없는 test4에서 매개변수로 받으면서 복사가됨. 서로 다른 데이터임.
+		System.out.println(data);
+		md.test40(data);// 
+		System.out.println(data);
+		
+		// 1011-1-7
+		// 이게 얕은 복사임
+		// 메소드 onenote확인
+		String[] datas=new String[5];
+		md.test5(datas);
+		System.out.println(Arrays.toString(datas));
+		
+		// 1011-1-9
+		Person p=new Person("아무개");
+		md.personData(p);
+		System.out.println(p.name+" "+p.age+" "+p.height);
+		
+		// 1011-1-11
+		// static 예약어 사용하기
+		// 클래스명.메소드명()
+		// ex) Math.random() Arrays.toString()
+		MyMethod.test6();
+		// 1011-1-13
+		System.err.println(MyMethod.errorMessage(404));
 	}
 
 }
