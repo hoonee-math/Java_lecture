@@ -81,4 +81,21 @@ public class GetterSetterEx {
 	public void printAll() {
 		System.out.println(empNo+" "+codeM+" "+name+" "+team+" "+level+" "+salary+" "+bonus);
 	}
+	
+	
+	
+	public static int countStatic;	// static 변수로 만든 변수는 getter/setter 도 static 으로 만들어서 사용하자!
+	
+	public static int getCountStatic() {
+		return GetterSetterEx.countStatic;
+	}
+	public static void setCountStatic(int countStatic) {
+		GetterSetterEx.countStatic=countStatic;
+//		empNo=countStatic; // empNo는 new 할때 생성됨. 이 영역 안에서는 얘를 사용하지 못함. static 영역 안에서는 멤버 변수를 사용할 수 없음.
+	}
+	
+	
+	
+	
+	
 }
