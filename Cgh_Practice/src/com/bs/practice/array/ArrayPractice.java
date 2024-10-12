@@ -1,5 +1,6 @@
 package com.bs.practice.array;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayPractice {
@@ -90,6 +91,14 @@ public class ArrayPractice {
 //		ex.
 //		0 ~ 6 사이 숫자 입력 : 4 		0 ~ 6 사이 숫자 입력 : 7
 //		금요일 						잘못 입력하셨습니다.
+		String[] dayOfWeek = new String[] {"월","화","수","목","금","토","일"};
+		System.out.print("0 ~ 6 사이 숫자 입력(7종료): ");
+		Scanner sc= new Scanner(System.in);
+		int scanNum=sc.nextInt();
+		System.out.println(dayOfWeek[scanNum]);
+		
+		if(scanNum==7) return;
+		else practice6();
 	}
 	public void practice7() {
 //		사용자가 배열의 길이를 직접 입력하여 그 값만큼 정수형 배열을 선언 및 할당하고
@@ -103,15 +112,52 @@ public class ArrayPractice {
 //		배열 4번째 인덱스에 넣을 값 : 2
 //		4 -4 3 -3 2 
 //		총 합 : 2
+		Scanner sc=new Scanner(System.in);
+		System.out.print("정수: ");
+		int scanNum=sc.nextInt();
+		int[] arrayN= new int[scanNum];
+		int sum=0;
+		for(int i=0; i<scanNum; i++) {	
+			System.out.print("배열 "+i+"번째 인덱스에 넣을 값 : ");
+			arrayN[i]=sc.nextInt();
+			sum+=arrayN[i];
+		}
+		for(int i=0; i<scanNum; i++) {
+			System.out.print(arrayN[i]+" ");
+		}
+		System.out.println("\n"+Arrays.toString(arrayN));
+		
+		System.out.println("총 합 : "+sum);
 	}
 	public void practice8() {
-//		3이상인 홀수 자연수를 입력 받아 배열의 중간까지는 1부터 1씩 증가하여 오름차순으로 값을 넣고, 중간 이후부터 끝까지는 1씩 감소하여 내림차순으로 값을 넣어 출력하세요. 단, 입력한 정수가 홀수가 아니거나 3 미만일 경우 “다시 입력하세요”를 출력하고
+//		3이상인 홀수 자연수를 입력 받아 배열의 중간까지는 1부터 1씩 증가하여 오름차순으로 값을 넣고, 
+//		중간 이후부터 끝까지는 1씩 감소하여 내림차순으로 값을 넣어 출력하세요. 
+//		단, 입력한 정수가 홀수가 아니거나 3 미만일 경우 “다시 입력하세요”를 출력하고
 //		다시 정수를 받도록 하세요.
 //		ex.
 //		정수 : 4
 //		다시 입력하세요. 정수 : -6
 //		다시 입력하세요. 정수 : 5
 //		1, 2, 3, 2, 1
+		Scanner sc= new Scanner(System.in);
+		System.out.print("홀수 입력: ");
+		int num=sc.nextInt();
+		
+		if(num%2==1) {
+			int[] arrayN = new int[num];
+			for(int i=0; i<num; i++) {
+				if(i<num/2+1) arrayN[i]=i+1;
+				else arrayN[i]=num/2+1-(i-num/2);
+				System.out.print(arrayN[i]+" ");
+			}
+		} else {
+			System.out.print("다시 입력하세요. ");
+			practice8();
+		}
+		
+			
+		
+		
 	}
 	public void practice9() {
 //		사용자가 입력한 값이 배열에 있는지 검색하여
@@ -119,6 +165,22 @@ public class ArrayPractice {
 //		ex.
 //		치킨 이름을 입력하세요 : 양념 치킨 이름을 입력하세요 : 불닭
 //		양념치킨 배달 가능 불닭치킨은 없는 메뉴입니다.
+		Scanner sc=new Scanner(System.in);
+		System.out.println("***** 치킨 메뉴 - 양념, 후라이드 *****");
+		System.out.print("치킨 이름을 입력하세요: ");
+		String inputMenu=sc.next();
+		
+		String[] menuChicken = {"양념", "후라이드"};
+		boolean isContain = false;
+		for(String menu	: menuChicken ) {
+			if(inputMenu.equals(menu)) {
+				System.out.print(inputMenu+"치킨 배달 가능");
+				isContain = true;
+				return;
+			}
+		}
+		if(!isContain) System.out.println(inputMenu+"치킨은 없는 메뉴입니다.");
+		practice9();
 	}
 	public void practice10() {
 //		주민등록번호 성별자리 이후부터 *로 가리고 출력하세요. 단, 원본 배열 값은 변경 없이 배열 복사본으로 변경하세요.
