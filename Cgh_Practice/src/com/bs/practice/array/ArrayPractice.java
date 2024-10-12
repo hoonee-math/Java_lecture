@@ -1,17 +1,33 @@
 package com.bs.practice.array;
 
+import java.util.Scanner;
+
 public class ArrayPractice {
+	
+	public static int runPractice=0;
+	
+	
 	public void practice1() {
 //		길이가 10인 배열을 선언하고 1부터 10까지의 값을 반복문을 이용하여
 //		순서대로 배열 인덱스에 넣은 후 그 값을 출력하세요.
 //		ex.
-//		1 2 3 4 5 6 7 8 9 10
+//		1 2 3 4 5 6 7 8 9 10 
+		int[] intNum = new int[10];
+		for(int i=0; i<10; i++) {
+			intNum[i]=i+1;
+			System.out.print(intNum[i]+" ");
+		}
 	}
 	public void practice2() {
 //		길이가 10인 배열을 선언하고 1부터 10까지의 값을 반복문을 이용하여
 //		역순으로 배열 인덱스에 넣은 후 그 값을 출력하세요.
 //		ex.
 //		10 9 8 7 6 5 4 3 2 1 
+		int[] reverseNum = new int[10];
+		for(int i=0; i<10; i++) {
+			reverseNum[i]=10-i;
+			System.out.print(reverseNum[i]+" ");
+		}
 	}
 	public void practice3() {
 //		사용자에게 입력 받은 양의 정수만큼 배열 크기를 할당하고
@@ -19,12 +35,22 @@ public class ArrayPractice {
 //		ex.
 //		양의 정수 : 5
 //		1 2 3 4 5 
+		System.out.print("양의 정수: ");
+		Scanner sc=new Scanner(System.in);
+		int scanNum = sc.nextInt();
+		int[] intNum = new int[scanNum];
+		for(int i=0; i<scanNum; i++) {
+			intNum[i]=i+1;
+			System.out.print(intNum[i]+" ");
+		}
 	}
 	public void practice4() {
 //		길이가 5인 String배열을 선언하고 “사과”, “귤“, “포도“, “복숭아”, “참외“로 초기화 한 후
 //		배열 인덱스를 활용해서 귤을 출력하세요.
 //		ex.
 //		귤
+		String[] fruit=new String[] {"사과", "귤", "포도", "복숭아", "참외"};
+		System.out.println(fruit[1]);
 	}
 	public void practice5() {
 //		문자열을 입력 받아 문자 하나하나를 배열에 넣고 검색할 문자가 문자열에 몇 개 들어가 있는지
@@ -34,6 +60,28 @@ public class ArrayPractice {
 //		문자 : i
 //		application에 i가 존재하는 위치(인덱스) : 4 8 
 //		i 개수 : 2
+		Scanner sc= new Scanner(System.in);
+		System.out.print("문자열: ");
+		String scanStr = sc.next();
+		char[] arrayStr = new char[scanStr.length()];
+		
+		System.out.print("검색할 문자: ");
+		char findChar = sc.next().charAt(0);
+		
+		for(int i=0; i<scanStr.length(); i++) {
+			arrayStr[i]=scanStr.charAt(i);
+		}
+		
+		System.out.print(scanStr+"에 "+findChar+"가 존재하는 위치(index) : ");
+		int count = 0;
+		for(int i=0; i<scanStr.length(); i++) {
+			if(findChar==arrayStr[i]) {
+				System.out.print(i+" ");
+				count++;
+			}
+		}
+		System.out.println();
+		System.out.println(findChar+ " 개수: "+count);
 	}
 	public void practice6() {
 //		“월“ ~ “일”까지 초기화된 문자열 배열을 만들고 0부터 6까지 숫자를 입력 받아

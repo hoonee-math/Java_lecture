@@ -9,9 +9,17 @@ public class Run {
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		
-		System.out.println("배열 실습 / Cgh_Practice / src / com.bs.practice.array");
-		System.out.print("실행할 실습 문제 번호를 입력하세요: ");
-		int number = sc.nextInt();
+		System.out.println("배열 실습 / Cgh_Practice / src / com.bs.practice.array\n");
+		
+		int number;
+        if (ArrayPractice.runPractice == 0) {
+            System.out.print("실행할 실습 문제 번호를 입력하세요: ");
+            number = sc.nextInt();
+            System.out.println("============ practice"+number+"() 이 실행되었습니다. ============\n");
+        } else {        	
+            number = ArrayPractice.runPractice;
+            System.out.println("============ practice"+number+"() 이 실행되었습니다. ============\n");
+        }
 		
 		switch(number) {
 		case 1 : new ArrayPractice().practice1(); break;
@@ -33,7 +41,7 @@ public class Run {
 		default : System.out.println("유효한 값을 입력하세요!");
 		}
 		
-		System.out.println("프로그램이 종료되었습니다.");
+		System.out.println("\n\n프로그램을 종료합니다.");
 	}
 
 }
