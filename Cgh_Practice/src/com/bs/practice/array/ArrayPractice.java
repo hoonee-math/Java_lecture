@@ -187,12 +187,53 @@ public class ArrayPractice {
 //		ex.
 //		주민등록번호(-포함) : 123456-1234567
 //		123456-1******
-//
-//		메소드 명 : public void practice11(){}
-//		10개의 값을 저장할 수 있는 정수형 배열을 선언 및 할당하고
-//		1~10 사이의 난수를 발생시켜 배열에 초기화한 후 출력하세요.
-//		ex.
-//		9 7 6 2 5 10 7 2 9 6 
+		Scanner sc=new Scanner(System.in);
+		System.out.print("주민등록번호(-포함) : ");
+		String id=sc.next();
+		while(!(id.length()==14)) {
+			System.out.print("잘못 입력하였습니다. 다시 입력해주세요: ");
+			id=sc.next();
+		}
+		char[] idChar=new char[14];
+		for(int i=0; i<14; i++) {
+			idChar[i]=id.charAt(i);
+		}
+		
+		char[] idCopy1 = new char[14];
+		char[] idCopy2 = new char[14];
+		char[] idCopy3 = new char[14];
+		
+		// System.arraycopy 를 이용한 복사
+		System.arraycopy(idChar, 0, idCopy1, 0, idChar.length);
+		// Arrays.copy 를 이용한 복사
+		idCopy2 = Arrays.copyOf(idChar, idChar.length);
+		// clone 을 이용한 복사
+		idCopy3 = idChar.clone();
+		
+		for(int i=7; i<14; i++) {
+			idCopy1[i]='*';
+		}
+		for(int i=7; i<14; i++) {
+			idCopy2[i]='*';
+		}
+		for(int i=7; i<14; i++) {
+			idCopy3[i]='*';
+		}
+		
+		System.out.println("=== 저장된 주민등록번호 출력 ===");
+		System.out.println("System.arraycopy 를 이용한 복사");
+		for(int i=0; i<14; i++) {
+			System.out.print(idCopy1[i]);
+		}
+		System.out.println("\nArrays.copy 를 이용한 복사");
+		for(int i=0; i<14; i++) {
+			System.out.print(idCopy2[i]);
+		}
+		System.out.println("\nclone 을 이용한 복사");
+		for(int i=0; i<14; i++) {
+			System.out.print(idCopy3[i]);
+		}
+		
 	}
 	public void practice11() {
 //		10개의 값을 저장할 수 있는 정수형 배열을 선언 및 할당하고
