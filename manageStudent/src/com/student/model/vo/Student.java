@@ -13,7 +13,7 @@ public class Student { // 1011-4-2
 	private double height;
 	private char gender;
 	
-	// 1011-4-7
+	// 1011-4-7 단축키
 	// 기본생성자 - ctrl+space 뭘 만들지 않았다면 엔터까지 누르면 기본생성자 바로 생성됨.
 	// 매개변수 있는 생성자 - alt+s+a+g // 맥북은 [source] [generate constructor space]
 	// setter/getter 만들기 - alt+s+r+a+r // 맥북은 [source] [generate getter/setter] [select all]
