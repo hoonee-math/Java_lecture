@@ -1,11 +1,12 @@
 package com.bs.practice.array;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ArrayPractice {
 	
-	public static int runPractice=0;
+	public static int runPractice=16;
 	
 	
 	public void practice1() {
@@ -240,6 +241,12 @@ public class ArrayPractice {
 //		1~10 사이의 난수를 발생시켜 배열에 초기화한 후 출력하세요.
 //		ex.
 //		9 7 6 2 5 10 7 2 9 6 
+		int[] randInt = new int[10];
+		Random rd=new Random();
+		for(int i=0; i<10; i++){
+			randInt[i]=rd.nextInt(10)+1;
+		}
+		System.out.println(Arrays.toString(randInt));
 	}
 	public void practice12() {
 //		10개의 값을 저장할 수 있는 정수형 배열을 선언 및 할당하고
@@ -249,17 +256,74 @@ public class ArrayPractice {
 //		5 3 2 7 4 8 6 10 9 10 
 //		최대값 : 10
 //		최소값 : 2
+		int[] randInt = new int[10];
+		Random rd=new Random();
+		for(int i=0; i<10; i++){
+			randInt[i]=rd.nextInt(10)+1;
+		}
+		int min=10, max=0;
+		for(int n : randInt) {
+			if(n<=min)
+				min=n;
+			if(n>=max)
+				max=n;
+		}
+		System.out.println(Arrays.toString(randInt));
+		System.out.println("최댓값 : "+max);
+		System.out.println("최솟값 : "+min);
 	}
 	public void practice13() {
 //		10개의 값을 저장할 수 있는 정수형 배열을 선언 및 할당하고
 //		1~10 사이의 난수를 발생시켜 중복된 값이 없게 배열에 초기화한 후 출력하세요.
 //		ex.
 //		4 1 3 6 9 5 8 10 7 2 
+		int[] randInt = new int[10];
+		Random rd=new Random();
+		for(int i=0; i<10; i++){
+			randInt[i]=rd.nextInt(10)+1;
+			if(i>1) {
+				for(int j=0; j<i; j++) {
+					if(randInt[i]==randInt[j]) {
+						randInt[i]=rd.nextInt(10)+1;
+						j=-1;	// for문을 처음부터 다시 실행시킴!
+					}
+				}
+				
+			}
+		}
+		System.out.println(Arrays.toString(randInt));
 	}
 	public void practice14() {
 //		로또 번호 자동 생성기 프로그램을 작성하는데 중복 값 없이 오름차순으로 정렬하여 출력하세요.
 //		ex.
 //		3 4 15 17 28 40 
+		int[] randInt = new int[5];
+		Random rd=new Random();
+		for(int i=0; i<5; i++){
+			randInt[i]=rd.nextInt(45)+1;
+			if(i>1) {
+				for(int j=0; j<i; j++) {
+					if(randInt[i]==randInt[j]) {
+						randInt[i]=rd.nextInt(45)+1;
+						j=-1;	// for문을 처음부터 다시 실행시킴!
+					}
+				}
+			}
+		}
+//		5 3 2 1 7
+		// 오름차순 정렬 코드
+		for(int i=0; i<5; i++) {
+			int temp = 0;
+			for(int j=0; j<5 ; j++) {
+				if(i==j) continue;
+				if(randInt[i]<randInt[j]) {
+					temp=randInt[i];
+					randInt[i]=randInt[j];
+					randInt[j]=temp;
+				}
+			}			
+		}
+		System.out.println(Arrays.toString(randInt));
 	}
 	public void practice15() {
 //		문자열을 입력 받아 문자열에 어떤 문자가 들어갔는지 배열에 저장하고
@@ -268,10 +332,27 @@ public class ArrayPractice {
 //		문자열 : application
 //		문자열에 있는 문자 : a, p, l, i, c, t, o, n
 //		문자 개수 : 8
+		System.out.print("문자열: ");
+		Scanner sc= new Scanner(System.in);
+		String input = sc.next();
+		char[] arrayS = new char[input.length()];
+		// 배열에 각 문자 저장
+		System.out.print("문자열에 있는 문자 : ");
+		for(int i=0; i<input.length();i++) {
+			arrayS[i]=input.charAt(i);
+			System.out.print(arrayS[i]);
+			if(i!=input.length()-1) {
+				System.out.print(", ");
+			}
+		}
+		System.out.println("\n문자 개수 : "+arrayS.length);
 	}
 	public void practice16() {
 //		사용자가 입력한 배열의 길이만큼의 문자열 배열을 선언 및 할당하고
-//		배열의 인덱스에 넣을 값 역시 사용자가 입력하여 초기화 하세요. 단, 사용자에게 배열에 값을 더 넣을지 물어보고 몇 개를 더 입력할 건지, 늘린 곳에 어떤 데이터를 넣을 것인지 받으세요. 사용자가 더 이상 입력하지 않겠다고 하면 배열 전체 값을 출력하세요.
+//		배열의 인덱스에 넣을 값 역시 사용자가 입력하여 초기화 하세요. 
+//		단, 사용자에게 배열에 값을 더 넣을지 물어보고 몇 개를 더 입력할 건지, 
+//			늘린 곳에 어떤 데이터를 넣을 것인지 받으세요. 
+//		사용자가 더 이상 입력하지 않겠다고 하면 배열 전체 값을 출력하세요.
 //		[출력 예시 다음 장]
 //
 //		ex.
@@ -288,5 +369,56 @@ public class ArrayPractice {
 //		6번째 문자열 : 영단어600
 //		더 값을 입력하시겠습니까?(Y/N) : n
 //		[자바의 정석, 알고리즘, C프로그래밍, 인간관계, 자기계발, 영단어600]
+		Scanner sc=new Scanner(System.in);
+		System.out.print("배열의 크기를 입력하세요 : ");
+		int leng=sc.nextInt();
+		String[] arrayS=new String[leng];
+		
+		int inputM=leng; // 처음에는 leng 개만큼 입력받고 나중에는 moreN 개만큼씩 추가로 더 입력받기.
+		int moreN = 0;
+		
+		boolean more = true;
+		while(more) {
+			for(int i=0; i<inputM; i++) {
+				if(moreN==0) { // 추가로 입력받은 적이 없는 경우
+					System.out.print((i+1)+"번째 문자열 : ");
+					arrayS[i]=sc.next();
+				} else {
+					System.out.print((leng-moreN+i+1)+"번째 문자열 : ");
+					arrayS[leng-moreN+i] = sc.next();
+				}
+			}
+			System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+			char moreS = sc.next().charAt(0);
+			if(moreS=='y'||moreS=='Y') {
+				System.out.print("더 입력하고 싶은 개수 : ");
+				moreN = sc.nextInt();
+				inputM=moreN; // 새로 입력받을 문자열 개수를 for문에서 돌릴 변수에 저장
+				leng+=moreN;
+				System.out.println("leng = "+leng);
+				String[] arrayCopy = new String[leng];
+				arrayCopy = arrayS.clone();
+			
+				arrayS=new String[leng];
+				System.arraycopy(arrayCopy, 0, arrayS, 0, leng-moreN);
+				
+				// 로그 확인용 출력
+//				System.out.println("arrayCopy.length 길이 : "+ arrayCopy.length);
+//				System.out.println(Arrays.toString(arrayCopy));
+//				System.out.println("arrayS.length 길이 : " + arrayS.length);
+//				System.out.println(Arrays.toString(arrayS));
+			}	else {
+				more = false;
+				System.out.println(Arrays.toString(arrayS));
+			}
+		}
 	}
 }
+
+
+
+
+
+
+
+
