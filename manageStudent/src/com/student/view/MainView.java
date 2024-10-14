@@ -43,7 +43,34 @@ public class MainView {	// 1011-4-1
 	}
 	//2.학생을 입력받는 기능
 	// return을 받으면 매개변수가 없어도 되고, return이 없으면 매개변수를 채워서 값을..
-	
+//	// static 영역에 arrayStudent 배열 선언
+//	static String[] arrayStudent=new String[8];
+//	// 현재 저장되어있는(현재까지 생성된 학생수+1) studentNo 를 받아오고 새로운 학생 정보 등록
+//	public String[] registMenu(int studentCount) {
+//		Scanner sc=new Scanner(System.in);
+//		int studentNo=0;
+//		System.out.print("학생 이름: ");
+//		String name=sc.next();
+//		System.out.print("나이: ");
+//		int age=0;
+//		System.out.print("학년: ");
+//		int grade=0;
+//		System.out.print("반: ");
+//		int classNumber=0;
+//		System.out.print("전화번호: ");
+//		String phone="";
+//		System.out.print("주소: ");
+//		String address="";		
+//		System.out.print("키: ");
+//		double height=0.0;
+//		System.out.print("성별: ");
+//		char gender=' ';
+//		Student student= new Student(studentNo, name, age, grade, classNumber, phone, address,
+//				height, gender);
+//		arrayStudent[studentNo]= {name, age, grade, classNumber, phone, address,
+//				 height, gender};
+//		return arrayStudent;
+//	}
 	
 	
 	
