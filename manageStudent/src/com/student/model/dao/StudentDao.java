@@ -57,6 +57,7 @@ public class StudentDao {
 			return studentNo+"번 학생은 존재하지 않습니다.";
 		}
 	}
+	
 	public String searchStudentByGrade(int grade) {
 		String result = "";
 		
@@ -71,6 +72,54 @@ public class StudentDao {
 		} 
 		if(result.equals("")) result=grade+"학년 학생은 존재하지 않습니다.";
 		return result;
+	}
+	
+	// 학생 정보 수정을 위한 메소드
+	public String modifyStudentInfo(int studentNo,int modifyNo, String modifyInfo) {
+		
+		switch(studentNo) {
+		case 1 : {
+				switch(modifyNo) {
+				// 학년(1), 반(2), 전화번호(3), 주소(4) + 내용
+					case 1 : int grade = (int)(modifyInfo.charAt(0)-'0'); s.setGrade(grade); break;
+					case 2 : int classNumber = (int)(modifyInfo.charAt(0)-'0'); s.setGrade(classNumber); break;
+					case 3 : s.setPhone(modifyInfo); break;
+					case 4 : s.setAddress(modifyInfo); break;
+					default : return "잘못된 입력입니다.";
+				}				
+			}; return s.infoStudent();
+		case 2 : {
+				switch(modifyNo) {
+				// 학년(1), 반(2), 전화번호(3), 주소(4) + 내용
+					case 1 : int grade = (int)(modifyInfo.charAt(0)-'0'); s1.setGrade(grade); break;
+					case 2 : int classNumber = (int)(modifyInfo.charAt(0)-'0'); s1.setGrade(classNumber); break;
+					case 3 : s1.setPhone(modifyInfo); break;
+					case 4 : s1.setAddress(modifyInfo); break;
+					default : return "잘못된 입력입니다.";
+				}
+			}; return s1.infoStudent();
+		case 3 : {
+				switch(modifyNo) {
+				// 학년(1), 반(2), 전화번호(3), 주소(4) + 내용
+					case 1 : int grade = (int)(modifyInfo.charAt(0)-'0'); s2.setGrade(grade); break;
+					case 2 : int classNumber = (int)(modifyInfo.charAt(0)-'0'); s2.setGrade(classNumber); break;
+					case 3 : s2.setPhone(modifyInfo); break;
+					case 4 : s2.setAddress(modifyInfo); break;
+					default : return "잘못된 입력입니다.";
+				}
+			}; return s2.infoStudent();
+		}
+		
+		
+		return "잘못된 입력입니다.";
+	}
+	
+	public Student[] insertExample() {
+		Student[] students = new Student[3];
+		students[0] = new Student("유병승",19,1,5,"010-1234-1234","경기도 안산",180.5,'남');
+		students[1] = new Student("최광훈",33,2,6,"010-1234-5678","충남 천안",173.5,'남');
+		students[2] = new Student("오민현",20,3,7,"010-9876-5432","서울",190,'남');
+		return students;
 	}
 	
 }

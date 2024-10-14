@@ -50,7 +50,6 @@ public class StudentController {
 		// 2. 입력된 번호와 일치하는 학생을 조회
 		//  결과가 하나밖에 안나오기 때문에 객체 자체를 그대로 받아서 출력해줘도 됨.
 		view.printStudents(dao.searchStudentByNumber(studentNo));
-	
 	}
 	
 	// 학년으로조회 메소드
@@ -58,6 +57,30 @@ public class StudentController {
 		// 1. 조회 학년을 입력
 		int grade = view.inputStudentGrade();
 		view.printStudents(dao.searchStudentByGrade(grade));
+	}
 	
+	// 학생 정보 수정 기능
+	public void modifyStudentInfo() {
+		// 학생 번호로 조회 메소드 실행시키기
+		int studentNo = view.inputStudentNum(this,"조회");
+		// view.inputModiyStudentInfo() 로 받아온 문자열 분리, 수정사항 번호, 내용
+		// 학년(1), 반(2), 전화번호(3), 주소(4) + 내용
+		String inputModifyStudentInfo = view.inputModiyStudentInfo();
+		int modifyNo = (int)(inputModifyStudentInfo.charAt(0)-'0');
+		System.out.println("수정할 학생 번호: "+modifyNo);
+		String modifyInfo = inputModifyStudentInfo.substring(1, inputModifyStudentInfo.length());
+		System.out.println("변경할 내용: "+modifyInfo);
+		view.printStudents(dao.searchStudentByNumber(studentNo));
+		// 
+		String result = dao.modifyStudentInfo(studentNo,modifyNo,modifyInfo);
+	}
+	
+	// 학생 정보 기본 예시 입력
+	public void insertExample() {
+		Student[] students = dao.insertExample();
 	}
 }
+
+
+
+

@@ -19,16 +19,18 @@ public class MainView {
 			System.out.println("5. 학생 번호로 조회");
 			System.out.println("6. 학년으로 조회");
 			System.out.println("7. 이름으로 조회"); // 포함이 아니라, 정확히 일치하는지!
+			System.out.println("9. 기본 예제 자동 입력");
 			System.out.println("0. 프로그램 종료");
 			System.out.print("선택: ");
 			int choiceMenu=sc.nextInt();
 			switch(choiceMenu) {
 				case 1: studentController.insertStudent(); break; 
-				case 2: System.out.println("개발중...."); break;
+				case 2: studentController.modifyStudentInfo(); break;
 				case 3: studentController.deleteStudent(); break;
 				case 4: studentController.searchAllStudents(); break;
 				case 5: studentController.searchStudentByNumber(); break;
 				case 6: studentController.searchStudentByGrade(); break;
+				case 9: studentController.insertExample(); break;
 				case 0: System.out.println("프로그램을 종료합니다. :)"); return;
 				// return 하면 호출한 곳으로 되돌아감!
 				default : break;
@@ -79,9 +81,6 @@ public class MainView {
 		System.out.println("=====================\n");
 	}
 	
-	//4.조회항목을 입력받는 기능
-	//5.조회한 결과를 출력해주는 기능
-	
 	// 삭제할 학생 번호 입력 받아 반환하기!
 	public int inputStudentNum(StudentController studentController, String title) {
 		System.out.println("===== 학생 "+title+" =====");
@@ -104,6 +103,17 @@ public class MainView {
 		System.out.println("=====================\n");
 	}
 	
+	// 수정할 항목, 대체 정보 입력 받기
+	public String inputModiyStudentInfo() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("---- 수정할 항목/내용 ----");
+		System.out.println("학년(1), 반(2), 전화번호(3), 주소(4)");
+		System.out.println("수정할 항목 선택 : ");
+		String result = sc.next();
+		System.out.println("수정 내용 입력 : ");
+		result += sc.next();
+		return result;
+	}
 	
 	
 }
