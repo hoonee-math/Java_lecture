@@ -2,8 +2,10 @@ package com.student.view;
 
 import java.util.Scanner;
 
+import com.student.controller.StudentController;
 import com.student.model.vo.Student;
 
+// 나중에 html 로 빠질 영역, jsp 화면
 public class MainView {	// 1011-4-1
 	// 1011-4-10 view 설계
 	//1.메뉴를 출력하는 기능
@@ -29,7 +31,7 @@ public class MainView {	// 1011-4-1
 			System.out.print("선택: ");
 			int choiceMenu=sc.nextInt();
 			switch(choiceMenu) {
-				case 1: System.out.println("개발중...."); break;
+				case 1: new StudentController().insertStudent(); break;
 				case 2: System.out.println("개발중...."); break;
 				case 3: System.out.println("개발중...."); break;
 				case 4: System.out.println("개발중...."); break;
@@ -43,36 +45,39 @@ public class MainView {	// 1011-4-1
 	}
 	//2.학생을 입력받는 기능
 	// return을 받으면 매개변수가 없어도 되고, return이 없으면 매개변수를 채워서 값을..
-//	// static 영역에 arrayStudent 배열 선언
-//	static String[] arrayStudent=new String[8];
-//	// 현재 저장되어있는(현재까지 생성된 학생수+1) studentNo 를 받아오고 새로운 학생 정보 등록
-//	public String[] registMenu(int studentCount) {
-//		Scanner sc=new Scanner(System.in);
-//		int studentNo=0;
-//		System.out.print("학생 이름: ");
-//		String name=sc.next();
-//		System.out.print("나이: ");
-//		int age=0;
-//		System.out.print("학년: ");
-//		int grade=0;
-//		System.out.print("반: ");
-//		int classNumber=0;
-//		System.out.print("전화번호: ");
-//		String phone="";
-//		System.out.print("주소: ");
-//		String address="";		
-//		System.out.print("키: ");
-//		double height=0.0;
-//		System.out.print("성별: ");
-//		char gender=' ';
-//		Student student= new Student(studentNo, name, age, grade, classNumber, phone, address,
-//				height, gender);
-//		arrayStudent[studentNo]= {name, age, grade, classNumber, phone, address,
-//				 height, gender};
-//		return arrayStudent;
-//	}
-	
-	
+	// 1014-1-1 youtube 0908
+	// 매개변수로 student 를 받으면 반환형이 없어도 됨. ㅇㅇㅇㅇ
+	// 외부에서 받은 생성된 객체에 값을 넣으주느냐? 일반적으로는 반환형이 있도록 만들어줌. ㅇㅇㅇ
+	public Student inputStudent() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("===== 학생 등록 =====");
+//		// 1014-1-6 입력받을 때는 default 를 생성해서 setter로 해서 집어넣을 수도 있음.
+//		Student st1=new Student();
+		
+		System.out.print("학생 이름: ");
+		String name=sc.nextLine(); // sc.nextLine() 도 String 을 return 받는 method
+//		st1.setName(sc.nextLine()); // 1014-1-6 이렇게 입력받을 수 있음.
+		System.out.print("나이: ");
+		int age=sc.nextInt();
+		System.out.print("학년(1~3): ");
+		int grade=sc.nextInt();
+		System.out.print("반: ");
+		int classNumber=sc.nextInt();
+		sc.nextLine(); //nextInt로  받았던전례가 있기 때문에 다음 nextLine 을 받기 전에 공란을 만들어줌
+		System.out.print("전화번호: ");
+		String phone=sc.nextLine();
+		System.out.print("주소: ");
+		String address=sc.nextLine();        
+		System.out.print("키: ");
+		double height=sc.nextDouble();
+		System.out.print("성별(남/여): ");
+		char gender=sc.next().charAt(0);
+		
+		// 1014-1-2
+		Student s=new Student(name, age, grade, classNumber, phone, address,
+				height, gender);
+		return s;
+	}
 	
 	//3.메시지를 출력하는 기능
 	//4.조회항목을 입력받는 기능

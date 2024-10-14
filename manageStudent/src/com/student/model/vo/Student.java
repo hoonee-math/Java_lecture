@@ -1,5 +1,6 @@
 package com.student.model.vo;
 
+// 학생 한명에 대한 정보들을 종합적으로 저장하는 클래스
 public class Student { // 1011-4-2
 	// 1011-4-6 추상화! 하기
 	private static int studentCount; // 학생 번호를 자동으로 부여하기 위한 작업
@@ -25,10 +26,14 @@ public class Student { // 1011-4-2
 	
 	public Student() {}
 
-	public Student(int studentNo, String name, int age, int grade, int classNumber, String phone, String address,
+//	// 1014-1-3 이건 단축키를 이용해서 자동 생성한 것임. studentNo가 있으면 안되겠죠?
+//	public Student(int studentNo, String name, int age, int grade, int classNumber, String phone, String address,
+//			double height, char gender) {
+	public Student(String name, int age, int grade, int classNumber, String phone, String address,
 			double height, char gender) {
 //		super(); // 나중에 상속할때 필요한거 일단 지우자
-		this.studentNo = studentNo;
+		// 1014-1-4
+//		this.studentNo = studentNo;
 		this.name = name;
 		this.age = age;
 		this.grade = grade;
@@ -52,9 +57,10 @@ public class Student { // 1011-4-2
 		return studentNo;
 	}
 
-	public void setStudentNo(int studentNo) {
-		this.studentNo = studentNo;
-	}
+//	// 1014-1-5 학생 번호는 수정되면 안됨
+//	public void setStudentNo(int studentNo) {
+//		this.studentNo = studentNo;
+//	}
 
 	public String getName() {
 		return name;
@@ -120,6 +126,16 @@ public class Student { // 1011-4-2
 		this.gender = gender;
 	}
 	
+	// 1014-1-11 학생 정보를 출력해주는 기능 만들어 두기
+	// getter 메소드를 호출하는 것보다는 직접 접근해서 가져오는 것이 효율 적임.
+	// 상속관계에 있거나, private 로 닫혀 있을 때는 method 사용해야 되긴 함.
+	public String infoStudent() {
+		return this.studentNo+" "+this.name
+				+" "+this.age+" "+this.grade
+				+" "+this.classNumber+" "+this.phone
+				+" "+this.address+" "+this.height
+				+" "+this.gender;
+	}
 	
 	
 }
