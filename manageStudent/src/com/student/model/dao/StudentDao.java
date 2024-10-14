@@ -74,8 +74,6 @@ public class StudentDao { // 1011-4-3
 	public String searchStudentByGrade(int grade) {
 		String result = "";
 		
-		
-		
 		if(s!=null && grade == s.getGrade()) {
 			result += s.infoStudent()+"\n";
 		} 

@@ -26,11 +26,12 @@ public class MainView {	// 1011-4-1
 		while(true) {
 			System.out.println("==== 학생관리 프로그램 v1 ====");
 			System.out.println("1. 학생등록");
-			System.out.println("2. 학생수정");
+			System.out.println("2. 학생수정(학년, 반, 전화번호, 주소");
 			System.out.println("3. 학생삭제");
 			System.out.println("4. 전체조회");
 			System.out.println("5. 학생 번호로 조회");
 			System.out.println("6. 학년으로 조회");
+			System.out.println("7. 이름으로 조회"); // 포함이 아니라, 정확히 일치하는지!
 			System.out.println("0. 프로그램 종료");
 			System.out.print("선택: ");
 			int choiceMenu=sc.nextInt();
