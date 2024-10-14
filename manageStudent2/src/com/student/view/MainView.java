@@ -5,7 +5,17 @@ import java.util.Scanner;
 import com.student.controller.StudentController;
 import com.student.model.vo.Student;
 
-public class MainView {	
+// 나중에 html 로 빠질 영역, jsp 화면
+public class MainView {	// 1011-4-1
+	// 1014-1-28
+//	private StudentController studentController = new StudentController();
+	// 1011-4-10 view 설계
+	//1.메뉴를 출력하는 기능
+	//2.학생을 입력받는 기능
+	//3.메시지를 출력하는 기능
+	//4.조회항목을 입력받는 기능
+	//5.조회한 결과를 출력해주는 기능
+	// 이것들을 메소드로 만들자!
 
 	// 1011-4-11
 	//1.메뉴를 출력하는 기능
