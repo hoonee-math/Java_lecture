@@ -40,7 +40,7 @@ public class MainView {	// 1011-4-1
 				case 1: studentController.insertStudent(); break; // 1014-1-29
 				case 2: System.out.println("개발중...."); break;
 				case 3: System.out.println("개발중...."); break;
-				case 4: System.out.println("개발중...."); break;
+				case 4: studentController.searchAllStudents(); break;
 				case 5: System.out.println("개발중...."); break;
 				case 6: System.out.println("개발중...."); break;
 				case 0: System.out.println("프로그램을 종료합니다. :)"); return;
@@ -92,6 +92,16 @@ public class MainView {	// 1011-4-1
 		System.out.println(msg);
 		System.out.println("=====================");
 	}
+	
+	// 1014-2-3
+	public void printAllStudents(String students) {
+		System.out.println("===== 학생조회 결과 =====");
+		if(!students.equals(""))
+			System.out.println(students);
+		else System.out.println("조회할 학생이 없습니다.");
+		System.out.println("=====================");
+	}
+	
 	//4.조회항목을 입력받는 기능
 	//5.조회한 결과를 출력해주는 기능
 	// 이것들을 메소드로 만들자!

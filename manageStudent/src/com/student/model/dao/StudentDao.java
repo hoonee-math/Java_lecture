@@ -25,4 +25,17 @@ public class StudentDao { // 1011-4-3
 		else return false; // 저장공간이 부족하면 else에 빠짐. flase
 		return true; // else 에 빠지지 않으면 true 
 		}
+	
+	// 1014-2-1 전체 데이터 전달해주기!
+	public String searchAllStudents() {
+		String infoAll="";
+		
+		// null 인걸 고려하지 않으면 null point exception 이 뜸.
+		if(s!=null) infoAll+=s.infoStudent()+"\n";
+		if(s1!=null) infoAll+=s1.infoStudent()+"\n";
+		if(s2!=null) infoAll+=s2.infoStudent()+"\n";
+		
+		return infoAll;
+	}
+	
 }

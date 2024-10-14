@@ -64,10 +64,15 @@ public class StudentController { // 1011-4-4
 		view.printMessage(msg); // 1014-1-39 사용자에게 보여줄 view 화면에 기능을 추가함.
 	}
 	
-	//3.학생수정 메소드
-	//4.학생삭제 메소드
-	//5.전체조회 메소드
-	//6.이름으로조회 메소드
-	//7.학년으로조회 메소드
+	//3. 2 학생수정 메소드
+	//4. 3 학생삭제 메소드
+	//5. 4 전체조회 메소드
+	// 1014-2-2 
+	public void searchAllStudents() {
+		String result = dao.searchAllStudents();
+		view.printAllStudents(result);
+	}
+	//6. 5 이름으로조회 메소드
+	//7. 6 학년으로조회 메소드
 	
 }
