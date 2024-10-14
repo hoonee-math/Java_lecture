@@ -60,4 +60,33 @@ public class StudentDao { // 1011-4-3
 		return true;
 	}
 	
+	public String searchStudentByNumber(int studentNo) {
+		if(s!=null && studentNo == s.getStudentNo()) {
+			return s.infoStudent();
+		} else if(s1!=null && studentNo == s1.getStudentNo()) {
+			return s1.infoStudent();
+		} else if(s2!=null && studentNo == s2.getStudentNo()) {
+			return s2.infoStudent();
+		} else {
+			return studentNo+"번 학생은 존재하지 않습니다.";
+		}
+	}
+	public String searchStudentByGrade(int grade) {
+		String result = "";
+		
+		
+		
+		if(s!=null && grade == s.getGrade()) {
+			result += s.infoStudent()+"\n";
+		} 
+		if(s1!=null && grade == s1.getGrade()) {
+			result += s1.infoStudent()+"\n";
+		} 
+		if(s2!=null && grade == s2.getGrade()) {
+			result += s2.infoStudent()+"\n";
+		} 
+		if(result.equals("")) result=grade+"학년 학생은 존재하지 않습니다.";
+		return result;
+	}
+	
 }

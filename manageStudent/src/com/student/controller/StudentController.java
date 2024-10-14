@@ -76,7 +76,7 @@ public class StudentController { // 1011-4-4
 		// 여기서는 매개변수로 현재 객체 자체를 받아오기 위해 this를 사용함.
 //		this.searchAllStudents();
 		// 1014-3-3 2.학생 번호 입력
-		int studentNo = view.inputStudentNum(this);  
+		int studentNo = view.inputStudentNum(this,"삭제");  
 		// 1014-3-6 3.학생 삭제 ->dao
 		boolean result = dao.deleteStudent(studentNo);
 		// 1014-3-7 4.삭제 출력
@@ -87,9 +87,25 @@ public class StudentController { // 1011-4-4
 	// 1014-2-2 
 	public void searchAllStudents() {
 		String result = dao.searchAllStudents();
-		view.printAllStudents(result);
+		view.printStudents(result);
 	}
-	//6. 5 이름으로조회 메소드
-	//7. 6 학년으로조회 메소드
+	//6. 5 학생 번호로조회 메소드
+	public void searchStudentByNumber() {
+		// 1. 조회번호를 입력
+		int studentNo = view.inputStudentNum(this,"조회");
+		// 2. 입력된 번호와 일치하는 학생을 조회
+		//  결과가 하나밖에 안나오기 때문에 객체 자체를 그대로 받아서 출력해줘도 됨.
+		view.printStudents(dao.searchStudentByNumber(studentNo));
 	
+	}
+	
+	//7. 6 학년으로조회 메소드
+	public void searchStudentByGrade() {
+		// 1. 조회번호를 입력
+		int grade = view.inputStudentGrade();
+		// 2. 입력된 번호와 일치하는 학생을 조회
+		//  결과가 하나밖에 안나오기 때문에 객체 자체를 그대로 받아서 출력해줘도 됨.
+		view.printStudents(dao.searchStudentByGrade(grade));
+	
+	}
 }

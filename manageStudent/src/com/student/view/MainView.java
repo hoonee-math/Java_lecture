@@ -41,8 +41,8 @@ public class MainView {	// 1011-4-1
 				case 2: System.out.println("개발중...."); break;
 				case 3: studentController.deleteStudent(); break;
 				case 4: studentController.searchAllStudents(); break;
-				case 5: System.out.println("개발중...."); break;
-				case 6: System.out.println("개발중...."); break;
+				case 5: studentController.searchStudentByNumber(); break;
+				case 6: studentController.searchStudentByGrade(); break;
 				case 0: System.out.println("프로그램을 종료합니다. :)"); return;
 				// return 하면 호출한 곳으로 되돌아감!
 				default : break;
@@ -94,7 +94,7 @@ public class MainView {	// 1011-4-1
 	}
 	
 	// 1014-2-3
-	public void printAllStudents(String students) {
+	public void printStudents(String students) {
 		System.out.println("===== 학생조회 결과 =====");
 		if(!students.equals(""))
 			System.out.println(students);
@@ -107,20 +107,28 @@ public class MainView {	// 1011-4-1
 	// 이것들을 메소드로 만들자!
 	
 	// 1014-3-2 삭제할 학생 번호 입력 받아 반환하기!
-	public int inputStudentNum(StudentController studentController) {
-		System.out.println("===== 학생삭제 기능 =====");
+	public int inputStudentNum(StudentController studentController, String title) {
+		System.out.println("===== 학생 "+title+" =====");
 		studentController.searchAllStudents();
-		System.out.println("삭제할 학생 번호 : ");
+		System.out.println(title+"할 학생 번호 : ");
 		Scanner sc=new Scanner(System.in);
 		return sc.nextInt();
 	}
 	
+	public int inputStudentGrade() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("==== 학년으로 전체 학생 조회 ====");
+		System.out.println("조회할 학년 : ");
+		return sc.nextInt();
+	}
+	
 	public void deleteStudent(String msg) {
-		
 		System.out.println("===== 학생삭제 결과 =====");
 		System.out.println(msg);
 		System.out.println("=====================\n");
 	}
+	
+	
 	
 }
 
