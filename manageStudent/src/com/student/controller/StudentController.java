@@ -62,22 +62,33 @@ public class StudentController {
 	// 학생 정보 수정 기능
 	public void modifyStudentInfo() {
 		// 학생 번호로 조회 메소드 실행시키기
-		int studentNo = view.inputStudentNum(this,"조회");
-		// view.inputModiyStudentInfo() 로 받아온 문자열 분리, 수정사항 번호, 내용
-		// 학년(1), 반(2), 전화번호(3), 주소(4) + 내용
+		int studentNo = view.inputStudentNum(this,"수정");
+		
+		// view.inputModiyStudentInfo() 로 받아온 문자열 분리, 수정사항 번호, 내용 // 학년(1), 반(2), 전화번호(3), 주소(4) + 내용
 		String inputModifyStudentInfo = view.inputModiyStudentInfo();
+		
+		// 수정할 항목 번호로 저장 modifyNo
 		int modifyNo = (int)(inputModifyStudentInfo.charAt(0)-'0');
-		System.out.println("수정할 학생 번호: "+modifyNo);
+		
+		// 삽입할 내용 String 으로 저장 modifyInfo
 		String modifyInfo = inputModifyStudentInfo.substring(1, inputModifyStudentInfo.length());
-		System.out.println("변경할 내용: "+modifyInfo);
-		view.printStudents(dao.searchStudentByNumber(studentNo));
-		// 
+		
+		// Dao 클래스에서 modifyStudentInfo 실행시키기, 매개변수(학생번호, 수정할 항목, 삽입할 내용)
 		String result = dao.modifyStudentInfo(studentNo,modifyNo,modifyInfo);
+		view.printStudents(dao.searchStudentByNumber(studentNo));
 	}
 	
 	// 학생 정보 기본 예시 입력
 	public void insertExample() {
-		Student[] students = dao.insertExample();
+		dao.insertExample();
+		view.insertExampleStudents(dao.searchAllStudents());
+	}
+	
+	// 학생 이름으로 조회 기능
+	public void searchStudentByName() {
+		// view 에서 학생 이름 받아와서 dao 에 학생 정보를 찾도록 매개변수로 넘겨줌.
+		String result = dao.searchStudentByName(view.inputStudentName()); 
+		view.printStudents(result);
 	}
 }
 

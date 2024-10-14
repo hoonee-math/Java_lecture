@@ -82,7 +82,7 @@ public class StudentDao {
 				switch(modifyNo) {
 				// 학년(1), 반(2), 전화번호(3), 주소(4) + 내용
 					case 1 : int grade = (int)(modifyInfo.charAt(0)-'0'); s.setGrade(grade); break;
-					case 2 : int classNumber = (int)(modifyInfo.charAt(0)-'0'); s.setGrade(classNumber); break;
+					case 2 : int classNumber = (int)(modifyInfo.charAt(0)-'0'); s.setClassNumber(classNumber); break;
 					case 3 : s.setPhone(modifyInfo); break;
 					case 4 : s.setAddress(modifyInfo); break;
 					default : return "잘못된 입력입니다.";
@@ -92,7 +92,7 @@ public class StudentDao {
 				switch(modifyNo) {
 				// 학년(1), 반(2), 전화번호(3), 주소(4) + 내용
 					case 1 : int grade = (int)(modifyInfo.charAt(0)-'0'); s1.setGrade(grade); break;
-					case 2 : int classNumber = (int)(modifyInfo.charAt(0)-'0'); s1.setGrade(classNumber); break;
+					case 2 : int classNumber = (int)(modifyInfo.charAt(0)-'0'); s1.setClassNumber(classNumber); break;
 					case 3 : s1.setPhone(modifyInfo); break;
 					case 4 : s1.setAddress(modifyInfo); break;
 					default : return "잘못된 입력입니다.";
@@ -102,7 +102,7 @@ public class StudentDao {
 				switch(modifyNo) {
 				// 학년(1), 반(2), 전화번호(3), 주소(4) + 내용
 					case 1 : int grade = (int)(modifyInfo.charAt(0)-'0'); s2.setGrade(grade); break;
-					case 2 : int classNumber = (int)(modifyInfo.charAt(0)-'0'); s2.setGrade(classNumber); break;
+					case 2 : int classNumber = (int)(modifyInfo.charAt(0)-'0'); s2.setClassNumber(classNumber); break;
 					case 3 : s2.setPhone(modifyInfo); break;
 					case 4 : s2.setAddress(modifyInfo); break;
 					default : return "잘못된 입력입니다.";
@@ -114,12 +114,20 @@ public class StudentDao {
 		return "잘못된 입력입니다.";
 	}
 	
-	public Student[] insertExample() {
-		Student[] students = new Student[3];
-		students[0] = new Student("유병승",19,1,5,"010-1234-1234","경기도 안산",180.5,'남');
-		students[1] = new Student("최광훈",33,2,6,"010-1234-5678","충남 천안",173.5,'남');
-		students[2] = new Student("오민현",20,3,7,"010-9876-5432","서울",190,'남');
-		return students;
+	public boolean insertExample() {
+		s = new Student("유병승",19,1,5,"010-1234-1234","경기도 안산",180.5,'남');
+		s1 = new Student("최광훈",33,2,6,"010-1234-5678","충남 천안",173.5,'남');
+		s2 = new Student("오민현",20,3,7,"010-9876-5432","서울",190,'남');
+		return true;
+	}
+	
+	public String searchStudentByName(String name) {
+		String resrult ="";
+		if(s.getName().equals(name)) resrult +=s.infoStudent()+"\n";
+		if(s1.getName().equals(name)) resrult +=s1.infoStudent()+"\n";
+		if(s2.getName().equals(name)) resrult +=s2.infoStudent();
+		
+		return resrult;
 	}
 	
 }
