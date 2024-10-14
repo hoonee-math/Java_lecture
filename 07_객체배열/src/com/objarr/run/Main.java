@@ -1,5 +1,7 @@
 package com.objarr.run;
 
+import java.util.Arrays;
+
 import com.objarr.model.vo.Car;
 import com.objarr.model.vo.Food;
 
@@ -83,13 +85,73 @@ public class Main {
 		}
 		
 		System.out.println("==== 배열을 이용한 for문으로 출력하기 ====");
-		for(Car car : cars) {System.out.println(	// getter 로 바로 받아서 출력하기
+		for(Car car : cars) {System.out.println( // getter 로 바로 받아서 출력하기
 				car.getType()+" "+
 				car.getColor()+" "+
 				car.getKm()+" "+
 				car.getName()
 			);
 		}
+		
+//		cars = new Car[3]; // 새로운 객체를 생성하지만, cars 라는 변수에 다시 저장시키므로, 기존 정보가 사라짐.
+//		System.out.println("==== 직접 cars 배열에 입력하기 ====");
+//		Scanner sc=new Scanner(System.in);
+//		for(int i = 0 ; i< cars.length; i++) {
+//			cars[i]=new Car();
+//			System.out.print("차종: ");
+//			cars[i].setType(sc.next());
+//			System.out.print("색상: ");
+//			cars[i].setColor(sc.next());
+//			System.out.print("km: ");
+//			cars[i].setKm(sc.nextInt());
+//			System.out.print("이름: ");
+//			cars[i].setName(sc.next());
+//		}
+//		for(Car car : cars) {System.out.println(	// getter 로 바로 받아서 출력하기
+//				car.getType()+" "+
+//				car.getColor()+" "+
+//				car.getKm()+" "+
+//				car.getName()
+//			);
+//		}
+		
+		// 객체 배열 데이터 탐색하기
+		// cars 에 저장된 차 중에서 주행 거리가 500 을 초과하는 차량을 출력
+		System.out.println("==== 주행 거리가 500을 초과하는 차량 목록 ====");
+//		for(Car car : cars) {
+//			if(car.getKm()>500) {
+//				System.out.println(car.getName()+" "+car.getType()+" "+car.getKm());
+//			}
+//		}
+		
+		
+		
+		// 주행거리가 500초과인 차량을 새 배열에 저장하기
+		Car[] car500 = new Car[cars.length];
+		for(int i=0,j=0;i<cars.length;i++) {
+			if(cars[i].getKm()>500) {
+//				car500[j]= new Car();
+				car500[j++]=cars[i];
+			}
+		}
+		for(Car car : cars) {
+			if(car.getName().equals("캐스퍼")) {
+//				car = new Car(); // 얘는 index 로(주소로) 접근하는 거임. 배열에서 그 객체 자체를 바꾸는 것은 불가능
+				car.setColor("빨강"); // 이미 저장되어 있는 어떤 값을 바꾸는 것은 가능.
+			}
+		}
+		for(Car car : car500) {
+			if(car==null) break;
+			System.out.println(car.getName()+" "+car.getColor()+" "+car.getType()+" "+car.getKm());
+		}
+		
+		// 나중에 배울 내용! 위와 비슷한 기능
+//		Car[] copyCar = new Car[cars.length];
+//		copyCar=Arrays.stream(cars)
+//				.filter(c->c.getKm()>500)
+//				.toArray(Car[]::new);
+//		System.out.println(copyCar.length);
+		
 	}
 
 }
