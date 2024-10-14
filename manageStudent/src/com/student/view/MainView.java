@@ -7,12 +7,9 @@ import com.student.model.vo.Student;
 
 public class MainView {	
 
-	// 1011-4-11
 	//1.메뉴를 출력하는 기능
-//	public void mainMenu() {
-	// 1014-1-34 매개변수로 studentController 객체를 넣어줌!
 	public void mainMenu(StudentController studentController) {
-		Scanner sc=new Scanner(System.in); // 공통 영역으로 올려서 써도 되는데, 쓰레기값 버퍼를 지워줘야 하는 번거로움이 생김
+		Scanner sc=new Scanner(System.in); 
 		while(true) {
 			System.out.println("==== 학생관리 프로그램 v1 ====");
 			System.out.println("1. 학생등록");
@@ -26,9 +23,7 @@ public class MainView {
 			System.out.print("선택: ");
 			int choiceMenu=sc.nextInt();
 			switch(choiceMenu) {
-//				case 1: new StudentController().insertStudent(); break;
-//				// 1014-1-27 여기서도 기능이 new 로 새로 만들어지고 있어서, 저장소가 컨트롤러 마다 새로 생성되고 있었음.
-				case 1: studentController.insertStudent(); break; // 1014-1-29
+				case 1: studentController.insertStudent(); break; 
 				case 2: System.out.println("개발중...."); break;
 				case 3: studentController.deleteStudent(); break;
 				case 4: studentController.searchAllStudents(); break;
@@ -41,19 +36,12 @@ public class MainView {
 		}
 	}
 	//2.학생을 입력받는 기능
-	// return을 받으면 매개변수가 없어도 되고, return이 없으면 매개변수를 채워서 값을..
-	// 1014-1-1 youtube 0908
-	// 매개변수로 student 를 받으면 반환형이 없어도 됨. ㅇㅇㅇㅇ
-	// 외부에서 받은 생성된 객체에 값을 넣으주느냐? 일반적으로는 반환형이 있도록 만들어줌. ㅇㅇㅇ
 	public Student inputStudent() {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("====== 학생 등록 ======");
-//		// 1014-1-6 입력받을 때는 default 를 생성해서 setter로 해서 집어넣을 수도 있음.
-//		Student st1=new Student();
-		
 		System.out.print("학생 이름: ");
-		String name=sc.nextLine(); // sc.nextLine() 도 String 을 return 받는 method
-//		st1.setName(sc.nextLine()); // 1014-1-6 이렇게 입력받을 수 있음.
+		String name=sc.nextLine();
+//		st1.setName(sc.nextLine()); 
 		System.out.print("나이: ");
 		int age=sc.nextInt();
 		System.out.print("학년(1~3): ");
@@ -70,21 +58,19 @@ public class MainView {
 		System.out.print("성별(남/여): ");
 		char gender=sc.next().charAt(0);
 		
-		// 1014-1-2
 		Student s=new Student(name, age, grade, classNumber, phone, address,
 				height, gender);
 		return s;
 	}
 	
 	//3.메시지를 출력하는 기능
-	// 1014-1-38 // 시스템 메시지를 출력해줌. 어떤 기능에서든 msg 를 넣어서 사용하면됨.
+	// 시스템 메시지를 출력해줌. 어떤 기능에서든 msg 를 넣어서 사용하면됨.
 	public void printMessage(String msg) {
 		System.out.println("===== 시스템 메세지 =====");
 		System.out.println(msg);
 		System.out.println("=====================\n");
 	}
 	
-	// 1014-2-3
 	public void printStudents(String students) {
 		System.out.println("===== 학생조회 결과 =====");
 		if(!students.equals(""))
@@ -95,9 +81,8 @@ public class MainView {
 	
 	//4.조회항목을 입력받는 기능
 	//5.조회한 결과를 출력해주는 기능
-	// 이것들을 메소드로 만들자!
 	
-	// 1014-3-2 삭제할 학생 번호 입력 받아 반환하기!
+	// 삭제할 학생 번호 입력 받아 반환하기!
 	public int inputStudentNum(StudentController studentController, String title) {
 		System.out.println("===== 학생 "+title+" =====");
 		studentController.searchAllStudents();
