@@ -39,7 +39,7 @@ public class MainView {	// 1011-4-1
 //				// 1014-1-27 여기서도 기능이 new 로 새로 만들어지고 있어서, 저장소가 컨트롤러 마다 새로 생성되고 있었음.
 				case 1: studentController.insertStudent(); break; // 1014-1-29
 				case 2: System.out.println("개발중...."); break;
-				case 3: System.out.println("개발중...."); break;
+				case 3: studentController.deleteStudent(); break;
 				case 4: studentController.searchAllStudents(); break;
 				case 5: System.out.println("개발중...."); break;
 				case 6: System.out.println("개발중...."); break;
@@ -90,7 +90,7 @@ public class MainView {	// 1011-4-1
 	public void printMessage(String msg) {
 		System.out.println("===== 시스템 메세지 =====");
 		System.out.println(msg);
-		System.out.println("=====================");
+		System.out.println("=====================\n");
 	}
 	
 	// 1014-2-3
@@ -99,13 +99,28 @@ public class MainView {	// 1011-4-1
 		if(!students.equals(""))
 			System.out.println(students);
 		else System.out.println("조회할 학생이 없습니다.");
-		System.out.println("=====================");
+		System.out.println("=====================\n");
 	}
 	
 	//4.조회항목을 입력받는 기능
 	//5.조회한 결과를 출력해주는 기능
 	// 이것들을 메소드로 만들자!
 	
+	// 1014-3-2 삭제할 학생 번호 입력 받아 반환하기!
+	public int inputStudentNum(StudentController studentController) {
+		System.out.println("===== 학생삭제 기능 =====");
+		studentController.searchAllStudents();
+		System.out.println("삭제할 학생 번호 : ");
+		Scanner sc=new Scanner(System.in);
+		return sc.nextInt();
+	}
+	
+	public void deleteStudent(String msg) {
+		
+		System.out.println("===== 학생삭제 결과 =====");
+		System.out.println(msg);
+		System.out.println("=====================\n");
+	}
 	
 }
 

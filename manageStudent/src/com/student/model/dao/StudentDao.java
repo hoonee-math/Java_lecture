@@ -33,9 +33,31 @@ public class StudentDao { // 1011-4-3
 		// null 인걸 고려하지 않으면 null point exception 이 뜸.
 		if(s!=null) infoAll+=s.infoStudent()+"\n";
 		if(s1!=null) infoAll+=s1.infoStudent()+"\n";
-		if(s2!=null) infoAll+=s2.infoStudent()+"\n";
+		if(s2!=null) infoAll+=s2.infoStudent();
 		
 		return infoAll;
+	}
+	
+	// 1014-3-4
+	public boolean deleteStudent(int studentNo) {
+		
+		// 1014-3-5
+		if(s!=null && s.getStudentNo()==studentNo) {
+			s=null;
+		} else if(s1!=null && s1.getStudentNo()==studentNo) {
+			s1=null;
+		} else if(s2!=null && s2.getStudentNo()==studentNo) {
+			s2=null;
+		} else return false;
+		
+//		switch(studentNo) {
+//			case 1 : s=null; break;
+//			case 2 : s1=null; break;
+//			case 3 : s2=null; break;
+//			default : return false;
+//		}
+		
+		return true;
 	}
 	
 }

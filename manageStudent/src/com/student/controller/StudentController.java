@@ -66,6 +66,23 @@ public class StudentController { // 1011-4-4
 	
 	//3. 2 학생수정 메소드
 	//4. 3 학생삭제 메소드
+	public void deleteStudent() {
+		// 1014-3-1
+		// 1. 저장된 학생 전체 출력 -> 기존 기능 이용
+		// 2. 학생 번호를 입력받는 화면을 출력하기 -> view
+		// 3. 입력한 번호의 일치한 학생을 찾아서 삭제하기 -> dao
+//		searchAllStudents();
+		// MainView 클래스의 delelteStudentNum 에서 StudentController 의 기능을 사용하기 위해 매개변수로 StudentController 로 객체를 받아서 사용함.
+		// 여기서는 매개변수로 현재 객체 자체를 받아오기 위해 this를 사용함.
+//		this.searchAllStudents();
+		// 1014-3-3 2.학생 번호 입력
+		int studentNo = view.inputStudentNum(this);  
+		// 1014-3-6 3.학생 삭제 ->dao
+		boolean result = dao.deleteStudent(studentNo);
+		// 1014-3-7 4.삭제 출력
+		view.deleteStudent(result?"정상 삭제되었습니다.":"삭제 실패");
+	}
+	
 	//5. 4 전체조회 메소드
 	// 1014-2-2 
 	public void searchAllStudents() {
