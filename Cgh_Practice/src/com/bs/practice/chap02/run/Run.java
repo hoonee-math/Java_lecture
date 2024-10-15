@@ -10,8 +10,15 @@ public class Run {
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		
+		System.out.println("반복문 실습 / 1~22 / 추가문제 31,32,33");
 		System.out.print("반복문 실습 / 실행할 함수 번호를 입력하세요: ");
-		int num=sc.nextInt();
+		int num = Supplementary.playFunctionNumber;
+		if(num!=0) {
+			System.out.print(num+"번 함수 자동 실행됨.");
+		} else {
+			num=sc.nextInt();
+		}
+		System.out.println();
 		
 		switch(num) {
 			case 1 : new LoopPractice().practice1(); break;
@@ -38,6 +45,9 @@ public class Run {
 			case 22 : new LoopPractice().practice22(); break;
 			
 			case 31 : new Supplementary().rockScissorsPaper(); break;
+			case 32 : new Supplementary().printNumLoop(); break;
+			case 33 : new Supplementary().printStirngLoop(); break;
+			case 34 : new Supplementary().practice34(); break;
 			
 			default : System.out.println("유효한 값을 입력하세요!");
 		}

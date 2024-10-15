@@ -99,7 +99,7 @@ public class Main {
 //		for(int i = 0 ; i< cars.length; i++) {
 //			cars[i]=new Car();
 //			System.out.print("차종: ");
-//			cars[i].setType(sc.next());
+//			cars[i].setType(sc.next()); 
 //			System.out.print("색상: ");
 //			cars[i].setColor(sc.next());
 //			System.out.print("km: ");

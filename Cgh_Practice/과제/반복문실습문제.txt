@@ -1,3 +1,5 @@
+// package com.bs.practice.chap02.loop;
+
 1부터 100까지 숫자를 출력하세요.
 
 100부터 0까지 숫자를 출력하세요.

@@ -23,14 +23,13 @@ public class StudentDao {
 				students[i]=newStudent;
 				return true;
 			}
-			else if(i==students.length-1) {
+			if(i==students.length-1) {
 				students = plusStudents(students);
 				students[students.length-1] = newStudent;
-			} else {
-//				return false;
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 	
 	
@@ -56,7 +55,6 @@ public class StudentDao {
 				return true;
 			}
 		}
-		
 		return false;
 	}
 	
@@ -79,7 +77,6 @@ public class StudentDao {
 		if(result.equals("")) {
 			result += studentNo+"번 학생은 존재하지 않습니다.";
 		}
-
 		return result;
 	}
 	
@@ -94,7 +91,6 @@ public class StudentDao {
 		if(result.equals("")) {
 			result += grade+"학년 학생은 존재하지 않습니다.";
 		}
-
 		return result;
 	}
 	
@@ -102,22 +98,24 @@ public class StudentDao {
 	public String modifyStudentInfo(int studentNo,int modifyNo, String modifyInfo) {
 		
 		for( int i=0 ; i<students.length ; i++) {
-			switch(modifyNo) {
-				case 1 :
-					int grade = (int)(modifyInfo.charAt(0)-'0');
-					students[i].setGrade(grade);
-					return students[i].infoStudent();
-				case 2 :
-					int classNumber = (int)(modifyInfo.charAt(0)-'0'); 
-					students[i].setClassNumber(classNumber); 
-					return students[i].infoStudent();
-				case 3 : 
-					students[i].setPhone(modifyInfo); 
-					return students[i].infoStudent();
-				case 4 : 
-					students[i].setAddress(modifyInfo); 
-					return students[i].infoStudent();
-				default : return "잘못된 입력입니다.";
+			if(students[i].getStudentNo()==studentNo) { // 학생 번호로 학생정보 호출 후 modifyNo 로 수정할 항목 접근해서 수정
+				switch(modifyNo) {
+					case 1 :
+						int grade = (int)(modifyInfo.charAt(0)-'0');
+						students[i].setGrade(grade);
+						return students[i].infoStudent();
+					case 2 :
+						int classNumber = (int)(modifyInfo.charAt(0)-'0'); 
+						students[i].setClassNumber(classNumber); 
+						return students[i].infoStudent();
+					case 3 : 
+						students[i].setPhone(modifyInfo); 
+						return students[i].infoStudent();
+					case 4 : 
+						students[i].setAddress(modifyInfo); 
+						return students[i].infoStudent();
+					default : return "잘못된 입력입니다.";
+				}
 			}
 		}	
 		return "잘못된 입력입니다.";

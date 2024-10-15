@@ -30,3 +30,9 @@ bin/
 Java_lecture.iml
 .idea/
 /.metadata/
+manageStudent4_Array_teacher/src/com/student/controller/StudentController.java
+manageStudent4_Array_teacher/src/com/student/model/dao/StudentDao.java
+manageStudent4_Array_teacher/src/com/student/model/dao/StudentDaoArr.java
+manageStudent4_Array_teacher/src/com/student/model/vo/Student.java
+manageStudent4_Array_teacher/src/com/student/run/Main.java
+manageStudent4_Array_teacher/src/com/student/view/MainView.java
