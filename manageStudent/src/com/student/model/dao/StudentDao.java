@@ -25,9 +25,9 @@ public class StudentDao {
 			}
 			else if(i==students.length-1) {
 				students = plusStudents(students);
-				students[students.length] = newStudent;
+				students[students.length-1] = newStudent;
 			} else {
-				return false;
+//				return false;
 			}
 		}
 		return true;
