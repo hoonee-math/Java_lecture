@@ -1,6 +1,7 @@
 package com.inherit.controller;
 
 import com.inherit.model.vo.B_Developer;
+import com.inherit.model.vo.C_Dog;
 import com.inherit.model.vo.C_ObjectTest;
 
 //1015-4-1
@@ -50,6 +51,13 @@ public class C_InheritController {
 		C_ObjectTest ot=new C_ObjectTest();
 		ot.move();
 		
+		//1015-4-18
+		C_Dog dog=new C_Dog();
+		dog.setName("설기");
+		dog.setAge(3);
+		dog.setWeight(5);
+		dog.move();
+		dog.bark();
 	}
 }
 
