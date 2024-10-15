@@ -1,6 +1,6 @@
 package com.inherit.model.vo;
 
-public class B_Person {
+public class B_Person extends B_Test { //1015-3-2 상속 추가
 	//1015-2-4
 	// 공통 부분을 추상화하자!
 	private String name;
@@ -62,7 +62,7 @@ public class B_Person {
 		this.weight = weight;
 	}
 
-	public String infoPerson() {
+	protected String infoPerson() {
 		return name+", "+age+", "+gender+", "+height+", "+weight;
 	}
 	

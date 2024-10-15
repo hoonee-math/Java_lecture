@@ -35,7 +35,7 @@ public class B_Employee extends B_Person { //1015-2-5 상속 추가
 		this.dept = dept;
 	}
 	
-	public String infoEmpoloyee() {
+	public String infoEmployee() {
 		return infoPerson()+", "+dayOf+", "+dept+", "+job;
 	}
 }

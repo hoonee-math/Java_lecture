@@ -29,9 +29,40 @@ public class B_InheritController {
 		e.setDayOf(10);
 		e.setDept("개발팀");
 		e.setJob("연구원");
-		System.out.println(e.infoPerson());
+		System.out.println(e.infoEmployee());
 		
 		B_Developer hoon = new B_Developer("최광훈",33,'M',173.6,63.5,5, new String[] {"자바","파이썬","C"});
 		System.out.println(hoon.infoDeveloper());
+		
+//		hoon.infoPerson();
+//		hoon.infoPersonProtected(); // 메소드도 상속관계에서만 사용할 수 있게 하려면 protected를 걸 수 있다!
+		
+		//1015-3-3
+		hoon.getIdx(); // B_Person 위의 B_Test 까지도 상속받고 있음.
+		e.setIdx(100);
+		hoon.setIdx(100);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
