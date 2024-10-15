@@ -1,6 +1,14 @@
 package com.inherit.model.vo;
 
 //1015-4-3 상속받은게 존재하지 않음, 아무것도 없음.
-public class C_ObjectTest {
+public class C_ObjectTest extends C_ParentObject{
 	
+	//1015-4-11
+	// C_ParentObject 에서 사용하던 move 라는 메소드를 여기서는 "뒤로 이동"시키고 싶다!
+	// 선언부는 똑같이 선언하고, 구현부를 수정!
+	// 내 클래스에서 똑같이 호출하더라도 다르게 사용하게 하고 싶다! 기능을 재정의
+	@Override //1015-4-13 오버라이드 시킨 코드인지, 컴파일 시점에서 잘못된 점을 찾아줌. 재정의가 정상적으로 되지 않았음을 확인해줌. 오버라이드 어노테이션의 역할! 개발할 때 실수를 줄여주는 방법. ex) move 를 mobe 처럼 오타난 경우도 잡아줌. 즉 재정의된게 아닌 코드임을 알려줌.
+	public void move() { //1015-4-12 매개변수에 String msg 를 넣을 경우! 실행은 되지만, 실행된 후에 직접 체크해야 오류를 발견할 수 있음. 컴파일 시점에서 오류를 체크하기 위해서! @Override 라는 어노테이션을 선언해줌!
+		System.out.println("뒤로 이동!");
+	}
 }
