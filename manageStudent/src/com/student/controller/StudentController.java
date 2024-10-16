@@ -15,11 +15,11 @@ public class StudentController {
 	//2.학생등록 메소드
 	public void insertStudent() {
 		// 1. 학생등록화면 -> 화면은 view 에 있음.
-		Student s=new MainView().inputStudent();
-		System.out.println(s.infoStudent());
+		Student s=new MainView().inputStudent();	// MainVeiw 의 inputStudent 메소드를 호출해 학생정보를 객체로 받아옴. s 에 저장!
+		System.out.println(s.infoStudent());		// 받아온 객체 s 를 한 번 출력해서 보여줌.
 		
 		// 2. 등록된 학생을 저장소에 저장 -> 저장하는 것은 Dao 의 기능
-		boolean result = dao.insertStudent(s);
+		boolean result = dao.insertStudent(s);		// 받아온 객체 s 를 매개변수로하는 Dao 클래스의 insertStudent 를 호출함. 데이터를 실제로 저장시킴.
 		// 3. 등록이 끝나면 client 에게 결과 화면을 출력해줌 -> 다시 View 에게 요청을 함.
 		String msg = result?"정상적으로 학생을 등록했습니다."
 				:"학생등록 실패, 관리자에게 문의하세요 :(";

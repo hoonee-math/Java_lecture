@@ -1,6 +1,7 @@
 # 학생관리 프로그램 버전업
 	1.  학생 저장시 중복학생은 저장이 안되는 기능추가
 	    중복기준 : 이름, 나이, 성별, 학년, 반
+	    -> insertStudent 메소드에 객체를 넣었을 때 확인하거나, 그 전에 확인하고 break 해야함.
 	2. 차후 학생뿐만 아니라 강사, 사원을 관리하는 기능을 추가할 예정으로
 	   나중에 변경을 잘 할 수 있게 코드를 수정할 것.
 
@@ -19,13 +20,13 @@
 
 
 # 프로젝트 생성 후 실습!
-package com.bs.practice.inherit.controller;
-
-import com.bs.practice.inherit.vo.Driver;
-import com.bs.practice.inherit.vo.Employee;
-import com.bs.practice.inherit.vo.Person;
-import com.bs.practice.inherit.vo.Student;
-import com.bs.practice.inherit.vo.Teacher;
+	package com.bs.practice.inherit.controller;
+	
+	import com.bs.practice.inherit.vo.Driver;
+	import com.bs.practice.inherit.vo.Employee;
+	import com.bs.practice.inherit.vo.Person;
+	import com.bs.practice.inherit.vo.Student;
+	import com.bs.practice.inherit.vo.Teacher;
 
 	// 사람들의 정보를 저장하는 프로그램을 생성
 	// 학생, 선생, 직원, 운전사를 아래의 데이터를 저장하고 관리
