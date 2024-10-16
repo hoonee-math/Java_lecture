@@ -7,7 +7,7 @@ import com.bs.practice.chap02.loop.Supplementary;
 
 
 public class Run {
-	public static void main(String[] args) {
+	public static void main(String[] argsdfasgadfgss) {
 		Scanner sc=new Scanner(System.in);
 		
 		System.out.println("반복문 실습 / 1~22 / 추가문제 31,32,33");

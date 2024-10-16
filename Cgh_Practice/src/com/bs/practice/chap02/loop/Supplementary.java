@@ -1,5 +1,6 @@
 package com.bs.practice.chap02.loop;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -115,7 +116,6 @@ public class Supplementary {
 		}
 		System.out.println();
 	
-
      
 		System.out.println("\n8. 정수를 입력 받아 입력된 값의 구구단 프로그램을 만들어보세요.");
 //	 예) 5입력 
@@ -173,18 +173,55 @@ public class Supplementary {
 	}
 	
 	public void practice34() {
+		Scanner sc= new Scanner(System.in);
 		
-	System.out.println("\n10. 5명의 회원정보를 입력 받아 저장하고 출력하는 프로그램을 만드세요. "
-			+ "입력 : 이름, 나이, 주소, 키, 몸무게, 연락처");
+		System.out.println("\n10. 5명의 회원정보를 입력 받아 저장하고 출력하는 프로그램을 만드세요. "
+				+ "\n입력 : 이름, 나이, 주소, 키, 몸무게, 연락처");
+		int low = 2, column = 6 ;
+		String[][] members = new String[low][column];
+		String[] category = {"이름","나이","주소","키","몸무게","연락처"};
+		
+		for(int i=0; i<low; i++) {
+			for(int j=0; j<column; j++) {
+				System.out.print(category[j]+": ");
+				members[i][j]=sc.next();
+			}
+		}
+		for(int i=0; i<low; i++) {
+			for(int j=0; j<column; j++) {
+				System.out.print(members[i][j]+" ");
+			}
+			System.out.println();
+		}
+		
+		
+	
 //
 //	출력 예) 
 //	=========== 저장회원==========
 //	홍길동 19세 서울시 강남구 170cm 68kg 010…
 //	임걱정 20세 경기도 수원시 180cm 75kg 010…
 //	                             .
-//	                             .
-//
-//	System.out.println("\n11. 몬스터 사냥하기 게임의 사냥하는 기능을 만드시오.");
+		System.out.println("\n11. 몬스터 사냥하기 게임의 사냥하는 기능을 만드시오.");
+		System.out.println("사용법"
+				+ "\n0. 사냥시작 1. 오크사냥 2. 용사냥 3. 사람사냥 99.끝내기 "
+				+ "\n선택: ");
+		int inputNum = 0, expSum = 0, killMonster =0, killHuman=0;
+		
+		while(inputNum!=99) {
+			switch(inputNum) {
+				case 0 : System.out.println("사냥을 시작합니다."); expSum+=1; break;
+				case 1 : System.out.println("오크 사냥 완료 +1 exp"); expSum+=1; killMonster +=1; break;
+				case 2 : System.out.println("용 사냥 완료 +15 exp"); expSum+=15; killMonster +=1; break;
+				case 3 : System.out.println("사람 사냥 -100 exp"); expSum+=-100; killHuman +=1; break;
+				default : System.out.println("잘못된 값을 입력하였습니다."); break;
+			}
+			System.out.print("입력: ");
+			inputNum = sc.nextInt();
+		}
+		System.out.println("사냥을 마쳤습니다.");
+		System.out.println("사냥한 몹의 수는 "+killMonster+"마리, 획득한 경험치는 "+expSum+"입니다.");
+	
 //
 //	출력 예) 
 //	사용법 
