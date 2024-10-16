@@ -36,6 +36,8 @@ public class D_ObjectOverride extends D_ObjectParent { //1016-5-1, D_ObjectParen
 	//1016-1-5 동등성 비교를 위해서 equals 를 재정의 하자!
 	@Override
 	public boolean equals(Object obj) { // https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)
+		//1016-6-11 다형성을 이용해서 모든 클래스를 저장할 수 있는 Object 를 받고 있음.
+		// 하지만 이런 경우 자식 필드에는 접근 할 수 없음. 가려져있음. 강제 형변환을 이용하면 아래와 같이 접근가능하게 됨.
 		//1016-1-6 
 		D_ObjectOverride param = (D_ObjectOverride)obj;
 		if(this.no==param.no && this.data==param.data) { // this 는 생략 가능 // param 이라는 객의 no, data 와 매개변수로 받은 객체와 서로 같은지 확인
