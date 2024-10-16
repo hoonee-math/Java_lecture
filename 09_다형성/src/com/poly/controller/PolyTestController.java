@@ -12,6 +12,7 @@ import com.poly.model.vo.A_Teacher;
 import com.poly.model.vo.B_Animal;
 import com.poly.model.vo.B_Cat;
 import com.poly.model.vo.B_Dog;
+import com.poly.model.vo.B_Tiger;
 
 public class PolyTestController {
 	//1
@@ -194,10 +195,13 @@ public class PolyTestController {
 		//1016-9-5
 //		B_Animal animal=new B_Animal(); //1016-9-8 abstract 예약어를 클래스에 붙일경우, 타입으로 쓸 수는 있음. Animal 클래스는 만들 수는 없음. Animal 이라는 객체를 만들어 사용할 수는 없게됨.
 		B_Animal animal; //1016-9-9 추상클래스로 선언해놓고, 타입으로 사용할 수 있음! abstract 로 선언된 타입에는 구현체만 넣어서 사용할 수 있음. 이제는 정말 상속된(extends)한 애들만 담아서, 실제 사용될 애들을 담아서 사용하겠다!는 것을 의미함
-		animal = new B_Dog("뽀비","믹스",5,10.5); //1016-9-9
-		animal = new B_Cat("짬타이거","코리아",3,8.3);
+		B_Animal animal2;
+		animal2 = new B_Dog("뽀삐","믹스",5,10.5); 
+		animal = new B_Cat("짬타이거","코리아",3,8.3); //1016-9-9
 		
 		move(animal); //1016-9-15
+		move(animal2);
+		move(new B_Tiger("호랭이","뱅갈",5,230)); //1016-9-24
 		
 		//1016-9-17 내가 사용할 메소드의 선언부만 선언을 해놓고, 실제 구현은 구현체에 작성함.
 		//추상메소드
