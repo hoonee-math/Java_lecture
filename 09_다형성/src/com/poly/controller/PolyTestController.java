@@ -66,7 +66,7 @@ public class PolyTestController {
 		if(o instanceof A_Parent[]) {
 			int length = ((A_Parent[])o).length;
 			System.out.println(length);
-		} else if() {
+		} else if(o instanceof A_Child) {
 			A_Child c = (A_Child)o;
 			System.out.println(c.getParentData());
 			System.out.println(c.getChildData());
@@ -77,7 +77,66 @@ public class PolyTestController {
 		printPerson(new A_Teacher());
 		printPerson(new A_Employee()); //1016-7-8 // extends 로 A_Person 을 상속만 해주면.. 사용가능하게 됨.
 		
+		//1016-8-1
+		//객체배열에 다형성 적용하기
+		A_Person[] persons = new A_Person[5];
+		//Person 또는 Student 또는 Teacher 또는 Employee 를 저장할 수 있는 저장소!
+		persons[0]=new A_Student();
+		persons[1]=new A_Teacher();
+		
+		//1016-8-2
+		persons = new A_Person[] {
+				new A_Student("양성준",29,'M',2,1),
+				new A_Student("강성민",30,'M',3,2),
+				new A_Employee("안윤상",96,'M',"인사팀", "과장"),
+				new A_Employee("정다인",26,'F',"개발팀","팀장"),
+				new A_Teacher("이민영",26,'M',"수학",1),
+				new A_Teacher("최광훈",33,'M',"수학",3)
+		};
+		//1016-8-3
+		//저장된 사람의 객체별 수를 구하기
+		// 학생: 00명
+		// 선생: 00명
+		// 사원: 00명
+		//총 00명 출력하기
+		int countS=0, countT=0, countE=0, totalCount=0;
+		
+		for( A_Person pe : persons) {
+			if(pe!=null) {
+				if(pe instanceof A_Student)	countS++;
+				else if(pe instanceof A_Teacher) countT++;
+				else if(pe instanceof A_Employee) countE++;
+				else System.out.println("잘못된 입력입니다.");
+				totalCount++; // 이렇게 해주면 오류가 발생하는 것을 방지할 수 있음.
+			}
+		}
+		
+		System.out.printf("학생: %d명 / 선생: %d명 / 사원: %d명\n총 %d명\n",countS,countT,countE,countS+countT+countE); // 이러면 오류에 빠질 수 있음.
+		System.out.printf("학생: %d명 / 선생: %d명 / 사원: %d명\n총 %d명\n",countS,countT,countE,totalCount);
+		// 저장된 사람들의 평균나이를 구하세요.
+		int sumAge=0, countMember=0;
+		for( A_Person pe : persons ) {
+			sumAge+=pe.getAge();
+			countMember++;
+		}
+		System.out.println("저장된 사람의 평균 나이: "+sumAge/(double)countMember);
+		// 직책이 팀장인 사람의 정보를 출력하세요.
+		for( A_Person pe : persons ) {
+				
+//			if(((A_Employee)pe).getJob().equals("팀장")) {
+			if(pe instanceof A_Employee) {
+				System.out.println(pe.getName()
+						+" "+pe.getAge()
+						+" "+pe.getGender()
+						+" "+((A_Employee)pe).getDept()
+						+" "+((A_Employee)pe).getJob()
+						);
+			}
+		}
+		
+		
 	}
+	
 	//1016-7-6
 	// Person 뿐만 아니라 Student 와 Teacher 까지 포함하도록 상속을 만들어 둠.
 	public void printPerson(A_Person p) {
