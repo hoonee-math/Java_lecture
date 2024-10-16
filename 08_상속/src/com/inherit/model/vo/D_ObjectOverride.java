@@ -3,7 +3,7 @@ package com.inherit.model.vo;
 import java.util.Objects;
 
 //1016-1-1
-public class D_ObjectOverride {
+public class D_ObjectOverride extends D_ObjectParent { //1016-5-1, D_ObjectParent 는 final 예약어를 포함한 final 클래스 이기 때문에 상속할 수 없음.
 	private int no;
 	private String data;
 	
@@ -49,5 +49,27 @@ public class D_ObjectOverride {
 		//hash 가 기울기가 되어있네? static 메소드!
 		return Objects.hash(this.no,this.data); // 두개의 값을 결합해서 hash 알고리즘을 돌려서 값을 돌려줌.
 	}
+	//1016-3-1
+	@Override
+	public D_ObjectOverride clone() {
+		//깊은 복사
+//		return this;
+		return new D_ObjectOverride(no, data);
+	}
+	//1016-4-1
+	@Override
+	public String toString() {
+		//객체를 대표하는 문구를 출력해주는 메소드
+		//필드에 저장된 값을 출력
+		// print(), println() 매개변수로 참조형변수를 전달했을 때
+		// 자동으로 호출됨.
+		
+		//1016-4-2
+		return no+","+data; // 쉼표는 csv 파일의 저장 방법의 일종임! return 을 보내는 다양한 방법 중 한가지.
+	}
 	
+//	//1016-5-5
+//	@Override
+//	public void test() { } // final 예약어가 붙은 final method 는 수정해서 사용할 수 없어!
+//	// error : Cannot override the final method from D_ObjectParent
 }
