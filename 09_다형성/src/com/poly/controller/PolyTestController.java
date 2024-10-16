@@ -155,16 +155,17 @@ public class PolyTestController {
 	
 	//1016-7-6
 	// Person 뿐만 아니라 Student 와 Teacher 까지 포함하도록 상속을 만들어 둠.
-	public void printPerson(A_Person p) {
+	public void printPerson(A_Person parameterPerson) { // 업캐스팅해서 들어간 다양한 객체들. 매개변수로 들어간 실제 객체 타입에 대한 메소드를 실행시켜줌. 굳이 다운캐스팅을 하지 않아도, 알아서 sub 클래스의 메소드를 찾아가서 실행시키는 것을 동적 바인딩이라고 함.
 //		//1016-8-6
-//		if(p instanceof A_Student) {
-//			A_Student s=(A_Student)p;
+//		if(parameterPerson instanceof A_Student) {
+//			A_Student s=(A_Student)parameterPerson;
 ////			s. 이런식으로 일일이 코드를 짜주는 번거로움을 이전 개발자들도 고민했음. //1016-8-7 로 go go
 //		}
 		//1016-8-10
-		p.printData(); // 컴파일 시점에서는 부모 객체에 연결된 메소드만 보임. p. - A_Person
+		parameterPerson.printData(); // 컴파일 시점에서는 부모 객체에 연결된 메소드만 보임. p. - A_Person
 		//1016-8-13
-		System.out.println(p); // 주소가 출력됨. 얘는 Object 꺼의 toString 을 호출함. 주소를 불러옴. [1016-8-14]에서 toString 을 override 해주면 
+		System.out.println(parameterPerson); // 주소가 출력됨. 얘는 Object 꺼의 toString 을 호출함. 주소를 불러옴. [1016-8-14]에서 toString 을 override 해주면 
+		System.out.println(parameterPerson.toString()); 
 	}
 	
 	//1016-7-9
