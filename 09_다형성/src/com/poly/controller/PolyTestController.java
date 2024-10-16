@@ -9,6 +9,9 @@ import com.poly.model.vo.A_Parent;
 import com.poly.model.vo.A_Person;
 import com.poly.model.vo.A_Student;
 import com.poly.model.vo.A_Teacher;
+import com.poly.model.vo.B_Animal;
+import com.poly.model.vo.B_Cat;
+import com.poly.model.vo.B_Dog;
 
 public class PolyTestController {
 	//1
@@ -177,5 +180,42 @@ public class PolyTestController {
 		default : return null;
 		}
 	}
+	
+	
+	//1016-9-1
+	public void abstractClassTest() {
+		//추상클래스 사용하기
+		//생성해서 사용하는 것은 불가능하고,
+		// 상속해서 이용하는 클래스에 선언
+		//선언하는 방법
+		// 클래스 선언부에 abstract 예약어 사용
+		// public abstract class 클래스명() { }
+		
+		//1016-9-5
+//		B_Animal animal=new B_Animal(); //1016-9-8 abstract 예약어를 클래스에 붙일경우, 타입으로 쓸 수는 있음. Animal 클래스는 만들 수는 없음. Animal 이라는 객체를 만들어 사용할 수는 없게됨.
+		B_Animal animal; //1016-9-9 추상클래스로 선언해놓고, 타입으로 사용할 수 있음! abstract 로 선언된 타입에는 구현체만 넣어서 사용할 수 있음. 이제는 정말 상속된(extends)한 애들만 담아서, 실제 사용될 애들을 담아서 사용하겠다!는 것을 의미함
+		animal = new B_Dog("뽀비","믹스",5,10.5); //1016-9-9
+		animal = new B_Cat("짬타이거","코리아",3,8.3);
+		
+		move(animal); //1016-9-15
+		
+		//1016-9-17 내가 사용할 메소드의 선언부만 선언을 해놓고, 실제 구현은 구현체에 작성함.
+		//추상메소드
+		// 추상메소드를 이용해서 상속받은 클래스에서 메소들 재정의를 강제할 수 있음.
+		// 추상메소드를 이용하면 해당 메소드가 있다는 것을 보증받아 안정적으로 사용할 수 있음.
+		//사용방법
+		// 메소드 선언부에 abstract 예약어 선언
+		// 추상메소드는 구현부'{}'를 생략하고 선언부만 '();'까지 작성, 어떤 구현체가 있는지는 모르지만 ...
+		
+	}
+	//1016-9-10 dog 나 cat 에 접근해서 하는게 아니라, Dao 에 객체들이 들어있고, 그 애를 가져와서 처리를 함....?
+//	public void move(B_Dog dog) {}
+//	public void move(B_Cat cat) {}
+	//1016-9-11 이렇게 만들 수있어. 만들었는데 문제점은 새로운 동물이 추가 되었을 때! 캐릭터 넣을때마다 메소드를 추가해야함.
+	//1016-9-12 이것을 간단하게 할 수 있는 기능이 다향성!
+	public void move(B_Animal animal) { //1016-9-13 이렇게 만들어줄 수 있음
+		animal.move(); // 이렇게 사용하려면 부모의 메소드가 있어야함..
+	}
+	
 	
 }
