@@ -27,6 +27,20 @@ public class A_Student extends A_Person { //1016-7-3
 		this.classNumber = classNumber;
 	}
 	
+	//1016-8-9
+	public void printData() {
+		System.out.println(getName()+" "+getAge()+" "+getGender()
+		+" "+this.grade+" "+classNumber);
+	}
 	
-	
+	//1016-8-15
+	@Override
+	public String toString() {
+//		return toString()+","+grade+","+classNumber; // 이렇게 사용하면 this가 생략되어있으므로 재귀호출. 계속 호출되다 스택이 꽉 차버림
+//		return this.toString()+","+grade+","+classNumber; // 이렇게 사용하면 this가 생략되어있으므로 재귀호출. 계속 호출되다 스택이 꽉 차버림
+		return super.toString()+","+grade+","+classNumber;
+		// 이렇게 되면 [1016-8-13] 에서 예진님의 정보가 학년/반 까지 출력시켜줌. 이게 동적 바인딩 기능!
+		// 현재 A_Student 에 저장된 toString 이 있지만 super 클래스에 저장된 메소드를 호출해서 사용함
+		// [1016-8-13] 에서 print 메소드를 호출하면 toString 은 자동 호출되며, toString 은 자동으로 오버라이딩 되어있는 해당 객체의 toString 메소드를 호출함.
+	}
 }

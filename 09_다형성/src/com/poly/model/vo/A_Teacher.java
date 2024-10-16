@@ -25,5 +25,9 @@ public class A_Teacher extends A_Person{
 		this.salary = salary;
 	}
 	
-	
+	//1016-8-12
+	public void printData() {
+		System.out.println(getName()+" "+getAge()+" "+getGender()
+		+" "+subject+" "+salary);
+	}
 }

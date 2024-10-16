@@ -111,6 +111,7 @@ public class PolyTestController {
 			}
 		}
 		
+		//1016-8-4
 		System.out.printf("학생: %d명 / 선생: %d명 / 사원: %d명\n총 %d명\n",countS,countT,countE,countS+countT+countE); // 이러면 오류에 빠질 수 있음.
 		System.out.printf("학생: %d명 / 선생: %d명 / 사원: %d명\n총 %d명\n",countS,countT,countE,totalCount);
 		// 저장된 사람들의 평균나이를 구하세요.
@@ -119,28 +120,51 @@ public class PolyTestController {
 			sumAge+=pe.getAge();
 			countMember++;
 		}
+		
+		//1016-8-5
 		System.out.println("저장된 사람의 평균 나이: "+sumAge/(double)countMember);
 		// 직책이 팀장인 사람의 정보를 출력하세요.
 		for( A_Person pe : persons ) {
 				
-//			if(((A_Employee)pe).getJob().equals("팀장")) {
+//			if(((A_Employee)pe).getJob().equals("팀장")) { 이렇게도 가능함!
 			if(pe instanceof A_Employee) {
+//				A_Employee e = (A_Employee)pe; 이렇게 변환해서 한 번에 접근할 수도 있음.
 				System.out.println(pe.getName()
 						+" "+pe.getAge()
 						+" "+pe.getGender()
 						+" "+((A_Employee)pe).getDept()
 						+" "+((A_Employee)pe).getJob()
 						);
+				
 			}
 		}
-		
-		
+		//1016-8-7
+		//동적 바인딩 개념
+		// 특정한 메소드에 대해서 부모와 자식이 동일한 것을 갖고 있을때(sub 클래스가 super 클래스의 메소드를 오버라이딩 되어 있을 때)
+		// [1016-8-6] 와 같이 ... 되어있을 때 저장되어있는ㅇㅇㅇㅇ
+		// 실행됐을 때는 부모의 메소드와 연결
+		// 런타임 시점에 연결된 sub 클래스의 메소드에 접근해서 실행시킴.
+		//부모클래스타입에 자식객체를 저장한 변수가 선언된 동일한 메소드를 호출했을 때,
+		// 자식클래스에 선언된 메소드가 실행되는 것
+		// 원래는 자식거 못봄.. 오버라이드 되어있는 상태에서는, 부모와 똑같은 메소드가 들어있는 상태에서는 자식꺼를 호출해서 사용한다!
+		//1016-8-11
+		printPerson(new A_Person("유병승",19,'M'));
+		printPerson(new A_Student("이예진",24,'F',2,1));
+		printPerson(new A_Teacher("김민호",31,'M',"수영",20));
 	}
 	
 	//1016-7-6
 	// Person 뿐만 아니라 Student 와 Teacher 까지 포함하도록 상속을 만들어 둠.
 	public void printPerson(A_Person p) {
-		
+//		//1016-8-6
+//		if(p instanceof A_Student) {
+//			A_Student s=(A_Student)p;
+////			s. 이런식으로 일일이 코드를 짜주는 번거로움을 이전 개발자들도 고민했음. //1016-8-7 로 go go
+//		}
+		//1016-8-10
+		p.printData(); // 컴파일 시점에서는 부모 객체에 연결된 메소드만 보임. p. - A_Person
+		//1016-8-13
+		System.out.println(p); // 주소가 출력됨. 얘는 Object 꺼의 toString 을 호출함. 주소를 불러옴. [1016-8-14]에서 toString 을 override 해주면 
 	}
 	
 	//1016-7-9

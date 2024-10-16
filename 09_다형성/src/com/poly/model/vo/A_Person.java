@@ -34,4 +34,14 @@ public class A_Person {
 		this.gender = gender;
 	}
 	
+	
+	//1016-8-8
+	public void printData() {
+		System.out.println(name+" "+this.age+" "+gender);
+	}
+	//1016-8-14
+	@Override
+	public String toString() {
+		return name+","+age+","+gender;
+	}
 }
