@@ -1,5 +1,7 @@
 package com.inherit.model.vo;
 
+import java.util.Objects;
+
 //1016-1-1
 public class D_ObjectOverride {
 	private int no;
@@ -41,4 +43,11 @@ public class D_ObjectOverride {
 		}
 		return false;
 	}
+	//1016-2-3
+	@Override
+	public int hashCode() { // 최상위 hashCode 메소드는 native 코드, native 는 코드 비공개/c나 c++같은 언어로 만들어짐.
+		//hash 가 기울기가 되어있네? static 메소드!
+		return Objects.hash(this.no,this.data); // 두개의 값을 결합해서 hash 알고리즘을 돌려서 값을 돌려줌.
+	}
+	
 }

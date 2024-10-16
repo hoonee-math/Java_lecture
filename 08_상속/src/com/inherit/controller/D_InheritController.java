@@ -32,5 +32,9 @@ public class D_InheritController {
 		System.out.println("obj.equals(obj2) 결과: "+obj.equals(obj2));
 		System.out.println("obj.equals(obj3) 결과: "+obj.equals(obj3));
 		
+		//1016-2-1
+		System.out.println(obj.hashCode()); //1016-2-2 해시코드 메소드도 재정의 해서 사용할 수 있다!
+		System.out.println(obj2.hashCode());
+		System.out.println(obj3.hashCode());
 	}
 }
