@@ -139,7 +139,7 @@ public class C_InterController {
 		// 스트링 하나를 받아서 불린을 반환하는 시그니처.. 따로 메소드를 정의해서 사용한 건데, 이렇게 구현된 메소드가 있다고 할때, 이걸 참조해서 로직 그대로 가져와서 쓰라고 만들 수도 있음.
 		// static 메소드라는 것이 편한데...
 		//1017-7-8
-		functionalInter=D_ReferenceMethod::referenceTest;
+		functionalInter=D_ReferenceMethod::referenceTest; // 더블콜론 :: 은 참조를 나타냄.....
 		
 		List.of(1,2,3,4,5).stream().filter((i)->i>3).toList(); // (i)->i>3 이 부분의 표현식을 보면, 매개변수를 가져와서 i 를 이용해서.... 크기를 비교해서 boolean 을반환
 	}
