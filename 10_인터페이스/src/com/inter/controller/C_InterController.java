@@ -4,6 +4,7 @@ import com.inter.common.A_BasicInter;
 import com.inter.common.C_ChildInter;
 import com.inter.common.C_Parent2Inter;
 import com.inter.common.C_ParentInter;
+import com.inter.common.D_NoNameInter;
 import com.inter.model.vo.A_BasicInterImpl;
 import com.inter.model.vo.C_ChildInterImpl;
 
@@ -38,6 +39,45 @@ public class C_InterController {
 		
 		//1017-4-20
 		// 인터페이스는 다중구현이 가능하다.
+		
+		//1017-5-1
+		// 굳이 model 에 클래스를 만들지 않고도 사용할 수 있게 하는 클래스... 익명클래스 활용하기 // 이전 학습 요약 : 1307 youtube
+		// 익명클래스 : 코드 안에서 한번만 구현?
+		//1017-5-3
+		D_NoNameInter noname = new D_NoNameInter() { // 변수 하나 생기고, 얘를 구현한 클래스의 객체가 들어감. 생성 안된다고했는데? 괄호를 부여해주면 된다고?
+			//1017-5-4
+			// 인터페이스를 new 해서 생성해준다음에 구현체를 바로 작성해줌.
+			@Override
+			public boolean check(String str) {
+//				return true; //1017-5-9 주석
+				return str.length()>10;
+			}
+			//1017-5-6
+			@Override
+			public int length(String str){ //1017-5-7 클래스 파일 안에서 클래스 파일을 만들어두지 않고도 이렇게 구현해서 사용할 수 있음.
+				return str.length();
+			}
+		};
+		//1017-5-8
+		boolean flag = noname.check("adafg"); // 이렇게 호출할 수 있는거는 noname 에 str을 저장했음. 추상 메소드로 구현된 메소드가 없는게 아니라 바로 위에 있음. 원래는 클래스 하나 만든 다음에 implements 한 다음에 구현해서 사용해야하는데, 지금은 이 로직안에서만 사용하고 끝내기 위해 이 안에 구현함.
+		//1017-5-10 다시 구현할 수도 있음.
+		noname = new D_NoNameInter() {
+			@Override
+			public boolean check(String str) {
+				for(int i =0; i<str.length();i++) {
+					if('a'<=str.charAt(i)&&'z'>=str.charAt(i))
+						return true;
+				}
+				return false;
+			}
+			//1017-5-11 아직 에러남. int를 반환하는 렝스도 구현해줘야함.
+			@Override
+			public int length(String str) {
+				return 200;
+			}
+		};
+		//1017-5-12
+		flag=noname.check("가나다라마");
 		
 	}
 }
