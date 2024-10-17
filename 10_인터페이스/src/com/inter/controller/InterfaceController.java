@@ -1,5 +1,8 @@
 package com.inter.controller;
 
+import com.inter.common.A_BasicInter;
+import com.inter.model.vo.A_BasicInterImpl;
+
 //1016-10-2
 public class InterfaceController {
 	public void basicInterface() {
@@ -18,6 +21,20 @@ public class InterfaceController {
 		// public class 클래스명 [extends 클래스명, 클래스명2 ... X-불가능] // extends 상속은 여러개를 상속받을 수 없지만
 		//					   [implements 인터페이스명, 인터페이스명2, 인터페이스명3] {  } // 인터페이스는 이렇게 사용 가능!
 		
+		//1017-1-1
+		//인터페이스 이용하기
+		// 생성안됨
+		// 하나의 자료형으로 사용이 가능 -> 참조형 자료형
+		A_BasicInter inter;// = new A_BasicInter(); // 얘는 생성이 되지 않는다!
+		// 공통으로 사용할 메소드에 대한 선언부를 정의
+		// 메소드의 구현을 강제시킴 -> 선언한 메소드가 있다는 것을 보장
 		
+		//1017-1-2
+		//구현체 클래스를 선언해서 이용을 한다.
+		// 클래스 선언부 implements(구현) 인터페이스명 // 이렇게 인터페이스를 구현했을때 클래스 선언부로 들어간다~
+		//1017-1-7
+		// 인터페이스타입에는 구현체클래스만 저장이 가능 -> 다형성
+		inter = new A_BasicInterImpl();
+		System.out.println(inter);
 	}
 }

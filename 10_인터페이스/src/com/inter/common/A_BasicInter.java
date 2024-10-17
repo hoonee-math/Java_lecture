@@ -11,7 +11,7 @@ public interface A_BasicInter {
 	public abstract void test(); // 이렇게 선언할 수도 있지만,
 	//접근 제한자와 abstract 예약어는 생략이 가능.
 	public void test1();
-	int calc(int su, int su2);
+	int calc(int su, int su2); // 이렇게 사용함!
 	
 	//필드 선언하기
 //	private String nameIllegal; // final 두꺼워지고, static 기울어짐.
