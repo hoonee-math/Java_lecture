@@ -62,8 +62,10 @@ public class B_Person extends B_Test { //1015-3-2 상속 추가
 		this.weight = weight;
 	}
 
-	protected String infoPerson() {
+	public String infoPerson() {
 		return name+", "+age+", "+gender+", "+height+", "+weight;
 	}
-	
+	protected String infoPersonProtected() {
+		return name+", "+age+", "+gender+", "+height+", "+weight;
+	}
 }
