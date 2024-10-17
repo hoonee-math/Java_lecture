@@ -10,6 +10,7 @@ import com.inter.common.D_MyFunctionalInter;
 import com.inter.common.D_NoNameInter;
 import com.inter.model.vo.A_BasicInterImpl;
 import com.inter.model.vo.C_ChildInterImpl;
+import com.inter.model.vo.D_ReferenceMethod;
 
 //1017-4-1
 public class C_InterController {
@@ -133,7 +134,12 @@ public class C_InterController {
 		functionalInter = content->content.equals("우와신기"); // 반환값이 하나면 이렇게도 쓸 수도 있음. 
 		//Question 결국 functionalInter 여기에는 추상메소드가 하나만 있으니까 가능하단거지?!
 		//1017-6-13
-		testFunctional(i->i.equals(""));
+		testFunctional(i->i.equals("이야이야이야"));
+		//1017-7-5
+		// 스트링 하나를 받아서 불린을 반환하는 시그니처.. 따로 메소드를 정의해서 사용한 건데, 이렇게 구현된 메소드가 있다고 할때, 이걸 참조해서 로직 그대로 가져와서 쓰라고 만들 수도 있음.
+		// static 메소드라는 것이 편한데...
+		//1017-7-8
+		functionalInter=D_ReferenceMethod::referenceTest;
 		
 		List.of(1,2,3,4,5).stream().filter((i)->i>3).toList(); // (i)->i>3 이 부분의 표현식을 보면, 매개변수를 가져와서 i 를 이용해서.... 크기를 비교해서 boolean 을반환
 	}
@@ -145,7 +151,7 @@ public class C_InterController {
 	
 	//1017-6-14
 	public void testFunctional(D_MyFunctionalInter inter) {
-		inter.test("이야");
+		inter.test("이야이야이야");
 	}
 }
 
