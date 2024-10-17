@@ -3,16 +3,16 @@ package com.inter.run;
 import java.util.Scanner;
 
 import com.inter.controller.B_PrintController;
-import com.inter.controller.InterfaceController;
+import com.inter.controller.A_InterfaceController;
 import com.inter.model.vo.B_BrotherPrinter;
 import com.inter.model.vo.B_CannonPrinter;
 import com.inter.model.vo.B_SamsungPrinter;
 
 //1016-10-1
-public class Main {
+public class A_B_Main {
 
 	public static void main(String[] args) {
-		new InterfaceController().basicInterface();
+		new A_InterfaceController().basicInterface();
 		
 		
 //		//1017-2-11

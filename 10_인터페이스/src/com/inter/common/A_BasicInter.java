@@ -17,7 +17,7 @@ public interface A_BasicInter {
 //	private String nameIllegal; // final 두꺼워지고, static 기울어짐.
 	//Illegal modifier for the interface field A_BasicInter.name; only public, static & final are permitted
 	//잘못된 접급제한자, 인터페이스에서는!
-	public static final String NAME="";// final 이고 static 일때는 대문자로 사용! 이 인터페이스 이용했을 때 코드, 에러 메시지 등을 묶어서 사용
+	public static final String NAME="기본인터페이스";// final 이고 static 일때는 대문자로 사용! 이 인터페이스 이용했을 때 코드, 에러 메시지 등을 묶어서 사용 //1017-4-2
 	int AGE=19; // 앞서 얘기했듯이 접근 제한자와 abstract 예약어는 생략이 가능.
 	
 }

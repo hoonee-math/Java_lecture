@@ -26,4 +26,10 @@ public class B_SamsungPrinter implements B_PrinterInter { //1017-2-13 implements
 		// TODO Auto-generated method stub
 		
 	}
+	
+	//1017-3-6
+	@Override
+	public void basicCopy() {
+		System.out.println("default 메소드 재정의!");
+	}
 }

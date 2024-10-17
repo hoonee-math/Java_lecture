@@ -4,7 +4,7 @@ import com.inter.common.A_BasicInter;
 import com.inter.model.vo.A_BasicInterImpl;
 
 //1016-10-2
-public class InterfaceController {
+public class A_InterfaceController {
 	public void basicInterface() {
 		//1016-10-4
 		//기본 인터페이스 선언

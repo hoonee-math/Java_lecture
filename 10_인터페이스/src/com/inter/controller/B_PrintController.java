@@ -31,5 +31,6 @@ public class B_PrintController {
 //		printer.bPrint();
 		//1017-2-10
 		printDriver.print();
+		printDriver.basicCopy(); //1017-3-5 점찍으면 basicCopy 에 D가 붙어있음 디폴트 기능이라는 얘기임.
 	}
 }
