@@ -2,6 +2,7 @@ package com.objarr.run;
 
 import java.util.Scanner;
 
+import com.objarr.common.FruitFilterInter;
 import com.objarr.model.vo.Fruit;
 
 public class FruitMain {
@@ -70,6 +71,28 @@ public class FruitMain {
 			if(f.getPrice()>=3000)
 				System.out.println(f.outFruit());
 		}
+		
+//		//1017-8-3
+//		searchFruit(fruits,(f,v)->f.getWeight()>=v,3);
+//		searchFruit(fruits,(f,v)->f.getPrice()>=v,3000);
+		searchFruit(fruits,(f,v)->f.getWeight()>=(int)v,3); //1017-8-6
+		searchFruit(fruits,(f,v)->f.getPrice()>=(int)v,3000); //1017-8-6
+		searchFruit(fruits,(f,v)->f.getName().equals((String)v),"바나나"); //1017-8-7 String 도 체크할 수 있게 됨
+		
 	}
+	//1017-8-1
+	// 인터페이스의 추상메소드!
+	// static 안에서는 멤버를 따로 호출할 수는 없음.
+	public static Fruit[] searchFruit(Fruit[] fruits, FruitFilterInter filter, Object value) { //1017-8-4 무엇이든 넣을 수 있게 변경 // int value) {
+		
+		Fruit[] result = new Fruit[fruits.length];
+		int index=0;
+		for(Fruit f : fruits) {
+			if(filter.checkFruit(f, value)) {
+				result[index++]=f;
+			}
+		}
+		return result;
+	};
 
 }
