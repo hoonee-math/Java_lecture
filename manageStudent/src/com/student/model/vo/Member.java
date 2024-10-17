@@ -1,6 +1,6 @@
 package com.student.model.vo;
 
-public class Member {
+public abstract class Member {
 	
 	private static int memberCount; // 학생 번호를 자동으로 부여하기 위한 작업
 	private int memberNo;
